@@ -15,8 +15,8 @@ from pathlib import Path
 import subprocess
 import sys
 
-if sys.version_info < (3, 10):
-    raise SystemExit("Python 3.10 or newer is required. No model was called.")
+if sys.version_info < (3, 8):
+    raise SystemExit("Python 3.8 or newer is required. No model was called.")
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))

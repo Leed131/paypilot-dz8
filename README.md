@@ -29,7 +29,7 @@ The unmodified supplied course `loader.load` accepts all 30 selected cases. JSON
 
 ## Run calibration on the computer with Ollama
 
-Requirements: Git, Python 3.10 or newer, running Ollama, and the installed `qwen2.5:14b` model. Only the Python standard library is used. These cases contain recorded answers; the bank service and Docker are not needed for this calibration.
+Requirements: Git, Python 3.8 or newer, running Ollama, and the installed `qwen2.5:14b` model. Only the Python standard library is used. These cases contain recorded answers; the bank service and Docker are not needed for this calibration.
 
 From this repository directory, check readiness without generating any judgments:
 

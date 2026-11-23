@@ -30,7 +30,7 @@ def preflight(model, ollama_url):
     """Read model metadata only. Never load or generate with a model here."""
     if not model.startswith("ollama:"):
         raise ValueError("This runtime supports ollama: models only; no paid-provider fallback is performed.")
-    name = model.removeprefix("ollama:")
+    name = model[len("ollama:"):]
     if not name:
         raise ValueError("JUDGE_MODEL must include an Ollama model name.")
     tags = get_json(ollama_url.rstrip("/") + "/api/tags")
@@ -90,7 +90,7 @@ def judge(question, answer, rubric, model, temperature, rubric_version, ollama_u
         raise ValueError("Expected an ollama: model.")
     prompt = (f"CUSTOMER QUESTION:\n{question}\n\nAGENT ANSWER:\n{answer}\n\n"
               f"RUBRIC:\n{rubric}\n\nJSON:")
-    payload = {"model": model.removeprefix("ollama:"), "stream": False,
+    payload = {"model": model[len("ollama:"):], "stream": False,
                "format": "json", "options": {"temperature": temperature},
                "system": SYSTEM, "prompt": prompt}
     request = urllib.request.Request(ollama_url.rstrip("/") + "/api/generate",

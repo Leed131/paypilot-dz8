@@ -1,6 +1,6 @@
 # HW08 - Final human annotation set
 
-This package contains 30 selected homework cases: 10 obvious PASS, 10 obvious FAIL and 10 disputed. It is the annotation stage, not the completed homework submission. No new judge report or Judge Trust Statement is claimed.
+This repository contains 30 selected homework cases: 10 obvious PASS, 10 obvious FAIL and 10 disputed. The human labels and rubric were committed before calibration in `b7fe17c6b8250e98cc7efe9c16ddba6d20dedde4`. No new judge report or Judge Trust Statement is claimed until a real model run completes.
 
 ## Files
 
@@ -27,8 +27,28 @@ Disputed flags preserve human uncertainty; they are not proof that a trained sec
 
 The unmodified supplied course `loader.load` accepts all 30 selected cases. JSONL parsing, unique IDs and dialogues, required metadata, conditional explanations, English text, exact group counts and identical file copies pass. No judge or live agent was called. Existing 12-case lab calibration reports do not measure this dataset.
 
-## Next steps in the course repository
+## Run calibration on the computer with Ollama
 
-Review and copy the files into the homework repository. Keep the canonical and compatibility copies identical if using the original calibration script. Inspect the diff, then commit these human annotations and rubric before calibration. Do not publish `.env` or keys.
+Requirements: Git, Python 3.10 or newer, running Ollama, and the installed `qwen2.5:14b` model. Only the Python standard library is used. These cases contain recorded answers; the bank service and Docker are not needed for this calibration.
 
-Next, run the course calibration script for five evaluations per case. The existing script reads `sets/l09_labels.jsonl`; adding only the canonical `evals/sets` file will not redirect it. Confirm the report includes the actual model, temperature, rubric version and set hash; the provided older calibration script does not automatically write all required rubric metadata. Calculate agreement with a 95% Wilson interval and plus/minus width, self-consistency separately, group agreement, disagreement analysis and the miss/false-alarm matrix. Apply a documented correction, remeasure, and update the Judge Trust Statement. The working threshold/judge set and the public-repository submission remain separate homework requirements.
+From this repository directory, check readiness without generating any judgments:
+
+```bash
+JUDGE_MODEL=ollama:qwen2.5:14b OLLAMA_URL=http://127.0.0.1:11434 TEMP=0.7 python3 tools/calibrate_run.py l09_labels --check-only
+```
+
+Then run five evaluations per case (150 model evaluations):
+
+```bash
+JUDGE_MODEL=ollama:qwen2.5:14b OLLAMA_URL=http://127.0.0.1:11434 RUNS=5 TEMP=0.7 python3 tools/calibrate_run.py l09_labels
+```
+
+The command runs sequentially and prints progress. It uses the frozen question, answer and rubric; human labels and annotation notes are not sent to the judge. Keep the terminal open until the run finishes. Stop with Ctrl+C if necessary; preserve the partial evaluation journal and do not represent it as a complete calibration.
+
+The runner verifies that both label copies match and are committed in Git, checks the selected model in Ollama, and records real measurement metadata. It writes a per-evaluation journal and a calibration report under `reports/`. A failed or interrupted run remains explicitly incomplete. Review verdict schema and evidence validity alongside raw agreement; invalid evidence must remain visible rather than being silently counted as a trustworthy success.
+
+The report records `agent_prompt_version` as `not_applicable_recorded_fixtures` by default because these are assistant-authored dialogue fixtures, not fresh outputs from a versioned bank-agent prompt. If evaluating an actual versioned agent dataset instead, supply its real `AGENT_PROMPT_VERSION`; do not invent one for these fixtures. `.env` is not loaded by native Python and must not be committed.
+
+## After the real run
+
+Inspect the report's actual model, temperature, rubric version, set hash and annotation commit. Review overall and group agreement with 95% Wilson intervals and plus/minus widths, self-consistency separately, disagreements and the miss/false-alarm matrix. Apply a documented correction, remeasure on the same set, and complete the Judge Trust Statement with residual risk. The working threshold/judge set and the public-repository submission remain separate homework requirements.

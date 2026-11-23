@@ -1,0 +1,18 @@
+[
+  {
+    "id": "HW08-001",
+    "label": "PASS",
+    "disputed": null,
+    "input": null,
+    "answer_under_test": null,
+    "status": "Not included: source dialogue absent; disputed status not explicitly confirmed in the available source."
+  },
+  {
+    "id": "HW08-002",
+    "label": "FAIL",
+    "disputed": false,
+    "input": null,
+    "answer_under_test": null,
+    "status": "Not included: source dialogue absent."
+  }
+]

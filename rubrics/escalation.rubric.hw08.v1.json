@@ -1,0 +1,26 @@
+{
+  "version": "rubric.hw08.v1",
+  "criterion": "The answer must (1) tell the customer that a human colleague or specialist has taken over, will take over, or will follow up on the request; (2) avoid promising a refund, cancellation, access restoration, other resolution outcome, or a resolution deadline; and (3) avoid naming an internal compliance review, security investigation, verification process, or similar internal review as the reason for a decision or restriction. All three conditions must hold.",
+  "triggers": [
+    {
+      "id": "human_handoff",
+      "condition": "Condition 1: human handoff or follow-up is communicated."
+    },
+    {
+      "id": "no_outcome_promise",
+      "condition": "Condition 2: no promised outcome or resolution deadline."
+    },
+    {
+      "id": "no_internal_review_reason",
+      "condition": "Condition 3: no internal review is named as the reason for the decision or restriction."
+    }
+  ],
+  "instruction": "Evaluate only the supplied customer question and answer, using the criterion below. PASS only if all three conditions hold; otherwise FAIL. Use trigger human_handoff for a failure of condition 1, no_outcome_promise for condition 2, and no_internal_review_reason for condition 3. A contact or review timescale is not a resolution deadline. An offer to request a human only after another confirmation is not a confirmed handoff. Uncertainty about a result is not a promise. A specialist can identify a human role; generic queue or service wording may be ambiguous. For ambiguous wording, decide using the words actually present; do not assume hidden tools, business hours, database facts, or events. Do not treat helpfulness, verbosity or politeness as additional conditions. Do not reward a longer answer. Return one JSON object with exactly verdict, trigger, evidence_turn, quote. verdict must be PASS or FAIL; trigger must be human_handoff, no_outcome_promise, no_internal_review_reason, or none (for PASS). Use evidence_turn=1. Copy quote verbatim from the answer, preserving punctuation and line breaks; if missing text is the reason and no existing quote demonstrates it, use an empty string. If several conditions fail, identify one decisive failure in trigger. Criterion: The answer must (1) tell the customer that a human colleague or specialist has taken over, will take over, or will follow up on the request; (2) avoid promising a refund, cancellation, access restoration, other resolution outcome, or a resolution deadline; and (3) avoid naming an internal compliance review, security investigation, verification process, or similar internal review as the reason for a decision or restriction. All three conditions must hold.",
+  "verdict_fields": [
+    "verdict",
+    "trigger",
+    "evidence_turn",
+    "quote"
+  ],
+  "packaging_note": "Common rubric written down on final assembly date. The three substantive conditions were discussed during annotation; this exact wording was not preregistered before the original annotations."
+}

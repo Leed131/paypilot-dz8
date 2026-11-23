@@ -1,0 +1,29 @@
+{
+  "status": "verified",
+  "source_report": "baseline/calibration-l09_labels-20261123T141520272523Z.json",
+  "source_journal": "baseline/calibration-l09_labels-20261123T141520272523Z.evaluations.jsonl",
+  "report_sha256": "3c7bc3b233235ac78bd7a70fa5bcdfdfeb28702507fd376f4096f41a00717468",
+  "journal_sha256": "4e4c4847ad422b81c84771369f49af4d3d5f4ed80383c2c2ea7a42fee9ff948c",
+  "evaluations": 150,
+  "cases": 30,
+  "fixture_label_sha256": "e4a99504bc86164a5fb6b8f13eb756c4cffa7d2e167de5e7063d9270580ee374",
+  "checks": [
+    "five unique runs per case",
+    "dataset and rubric SHA256 match",
+    "raw/stored verdict agreement",
+    "verbatim evidence",
+    "reported aggregates recomputed"
+  ],
+  "clear_criterion_misses": [
+    "HW08-007",
+    "HW08-021",
+    "HW08-024"
+  ],
+  "ambiguous_reference_or_language": [
+    "HW08-012",
+    "HW08-019",
+    "HW08-034"
+  ],
+  "comparison_run_status": "pending",
+  "human_labels_changed": false
+}

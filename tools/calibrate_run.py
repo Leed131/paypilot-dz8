@@ -22,7 +22,16 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from judge import SYSTEM_SHA256, SYSTEM_VERSION, judge, preflight
 
-EXPECTED_VERSION = "rubric.hw08.v1"
+SET_CONFIGS = {
+    "l09_labels": {
+        "rubric_version": "rubric.hw08.v1",
+        "rubric_path": "rubrics/escalation.rubric.hw08.v1.json",
+    },
+    "l09_labels_v1_1": {
+        "rubric_version": "rubric.hw08.v1.1",
+        "rubric_path": "rubrics/escalation.rubric.hw08.v1.1.json",
+    },
+}
 
 
 def utc_now():
@@ -58,10 +67,12 @@ def git(*args, binary=False):
 
 
 def load_frozen_set(name):
-    if name != "l09_labels":
-        raise ValueError("This homework runner expects the frozen l09_labels set.")
-    canonical = ROOT / "evals/sets/l09_labels.jsonl"
-    compatibility = ROOT / "sets/l09_labels.jsonl"
+    if name not in SET_CONFIGS:
+        raise ValueError("Unknown frozen set. Choose one of: " + ", ".join(SET_CONFIGS))
+    config = SET_CONFIGS[name]
+    expected_version = config["rubric_version"]
+    canonical = ROOT / "evals/sets" / (name + ".jsonl")
+    compatibility = ROOT / "sets" / (name + ".jsonl")
     data = canonical.read_bytes()
     if compatibility.read_bytes() != data:
         raise ValueError("Canonical and compatibility label files differ; stop before judging.")
@@ -83,11 +94,11 @@ def load_frozen_set(name):
     groups = Counter(group_of(c) for c in cases)
     if groups != {"obvious_PASS": 10, "obvious_FAIL": 10, "disputed": 10}:
         raise ValueError("Expected exact 10/10/10 groups: " + str(groups))
-    if versions != {EXPECTED_VERSION}:
+    if versions != {expected_version}:
         raise ValueError("Unexpected rubric versions: " + str(versions))
-    rubric_path = ROOT / "rubrics/escalation.rubric.hw08.v1.json"
+    rubric_path = ROOT / config["rubric_path"]
     rubric = json.loads(rubric_path.read_text(encoding="utf-8"))
-    if rubric.get("version") != EXPECTED_VERSION:
+    if rubric.get("version") != expected_version:
         raise ValueError("Packaged rubric version differs from case metadata.")
     if any(c["additional_metadata"]["rubric"] != rubric.get("instruction") for c in cases):
         raise ValueError("Per-case rubric text differs from the packaged rubric.")
@@ -101,8 +112,20 @@ def load_frozen_set(name):
             raise ValueError("Uncommitted or changed frozen input: " + rel)
         checked_paths.append(rel)
     label_paths = checked_paths[:2]
+    # This hash excludes rubric wording/version and compares the frozen human
+    # fixture/label content across procedural rubric revisions.
+    fixture_labels = [
+        {"id": case["id"], "input": case["input"],
+         "answer_under_test": case["answer_under_test"],
+         "label": case["additional_metadata"]["label"],
+         "disputed": case["additional_metadata"]["disputed"]}
+        for case in sorted(cases, key=lambda item: item["id"])
+    ]
+    fixture_label_data = json.dumps(fixture_labels, ensure_ascii=False,
+                                   sort_keys=True, separators=(",", ":")).encode("utf-8")
     return cases, {"set": name, "set_sha256": sha256(data),
-        "set_hash": sha256(data)[:12], "rubric_version": EXPECTED_VERSION,
+        "set_hash": sha256(data)[:12], "rubric_version": expected_version,
+        "fixture_label_sha256": sha256(fixture_label_data),
         "rubric_sha256": sha256(rubric_path.read_bytes()),
         "git_head": git("rev-parse", "HEAD"),
         "git_annotation_commit": git("log", "-1", "--format=%H", "HEAD", "--", *label_paths),

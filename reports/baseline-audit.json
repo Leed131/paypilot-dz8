@@ -25,5 +25,8 @@
     "HW08-034"
   ],
   "comparison_run_status": "pending",
-  "human_labels_changed": false
+  "human_labels_changed": false,
+  "frozen_input_archive": "evals/sets/l09_labels_v1.jsonl",
+  "original_input_path": "evals/sets/l09_labels.jsonl",
+  "original_input_commit": "b7fe17c6b8250e98cc7efe9c16ddba6d20dedde4"
 }

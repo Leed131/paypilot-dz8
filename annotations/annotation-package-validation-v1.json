@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "selected_cases": 30,
+  "groups": {
+    "disputed": 10,
+    "obvious_PASS": 10,
+    "obvious_FAIL": 10
+  },
+  "reserve_ids": [
+    "HW08-004",
+    "HW08-028"
+  ],
+  "case_ids": [
+    "HW08-003",
+    "HW08-005",
+    "HW08-006",
+    "HW08-007",
+    "HW08-008",
+    "HW08-009",
+    "HW08-010",
+    "HW08-011",
+    "HW08-012",
+    "HW08-013",
+    "HW08-014",
+    "HW08-015",
+    "HW08-016",
+    "HW08-017",
+    "HW08-018",
+    "HW08-019",
+    "HW08-020",
+    "HW08-021",
+    "HW08-022",
+    "HW08-023",
+    "HW08-024",
+    "HW08-025",
+    "HW08-026",
+    "HW08-027",
+    "HW08-029",
+    "HW08-030",
+    "HW08-031",
+    "HW08-032",
+    "HW08-033",
+    "HW08-034"
+  ],
+  "rubric_version": "rubric.hw08.v1",
+  "judge_run_performed": false,
+  "validations": [
+    "JSONL parsing",
+    "30 unique IDs",
+    "30 unique question/answer pairs",
+    "Exact 10/10/10 groups",
+    "Conditional explanation fields",
+    "Required loader metadata",
+    "English-only records",
+    "Byte-identical runner compatibility copy",
+    "Unmodified course loader.load validation"
+  ],
+  "loader_used": "Provided course loader.py from final-v2/l09",
+  "sha256": "1989b89aec406c04727abecbc966e30cbfacef54ca7e863d75216615cce5a084",
+  "date_limitation": "labeled_on is the set finalization date; original annotation dates are not independently recovered.",
+  "git_commit_verified": false
+}

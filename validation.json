@@ -1,62 +1,45 @@
 {
-  "status": "PASS",
-  "selected_cases": 30,
+  "status": "PASS_OFFLINE",
+  "canonical_set": "evals/sets/l09_labels.jsonl",
+  "set_sha256": "28cb41ff169aa346463d726085d5d88fa431c16b415f7db1ef36419da69a18eb",
+  "fixture_label_sha256": "e4a99504bc86164a5fb6b8f13eb756c4cffa7d2e167de5e7063d9270580ee374",
+  "rubric_version": "rubric.hw08.v1.1",
+  "cases": 30,
   "groups": {
-    "disputed": 10,
     "obvious_PASS": 10,
-    "obvious_FAIL": 10
+    "obvious_FAIL": 10,
+    "disputed": 10
   },
-  "reserve_ids": [
-    "HW08-004",
-    "HW08-028"
-  ],
-  "case_ids": [
-    "HW08-003",
-    "HW08-005",
-    "HW08-006",
-    "HW08-007",
-    "HW08-008",
-    "HW08-009",
-    "HW08-010",
-    "HW08-011",
-    "HW08-012",
-    "HW08-013",
-    "HW08-014",
-    "HW08-015",
-    "HW08-016",
-    "HW08-017",
-    "HW08-018",
-    "HW08-019",
-    "HW08-020",
-    "HW08-021",
-    "HW08-022",
-    "HW08-023",
-    "HW08-024",
-    "HW08-025",
-    "HW08-026",
-    "HW08-027",
-    "HW08-029",
-    "HW08-030",
-    "HW08-031",
-    "HW08-032",
-    "HW08-033",
-    "HW08-034"
-  ],
-  "rubric_version": "rubric.hw08.v1",
-  "judge_run_performed": false,
-  "validations": [
-    "JSONL parsing",
-    "30 unique IDs",
-    "30 unique question/answer pairs",
-    "Exact 10/10/10 groups",
-    "Conditional explanation fields",
-    "Required loader metadata",
-    "English-only records",
-    "Byte-identical runner compatibility copy",
-    "Unmodified course loader.load validation"
-  ],
-  "loader_used": "Provided course loader.py from final-v2/l09",
-  "sha256": "1989b89aec406c04727abecbc966e30cbfacef54ca7e863d75216615cce5a084",
-  "date_limitation": "labeled_on is the set finalization date; original annotation dates are not independently recovered.",
-  "git_commit_verified": false
+  "working_cases": 6,
+  "working_gates": {
+    "daily": {
+      "cases": 1,
+      "runs_per_case": 1,
+      "assertion": "tool_sequence",
+      "level": 3
+    },
+    "release": {
+      "cases": 5,
+      "runs_per_case": 5,
+      "assertion": "judge",
+      "level": 7
+    }
+  },
+  "measured_model_evaluations": 300,
+  "source_report_bytes_preserved": true,
+  "calibration_aggregates_recomputed": true,
+  "all_300_output_flags_revalidated": true,
+  "same_course_loader_accepts_calibration_and_working_sets": true,
+  "schema_and_gate_checks_pass": true,
+  "runtime_python_3_8_syntax_checked": true,
+  "stubbed_gate_failure_checks_pass": true,
+  "live_working_validation_performed": false,
+  "new_model_calls_during_finalization": 0,
+  "submission_sent": false,
+  "notes": [
+    "Baseline and repeat each completed150 actual evaluations on user Ollama.",
+    "Repeat has four invalid_trigger errors; PASS_OFFLINE does not mean judge outputs were error-free.",
+    "Working runner was validated offline; real bank service execution is a separate pending release check.",
+    "The original annotation-package validation is archived separately."
+  ]
 }

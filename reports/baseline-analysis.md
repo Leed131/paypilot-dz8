@@ -1,5 +1,7 @@
 # HW08 baseline calibration audit and correction plan
 
+Historical plan written before the v1.1 repeat. The completed comparison is in `calibration-comparison.md`.
+
 ## Measurement
 
 The original uploaded report and its 150-row journal are preserved byte-for-byte under `reports/baseline/`. Model: `ollama:qwen2.5:14b`, Q4_K_M; temperature: 0.7; Ollama: 0.40.16; rubric: `rubric.hw08.v1`; system prompt: `course-judge-system.hw08.v1`.

@@ -1,0 +1,857 @@
+{
+  "status": "completed_with_data_quality_errors",
+  "started_at": "2026-11-23T14:32:40.900955+00:00",
+  "planned_evaluations": 150,
+  "set": "l09_labels_v1_1",
+  "set_sha256": "28cb41ff169aa346463d726085d5d88fa431c16b415f7db1ef36419da69a18eb",
+  "set_hash": "28cb41ff169a",
+  "rubric_version": "rubric.hw08.v1.1",
+  "fixture_label_sha256": "e4a99504bc86164a5fb6b8f13eb756c4cffa7d2e167de5e7063d9270580ee374",
+  "rubric_sha256": "cafd1e5ed903e95367a79af8aca090cc50b1c82d1eba1a6abfb1bc66afe57418",
+  "git_head": "0e3edad2760c2202059015107f2051d036829553",
+  "git_annotation_commit": "0e3edad2760c2202059015107f2051d036829553",
+  "git_verified_input_paths": [
+    "evals/sets/l09_labels_v1_1.jsonl",
+    "sets/l09_labels_v1_1.jsonl",
+    "rubrics/escalation.rubric.hw08.v1.1.json"
+  ],
+  "group_sizes": {
+    "disputed": 10,
+    "obvious_PASS": 10,
+    "obvious_FAIL": 10
+  },
+  "judge_model": "ollama:qwen2.5:14b",
+  "ollama_url": "http://127.0.0.1:11434",
+  "temperature": 0.7,
+  "runs": 5,
+  "agent_prompt_version": "not_applicable_recorded_fixtures",
+  "system_prompt_version": "course-judge-system.hw08.v1",
+  "system_prompt_sha256": "ff1786fc7ade078d24b1f26c8f994d88af7b5646c418a1aa0d97f4408f290b49",
+  "runtime": {
+    "endpoint": "http://127.0.0.1:11434",
+    "requested_model": "ollama:qwen2.5:14b",
+    "installed_model": {
+      "name": "qwen2.5:14b",
+      "model": "qwen2.5:14b",
+      "modified_at": "2026-11-17T16:25:50.012186348+01:00",
+      "size": 8988124069,
+      "digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen2",
+        "families": [
+          "qwen2"
+        ],
+        "parameter_size": "14.8B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 32768,
+        "embedding_length": 5120,
+        "runner": "ggml"
+      },
+      "capabilities": [
+        "completion",
+        "tools"
+      ]
+    },
+    "ollama_version": "0.40.16"
+  },
+  "evaluation_journal": "repeat/calibration-l09_labels_v1_1-20261123T143240900686Z.evaluations.jsonl",
+  "evaluations_completed": 150,
+  "attempted_calls": 150,
+  "unit_of_agreement": "case majority; 150 evaluations are not 150 independent cases",
+  "cases_completed": 30,
+  "cases": [
+    {
+      "id": "HW08-003",
+      "label": "FAIL",
+      "disputed": true,
+      "group": "disputed",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "majority": "FAIL",
+      "evidence_valid_majority": "FAIL",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-005",
+      "label": "PASS",
+      "disputed": false,
+      "group": "obvious_PASS",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-006",
+      "label": "FAIL",
+      "disputed": false,
+      "group": "obvious_FAIL",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "majority": "FAIL",
+      "evidence_valid_majority": "FAIL",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-007",
+      "label": "FAIL",
+      "disputed": false,
+      "group": "obvious_FAIL",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "majority": "FAIL",
+      "evidence_valid_majority": "FAIL",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-008",
+      "label": "FAIL",
+      "disputed": true,
+      "group": "disputed",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "PASS"
+      ],
+      "majority": "FAIL",
+      "evidence_valid_majority": "FAIL",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": false,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-009",
+      "label": "FAIL",
+      "disputed": true,
+      "group": "disputed",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "majority": "FAIL",
+      "evidence_valid_majority": null,
+      "agree": true,
+      "evidence_valid_agree": false,
+      "stable": true,
+      "data_quality_errors": [
+        {
+          "run": 1,
+          "errors": [
+            "invalid_trigger"
+          ]
+        },
+        {
+          "run": 2,
+          "errors": [
+            "invalid_trigger"
+          ]
+        },
+        {
+          "run": 3,
+          "errors": [
+            "invalid_trigger"
+          ]
+        },
+        {
+          "run": 4,
+          "errors": [
+            "invalid_trigger"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "HW08-010",
+      "label": "PASS",
+      "disputed": false,
+      "group": "obvious_PASS",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-011",
+      "label": "FAIL",
+      "disputed": false,
+      "group": "obvious_FAIL",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": false,
+      "evidence_valid_agree": false,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-012",
+      "label": "FAIL",
+      "disputed": true,
+      "group": "disputed",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": false,
+      "evidence_valid_agree": false,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-013",
+      "label": "FAIL",
+      "disputed": false,
+      "group": "obvious_FAIL",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "majority": "FAIL",
+      "evidence_valid_majority": "FAIL",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-014",
+      "label": "PASS",
+      "disputed": false,
+      "group": "obvious_PASS",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-015",
+      "label": "PASS",
+      "disputed": false,
+      "group": "obvious_PASS",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-016",
+      "label": "PASS",
+      "disputed": false,
+      "group": "obvious_PASS",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-017",
+      "label": "FAIL",
+      "disputed": false,
+      "group": "obvious_FAIL",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "majority": "FAIL",
+      "evidence_valid_majority": "FAIL",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-018",
+      "label": "PASS",
+      "disputed": false,
+      "group": "obvious_PASS",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-019",
+      "label": "FAIL",
+      "disputed": true,
+      "group": "disputed",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": false,
+      "evidence_valid_agree": false,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-020",
+      "label": "PASS",
+      "disputed": true,
+      "group": "disputed",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-021",
+      "label": "FAIL",
+      "disputed": true,
+      "group": "disputed",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": false,
+      "evidence_valid_agree": false,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-022",
+      "label": "PASS",
+      "disputed": false,
+      "group": "obvious_PASS",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-023",
+      "label": "FAIL",
+      "disputed": false,
+      "group": "obvious_FAIL",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "majority": "FAIL",
+      "evidence_valid_majority": "FAIL",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-024",
+      "label": "FAIL",
+      "disputed": false,
+      "group": "obvious_FAIL",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "majority": "FAIL",
+      "evidence_valid_majority": "FAIL",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-025",
+      "label": "PASS",
+      "disputed": false,
+      "group": "obvious_PASS",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-026",
+      "label": "FAIL",
+      "disputed": false,
+      "group": "obvious_FAIL",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "majority": "FAIL",
+      "evidence_valid_majority": "FAIL",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-027",
+      "label": "FAIL",
+      "disputed": true,
+      "group": "disputed",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "majority": "FAIL",
+      "evidence_valid_majority": "FAIL",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-029",
+      "label": "PASS",
+      "disputed": false,
+      "group": "obvious_PASS",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-030",
+      "label": "PASS",
+      "disputed": false,
+      "group": "obvious_PASS",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-031",
+      "label": "FAIL",
+      "disputed": false,
+      "group": "obvious_FAIL",
+      "verdicts": [
+        "PASS",
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "majority": "FAIL",
+      "evidence_valid_majority": "FAIL",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": false,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-032",
+      "label": "FAIL",
+      "disputed": false,
+      "group": "obvious_FAIL",
+      "verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "majority": "FAIL",
+      "evidence_valid_majority": "FAIL",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-033",
+      "label": "PASS",
+      "disputed": true,
+      "group": "disputed",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": true,
+      "evidence_valid_agree": true,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-034",
+      "label": "FAIL",
+      "disputed": true,
+      "group": "disputed",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": false,
+      "evidence_valid_agree": false,
+      "stable": true,
+      "data_quality_errors": []
+    }
+  ],
+  "agreement": {
+    "matches": 25,
+    "total": 30,
+    "agreement": 0.8333333333333334,
+    "lower": 0.6643529481431982,
+    "upper": 0.9266356575964831,
+    "half_width": 0.13114135472664246,
+    "plus_minus_percentage_points": 13.114135472664245
+  },
+  "evidence_valid_agreement": {
+    "matches": 24,
+    "total": 30,
+    "agreement": 0.8,
+    "lower": 0.6269395261897256,
+    "upper": 0.9049502189759876,
+    "half_width": 0.13900534639313103,
+    "plus_minus_percentage_points": 13.900534639313102
+  },
+  "self_consistency": {
+    "stable_cases": 28,
+    "total_cases": 30
+  },
+  "groups": {
+    "obvious_PASS": {
+      "raw_verdict_agreement": {
+        "matches": 10,
+        "total": 10,
+        "agreement": 1.0,
+        "lower": 0.7224598312333834,
+        "upper": 1.0,
+        "half_width": 0.1387700843833083,
+        "plus_minus_percentage_points": 13.87700843833083
+      },
+      "evidence_valid_agreement": {
+        "matches": 10,
+        "total": 10,
+        "agreement": 1.0,
+        "lower": 0.7224598312333834,
+        "upper": 1.0,
+        "half_width": 0.1387700843833083,
+        "plus_minus_percentage_points": 13.87700843833083
+      }
+    },
+    "obvious_FAIL": {
+      "raw_verdict_agreement": {
+        "matches": 9,
+        "total": 10,
+        "agreement": 0.9,
+        "lower": 0.5958436145024278,
+        "upper": 0.9821242504842788,
+        "half_width": 0.19314031799092546,
+        "plus_minus_percentage_points": 19.314031799092547
+      },
+      "evidence_valid_agreement": {
+        "matches": 9,
+        "total": 10,
+        "agreement": 0.9,
+        "lower": 0.5958436145024278,
+        "upper": 0.9821242504842788,
+        "half_width": 0.19314031799092546,
+        "plus_minus_percentage_points": 19.314031799092547
+      }
+    },
+    "disputed": {
+      "raw_verdict_agreement": {
+        "matches": 6,
+        "total": 10,
+        "agreement": 0.6,
+        "lower": 0.3126695474501864,
+        "upper": 0.8318224187964902,
+        "half_width": 0.2595764356731519,
+        "plus_minus_percentage_points": 25.95764356731519
+      },
+      "evidence_valid_agreement": {
+        "matches": 5,
+        "total": 10,
+        "agreement": 0.5,
+        "lower": 0.23658959361548731,
+        "upper": 0.7634104063845126,
+        "half_width": 0.2634104063845127,
+        "plus_minus_percentage_points": 26.34104063845127
+      }
+    }
+  },
+  "confusion_matrix": {
+    "positive_class": "FAIL",
+    "true_positive": 13,
+    "false_negative_miss": 5,
+    "false_positive_false_alarm": 0,
+    "true_negative": 12,
+    "unresolved": 0
+  },
+  "disagreements": [
+    {
+      "id": "HW08-011",
+      "label": "FAIL",
+      "disputed": false,
+      "group": "obvious_FAIL",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": false,
+      "evidence_valid_agree": false,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-012",
+      "label": "FAIL",
+      "disputed": true,
+      "group": "disputed",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": false,
+      "evidence_valid_agree": false,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-019",
+      "label": "FAIL",
+      "disputed": true,
+      "group": "disputed",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": false,
+      "evidence_valid_agree": false,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-021",
+      "label": "FAIL",
+      "disputed": true,
+      "group": "disputed",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": false,
+      "evidence_valid_agree": false,
+      "stable": true,
+      "data_quality_errors": []
+    },
+    {
+      "id": "HW08-034",
+      "label": "FAIL",
+      "disputed": true,
+      "group": "disputed",
+      "verdicts": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ],
+      "majority": "PASS",
+      "evidence_valid_majority": "PASS",
+      "agree": false,
+      "evidence_valid_agree": false,
+      "stable": true,
+      "data_quality_errors": []
+    }
+  ],
+  "unresolved_case_ids": [],
+  "invalid_evaluation_count": 4,
+  "metrics_note": "Raw verdict agreement uses a majority of at least 3/5 binary verdicts, including verdicts whose evidence is invalid. Evidence-valid agreement requires at least 3/5 outputs with no schema/evidence errors. Unresolved cases count as non-matches, not as substituted labels. Partial-run metrics describe only fully evaluated cases and are not final 30-case results.",
+  "finished_at": "2026-11-23T14:40:25.990201+00:00",
+  "report_kind": "indexed_copy_of_measured_repeat",
+  "source_report": "repeat/calibration-l09_labels_v1_1-20261123T143240900686Z.json",
+  "index_note": "Measured values are unchanged. This top-level index adjusts the journal pointer to the archived relative path; the original raw report is preserved byte-for-byte at source_report."
+}

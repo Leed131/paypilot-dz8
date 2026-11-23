@@ -1,66 +1,79 @@
-# HW08 - Final human annotation set
+# HW08 - Judge Trust Statement for escalation
 
-This repository contains 30 selected homework cases: 10 obvious PASS, 10 obvious FAIL and 10 disputed. The human labels and rubric were committed before calibration in `b7fe17c6b8250e98cc7efe9c16ddba6d20dedde4`. The v1 baseline is complete: 24/30 agreement (80%), 95% Wilson interval 62.69%-90.50%, and self-consistency 30/30. A procedural v1.1 repeat is pending; the final Judge Trust Statement will be completed after comparison.
+The public homework repository contains 30 English human-labelled fixtures, a versioned rubric, two completed calibration runs and the measured cost of a correction. The final decision is **human-supervised use only; autonomous release gating is not accepted**.
 
-## Files
+Start with [judge-trust-statement.md](judge-trust-statement.md). The complete before/after analysis is [reports/calibration-comparison.md](reports/calibration-comparison.md).
 
-- `evals/sets/l09_labels.jsonl`: canonical 30-case homework file.
-- `sets/l09_labels.jsonl`: identical compatibility copy for the provided `tools/calibrate_run.py`, which hardcodes the `sets` directory.
-- `HW08-annotations.md`: readable English questions, bot answers, explanations and a complete selection table.
-- `annotations/all_recovered_32.jsonl`: all 32 complete human-labelled dialogues, including reserves.
-- `annotations/reserve.jsonl`: HW08-004 and HW08-028, still obvious PASS, excluded only to obtain the requested exact group sizes. Both are standard handoff/no-refund examples; the more varied other PASS examples remain. Selection was made without running a judge on this set.
-- `annotations/incomplete-records.json`: partial evidence for HW08-001/002, excluded from calibration rather than inventing missing dialogues.
-- `rubrics/escalation.rubric.hw08.v1.json` and `rubrics/CHANGELOG.md`: common English criterion, three triggers and verdict format.
-- `validation.json`: annotation-package checks performed, hash, and limitations.
-- `reports/baseline/calibration-l09_labels-20261123T141520272523Z.json` and its `.evaluations.jsonl`: original completed baseline and all 150 raw evaluations.
-- `reports/baseline-analysis.md` and `reports/baseline-audit.json`: verified metrics, six discrepancies, interpretation limits and correction plan.
-- `evals/sets/l09_labels_v1_1.jsonl` and its identical `sets/` copy: same 30 dialogues and human labels, with procedural rubric version `rubric.hw08.v1.1`.
-- `rubrics/escalation.rubric.hw08.v1.1.json`: revised procedure; baseline criterion and rubric are preserved.
+## Measured results
 
-## Annotation history and provenance
+| Measure | Baseline v1 | Final measured v1.1 |
+| --- | --- | --- |
+| Majority agreement | 24/30, 80.00% | 25/30, 83.33% |
+| 95% Wilson interval | 62.69%-90.50% | 66.44%-92.66% |
+| Wilson half-width | 13.90 percentage points | 13.11 percentage points |
+| Schema/evidence-valid majority agreement | 24/30, 80.00% | 24/30, 80.00% |
+| Self-consistency, five identical verdicts | 30/30 | 28/30 |
+| Misses / false alarms against human labels | 6 / 0 | 5 / 0 |
+| Invalid outputs | 0/150 | 4/150 |
 
-The cases were authored by the assistant during the course discussion and labelled by the user with assistant translation and rubric clarification. They are new discussion fixtures, not relabelled LB laboratory records. Explanations are English translations or faithful summaries, not verbatim original English user statements.
+The correction recovered 007/024, introduced a new miss in 011, made 008/031 unstable and produced four invalid trigger values in 009. The quotes in those four outputs are verbatim; the defect is an unsupported enum. Only one output for 009 is fully valid, so it has no valid majority. No post-hoc trigger normalization was applied. Same-set development, small curated samples and subjective disputed labels limit the conclusion.
 
-Accepted replacements for HW08-014 and HW08-015 are used; the discarded, unlabelled versions are not extra cases. Human corrections of 006, 007, 009, 013, 019, 027 and 033 are retained in per-case history. In particular, the user explicitly approved HW08-013 PASS -> FAIL on 2026-11-23. No label is changed to agree with a model.
+## Required submission files
 
-`labeled_on: 2026-11-23` records finalization of this assembled set. It is not a backdated claim about when each original answer was labelled. `original_labeled_on` is null because precise original dates are not established. The exact packaged rubric wording was written at final assembly, not preregistered before every original annotation. The three substantive conditions were discussed during human labelling. Commit this assembled version before the first judge run on the selected set; verify chronology in the real repository rather than claiming it from these files alone.
+- `judge-trust-statement.md`: six statement rows, the measured correction cost and residual-risk decisions.
+- `evals/sets/l09_labels.jsonl`: final canonical 30-case set, exactly 10 obvious PASS, 10 obvious FAIL and 10 disputed.
+- `sets/l09_labels.jsonl`: byte-identical compatibility copy for native course-style tools.
+- `sets/l09_escalation.jsonl`: threshold check and five fresh-answer judge scenarios.
+- `rubrics/escalation.rubric.hw08.v1.1.json` and `rubrics/CHANGELOG.md`: final version and history.
+- `reports/calibration-final.json`: measured final report index with a working relative journal pointer; no measured values were changed.
+- `reports/calibration-comparison.json`: derived comparison and changed-case records.
 
-Disputed flags preserve human uncertainty; they are not proof that a trained second annotator would disagree. Some original explanations concern extra information or missing timing, which are not independent failures under this rubric. That distinction is disclosed in the annotations. Cases 025/030 (obvious PASS) and 034 (disputed FAIL) preserve the human's different readings of qualified assistance and general reassurance; these judgments are not silently made uniform.
+The original uploaded reports and all 300 evaluation records are preserved byte-for-byte under `reports/baseline/` and `reports/repeat/`. The archived directories avoid conflicts with users' untracked local run outputs when updating this repository.
 
-## Validation performed
+## Human annotation provenance
 
-The unmodified supplied course `loader.load` accepts all 30 selected cases. JSONL parsing, unique IDs and dialogues, required metadata, conditional explanations, English text, exact group counts and identical file copies pass. No judge or live agent was called during annotation-package validation. The subsequent completed v1 baseline is preserved under `reports/`; existing 12-case lab reports are not measurements of this new dataset.
+Dialogues were authored by the assistant during the course discussion and labelled by the student with translation and criterion clarification. Explanations are English translations or faithful summaries of that discussion. Human labels were not changed to agree with the judge.
 
-## Run calibration on the computer with Ollama
+Initial labels and rubric were committed in `b7fe17c6b8250e98cc7efe9c16ddba6d20dedde4` before baseline generation. The revised procedure and exact v1.1 measurement inputs were committed in `0e3edad2760c2202059015107f2051d036829553` before the repeat. Reports record exact Git-verified input paths and hashes. `labeled_on: 2026-11-23` is the assembled-set finalization date; original individual annotation dates were not recovered and are not invented.
 
-Requirements: Git, Python 3.8 or newer, running Ollama, and the installed `qwen2.5:14b` model. Only the Python standard library is used. These cases contain recorded answers; the bank service and Docker are not needed for this calibration.
+The user-approved HW08-013 correction (PASS to FAIL), earlier accepted revisions, and replacement versions of 014/015 are retained in annotation history. `annotations/all_recovered_32.jsonl` is the historical recovered collection; `annotations/reserve.jsonl` preserves 004/028 as obvious PASS. Incomplete 001/002 are documented but excluded from calibration. Laboratory LB cases are not substituted for the new fixtures.
 
-From this repository directory, check readiness without generating any judgments:
+Disputed flags retain the student's uncertainty. In particular, 012 has a reference/rubric-alignment issue about unconditional follow-up, 019 has ambiguous specialist-service wording, and 034 has reassurance-versus-promise ambiguity. Preserve those limitations rather than silently adjudicating after seeing model outputs.
+
+## Dataset names and immutable measurements
+
+| Current set name | Rubric | Purpose |
+| --- | --- | --- |
+| `l09_labels` | `rubric.hw08.v1.1` | Required final canonical filename |
+| `l09_labels_v1_1` | `rubric.hw08.v1.1` | Exact input name used in the completed repeat |
+| `l09_labels_v1` | `rubric.hw08.v1` | Archived original baseline input |
+
+Final `l09_labels` is byte-identical to measured `l09_labels_v1_1`, SHA-256 `28cb41ff169aa346463d726085d5d88fa431c16b415f7db1ef36419da69a18eb`. Promotion to the canonical filename changes neither the evaluated bytes nor the existing reports. The baseline report originally used the name `l09_labels` at its recorded historical commit; its input bytes are now also archived as `l09_labels_v1`.
+
+Both versions have identical questions, answers, human labels and disputed flags (fixture-label SHA-256 `e4a99504bc86164a5fb6b8f13eb756c4cffa7d2e167de5e7063d9270580ee374`). The exact packaged initial rubric was written down on assembly, not preregistered before every original annotation; the three substantive conditions were discussed while labelling.
+
+## Reproduce calibration
+
+Requirements: Git, Python 3.8 or newer, running Ollama and an installed `qwen2.5:14b` model. Only the standard library is required. The bank service and Docker are not needed to evaluate recorded answers. Human labels and annotation notes never enter the judge prompt.
+
+Readiness check only (no generation):
 
 ```bash
-JUDGE_MODEL=ollama:qwen2.5:14b OLLAMA_URL=http://127.0.0.1:11434 TEMP=0.7 python3 tools/calibrate_run.py l09_labels_v1_1 --check-only
+JUDGE_MODEL=ollama:qwen2.5:14b OLLAMA_URL=http://127.0.0.1:11434 TEMP=0.7 python3 tools/calibrate_run.py l09_labels --check-only
 ```
 
-Then run the v1.1 repeat: five evaluations per case (150 additional model evaluations):
+Intentional new measurement (150 evaluations):
 
 ```bash
-JUDGE_MODEL=ollama:qwen2.5:14b OLLAMA_URL=http://127.0.0.1:11434 RUNS=5 TEMP=0.7 python3 tools/calibrate_run.py l09_labels_v1_1
+JUDGE_MODEL=ollama:qwen2.5:14b OLLAMA_URL=http://127.0.0.1:11434 RUNS=5 TEMP=0.7 python3 tools/calibrate_run.py l09_labels
 ```
 
-The command runs sequentially and prints progress. It uses the frozen question, answer and rubric; human labels and annotation notes are not sent to the judge. Keep the terminal open until the run finishes. Stop with Ctrl+C if necessary; preserve the partial evaluation journal and do not represent it as a complete calibration.
+Use `l09_labels_v1` only when intentionally reproducing the baseline. Keep prior reports. The script checks exact committed inputs, records the model digest and rubric/system hashes, journals every output, and preserves partial runs. Exit 2 means generation completed with schema/evidence errors; the measured v1.1 run has that status, not a transport failure. Exit 1 means a preflight/run failure. No third run is required to complete the documented two-run experiment.
 
-The runner verifies that both label copies match and are committed in Git, checks the selected model in Ollama, and records real measurement metadata. It writes a per-evaluation journal and a calibration report under `reports/`. A failed or interrupted run remains explicitly incomplete. Review verdict schema and evidence validity alongside raw agreement; invalid evidence must remain visible rather than being silently counted as a trustworthy success.
+`agent_prompt_version` is `not_applicable_recorded_fixtures`: these fixtures are not fresh outputs from a versioned bank-agent prompt. When switching to real agent outputs, record the actual prompt version and recalibrate. Native Python does not load `.env`; secrets must not be committed.
 
-The report records `agent_prompt_version` as `not_applicable_recorded_fixtures` by default because these are assistant-authored dialogue fixtures, not fresh outputs from a versioned bank-agent prompt. If evaluating an actual versioned agent dataset instead, supply its real `AGENT_PROMPT_VERSION`; do not invent one for these fixtures. `.env` is not loaded by native Python and must not be committed.
+## Working gates and scope
 
-## Baseline interpretation
+The working set checks fresh bank-agent answers, separately from the recorded-answer calibration. Its threshold check belongs to `daily`, runs once and checks the required tool sequence. Its five judge scenarios belong to `release`, run five times and use the final rubric. Offline validation can verify file structure and routing; actual execution needs the course bank service and local Ollama. A working gate result is not one of the recorded-answer calibration measurements.
 
-All six disagreements are false PASS relative to the frozen human labels. Three (007, 021, 024) contain clear outcome or resolution-deadline violations. Three (012, 019, 034) involve ambiguous human-referral wording, reassurance, or reference/rubric alignment. Preserve their human labels and disclose these limitations; do not treat all six as independently proven model errors. Agreement on obvious PASS is 10/10, obvious FAIL 8/10, and disputed 6/10. There are six misses and zero false alarms against the frozen human reference.
-
-The v1.1 procedure requires checking the whole answer and all three conditions before PASS. It does not add case-specific examples or an unconditional-follow-up requirement to fit disputed labels. Questions, answers, human labels, disputed flags, criterion, output schema, model configuration and system prompt remain unchanged. Compare all cases, including newly introduced errors. Same-set improvement is development evidence, not independent validation.
-
-Use `l09_labels` instead of `l09_labels_v1_1` only when intentionally reproducing the original baseline. Neither baseline data nor its report is overwritten by the repeat.
-
-## After the v1.1 repeat
-
-Inspect the report's actual model, temperature, rubric version, set hash and annotation commit. Review overall and group agreement with 95% Wilson intervals and plus/minus widths, self-consistency separately, disagreements and the miss/false-alarm matrix. Apply a documented correction, remeasure on the same set, and complete the Judge Trust Statement with residual risk. The working threshold/judge set and the public-repository submission remain separate homework requirements.
+See `docs/working-gates.md` for exact commands, source provenance, execution rules and limits. Live working-gate results are not claimed by this submission; check this separately before any actual release decision.

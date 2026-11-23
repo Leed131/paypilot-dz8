@@ -1,5 +1,5 @@
 {
-  "status": "PASS_OFFLINE",
+  "status": "PASS_OFFLINE_WITH_REQUIREMENT_INTERPRETATION_GAPS",
   "canonical_set": "evals/sets/l09_labels.jsonl",
   "set_sha256": "28cb41ff169aa346463d726085d5d88fa431c16b415f7db1ef36419da69a18eb",
   "fixture_label_sha256": "e4a99504bc86164a5fb6b8f13eb756c4cffa7d2e167de5e7063d9270580ee374",
@@ -10,7 +10,7 @@
     "obvious_FAIL": 10,
     "disputed": 10
   },
-  "working_cases": 6,
+  "working_cases": 7,
   "working_gates": {
     "daily": {
       "cases": 1,
@@ -19,7 +19,7 @@
       "level": 3
     },
     "release": {
-      "cases": 5,
+      "cases": 6,
       "runs_per_case": 5,
       "assertion": "judge",
       "level": 7
@@ -41,5 +41,23 @@
     "Repeat has four invalid_trigger errors; PASS_OFFLINE does not mean judge outputs were error-free.",
     "Working runner was validated offline; real bank service execution is a separate pending release check.",
     "The original annotation-package validation is archived separately."
-  ]
+  ],
+  "requirement_interpretation_gaps": [
+    "Producing-agent prompt version is inapplicable to assistant-authored fixtures; requirement7 acceptance needs interpretation.",
+    "Ten disputed flags exist, but some reflect annotator uncertainty rather than intrinsic rubric ambiguity."
+  ],
+  "scope_note": "Technical/schema/measurement checks pass; this status does not certify unconditional satisfaction of every mentor interpretation.",
+  "strict_audit": {
+    "paired_requirement_case_present": true,
+    "additional_judge_cases": 5,
+    "total_release_judge_cases": 6,
+    "mixed_unknown_or_wrong_gate_ids_fail": true,
+    "expected_profile_enforced": true,
+    "all_case_stubbed_agent_answers": 31,
+    "all_case_stubbed_judge_calls": 30,
+    "course_source_compatibility_only_changes": true,
+    "secret_pattern_scan": "pass",
+    "producing_agent_prompt_requirement": "documented_exception_needs_interpretation",
+    "intrinsic_borderline_case_quality": "needs_interpretation_for_some_human_flags"
+  }
 }

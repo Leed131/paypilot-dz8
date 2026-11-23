@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-11-23T15:25:54.488787+00:00",
+  "observation_method": "Read-only browser inspection of the user course stand endpoints",
+  "stand_url": "http://localhost:8000",
+  "target_profile": "lesson-09",
+  "active_defects": [
+    "D18",
+    "D25",
+    "D27"
+  ],
+  "target_agent_prompt_version": "base.v1+D25+D27",
+  "prompt_overlays": [
+    "D25",
+    "D27"
+  ],
+  "prompt_endpoint": "/api/_test/prompt",
+  "profile_endpoint": "/api/_test/defects",
+  "measured_agent_prompt_version": "not_applicable_recorded_fixtures",
+  "scope_note": "Observed AFTER both calibration runs. This is the current working-set target configuration, not the source or a measured producing-agent prompt for the synthetic calibration answers. Original reports are not rewritten.",
+  "generation_requested": false,
+  "stand_state_reset": false
+}

@@ -1,6 +1,6 @@
 # HW08 - Judge Trust Statement for escalation
 
-The public homework repository contains 30 English human-labelled fixtures, a versioned rubric, two completed calibration runs and the measured cost of a correction. The final decision is **human-supervised use only; autonomous release gating is not accepted**.
+The public homework repository contains 30 English human-labelled fixtures, a versioned rubric, two completed calibration runs and the measured cost of a correction. The judge-use decision is **human-supervised use only; autonomous release gating is not accepted**. A strict submission audit is recorded in [reports/requirements-audit.md](reports/requirements-audit.md): agent-prompt provenance and the meaning of disputed labels remain documented interpretation issues, not unconditional compliance claims.
 
 Start with [judge-trust-statement.md](judge-trust-statement.md). The complete before/after analysis is [reports/calibration-comparison.md](reports/calibration-comparison.md).
 
@@ -23,7 +23,7 @@ The correction recovered 007/024, introduced a new miss in 011, made 008/031 uns
 - `judge-trust-statement.md`: six statement rows, the measured correction cost and residual-risk decisions.
 - `evals/sets/l09_labels.jsonl`: final canonical 30-case set, exactly 10 obvious PASS, 10 obvious FAIL and 10 disputed.
 - `sets/l09_labels.jsonl`: byte-identical compatibility copy for native course-style tools.
-- `sets/l09_escalation.jsonl`: threshold check and five fresh-answer judge scenarios.
+- `sets/l09_escalation.jsonl`: threshold check, its paired semantic remainder, and five additional fresh-answer judge scenarios.
 - `rubrics/escalation.rubric.hw08.v1.1.json` and `rubrics/CHANGELOG.md`: final version and history.
 - `reports/calibration-final.json`: measured final report index with a working relative journal pointer; no measured values were changed.
 - `reports/calibration-comparison.json`: derived comparison and changed-case records.
@@ -74,6 +74,6 @@ Use `l09_labels_v1` only when intentionally reproducing the baseline. Keep prior
 
 ## Working gates and scope
 
-The working set checks fresh bank-agent answers, separately from the recorded-answer calibration. Its threshold check belongs to `daily`, runs once and checks the required tool sequence. Its five judge scenarios belong to `release`, run five times and use the final rubric. Offline validation can verify file structure and routing; actual execution needs the course bank service and local Ollama. A working gate result is not one of the recorded-answer calibration measurements.
+The working set checks fresh bank-agent answers, separately from the recorded-answer calibration. Its threshold check belongs to `daily`, runs once and checks the required tool sequence. Its paired semantic case and five additional judge scenarios belong to `release`, run five times and use the final rubric. Offline validation can verify file structure and routing; actual execution needs the course bank service and local Ollama. A working gate result is not one of the recorded-answer calibration measurements.
 
 See `docs/working-gates.md` for exact commands, source provenance, execution rules and limits. Live working-gate results are not claimed by this submission; check this separately before any actual release decision.

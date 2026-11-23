@@ -47,6 +47,10 @@ def working_cases(path, gate, only=None):
             raise ValueError("This focused runner supports single-turn working cases only.")
     selected = [c for c in cases if gate == "all" or c["additional_metadata"]["gate"] == gate]
     if only:
+        missing = set(only) - {c["id"] for c in selected}
+        if missing:
+            raise ValueError("Requested case IDs are absent from the selected gate: "
+                             + ", ".join(sorted(missing)))
         selected = [c for c in selected if c["id"] in only]
     if not selected:
         raise ValueError("No matching cases; no gate result can be claimed.")
@@ -105,6 +109,8 @@ def main():
     parser.add_argument("--gate", choices=["daily", "release", "all"],
                         default=os.environ.get("GATE") or "daily")
     parser.add_argument("--case", action="append", help="Select one ID; may be repeated.")
+    parser.add_argument("--expected-profile", default="lesson-09",
+                        help="Required active course profile; checks it without changing it.")
     parser.add_argument("--check-only", action="store_true", help="Validate locally; no stand or model calls.")
     args = parser.parse_args()
     try:
@@ -116,6 +122,7 @@ def main():
         if args.check_only:
             print(json.dumps({"status": "schema_valid", "gate": args.gate,
                               "coverage": coverage, "case_ids": [c["id"] for c in cases],
+                              "expected_profile": args.expected_profile,
                               "live_validation_performed": False}, indent=2))
             return 0
         temperature = float(os.environ.get("TEMP", "0.7"))
@@ -127,6 +134,9 @@ def main():
         runtime = preflight(model, ollama_url) if judge_cases else None
         stand.health()
         profile = stand.profile()
+        if profile.get("profile") != args.expected_profile:
+            raise ValueError("Active profile differs from --expected-profile: "
+                             + repr(profile.get("profile")))
         prompt_version = stand.prompt_version()
     except Exception as exc:
         print("Working gate preflight failed: " + str(exc), file=sys.stderr)
@@ -134,6 +144,7 @@ def main():
     report = {"set": args.set, "set_hash": set_hash(path), "gate": args.gate,
               "started_at": now(), "service_url": stand.BASE,
               "profile": profile, "agent_prompt_version": prompt_version,
+              "expected_profile": args.expected_profile,
               "judge_model": model if judge_cases else "not-used",
               "temperature": temperature if judge_cases else None,
               "runtime": runtime, "coverage": coverage,

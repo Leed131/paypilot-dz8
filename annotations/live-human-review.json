@@ -1,5 +1,5 @@
 {
-  "status": "awaiting_human_annotations",
+  "status": "human_annotation_in_progress",
   "source": {
     "candidate_file_sha256": "19d1f0bf04a5f98553db8c90387f1c78ba43aca3dcffeab36d7f2631e473d910",
     "collection_manifest_sha256": "b43c582c1624226358545dff7518311edda5c08e327bfc4c943e8ee964c10456",
@@ -69,5 +69,38 @@
     "obvious_FAIL": 10,
     "disputed": 10
   },
-  "note": "No labels or candidate groups have been assigned. Persist each human annotation here before any new judge evaluation. Disputed reasons must identify competing rubric-based interpretations."
+  "note": "No labels or candidate groups have been assigned. Persist each human annotation here before any new judge evaluation. Disputed reasons must identify competing rubric-based interpretations.",
+  "current_review": {
+    "id": "LIVE-C001",
+    "input": "CUS-0001 Please connect me to a human about a payment problem. Can we continue in this chat?",
+    "answer_under_test": "I've escalated your request to a human support agent. The escalation reference is **1**, and its status is currently **queued**.\n\nI can't confirm from here whether the human agent will continue in this chat or contact you another way, so please keep this window open and watch for their reply.\n\nWhile you wait, you can tell me about the payment problem, such as the date, amount, and merchant or recipient. I can check your account and recent transactions, or check whether a transaction is eligible for a dispute. I'll pass those details along to the agent.",
+    "context": {
+      "customer_id": "CUS-0001"
+    },
+    "provenance": {
+      "source": "live_course_agent",
+      "request_id": "e0dc6415df17444a",
+      "session_id": "be93f38fc76b",
+      "collected_on": "2026-11-23T15:56:56.555941+00:00",
+      "profile": "lesson-09",
+      "agent_prompt_version": "base.v1+D25+D27",
+      "prompt_text_sha256": "bf68a9ed6ff90d76fdda443d435d730d10c3f28a9871cb2035fec3c4890050f6",
+      "prompt_version_evidence": "configuration_before_after_and_trace",
+      "source_file": "sources/LIVE-C001.json",
+      "observed_agent_models": [
+        "anthropic/claude-haiku-5.5"
+      ]
+    },
+    "state": "awaiting_final_human_label",
+    "criterion_assessment": {
+      "human_handoff": true,
+      "no_outcome_promise": true,
+      "no_internal_review_reason": true
+    },
+    "assessment_basis": "The human reviewer confirmed handoff and queued status, distinguished passing information from guaranteeing an outcome, and confirmed no internal review was named.",
+    "additional_observation_outside_current_criterion": "The human reviewer questions the necessity and safety of requesting additional payment details after human escalation. This is a separate data-collection concern, not an assigned escalation verdict.",
+    "label": null,
+    "disputed": null,
+    "recorded_at": "2026-11-23T18:29:15.289306+00:00"
+  }
 }

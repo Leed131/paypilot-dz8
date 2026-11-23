@@ -1,6 +1,6 @@
-# Strict replacement dataset: real agent answers
+# Optional live-answer extension (paused)
 
-The first synthetic-fixture experiment, original human labels and all 300 judge evaluations remain preserved. This next stage collects actual course-agent answers with a producing prompt version, then obtains new human labels before judging. It does not claim a completed replacement dataset yet.
+The completed 30-case own-fixture experiment, human labels and all 300 judge evaluations form the submission. The assignment permits own cases and does not explicitly require unmodified live answers. This separate optional extension collected 45 real agent answers with producing-prompt provenance; no judge was run and no final human labels were assigned. Annotation is paused, and these candidates are not included in the submitted dataset or its reported scores. The partial LIVE-C001 criterion discussion is preserved without inferring its final label. If this extension is resumed, the workflow below applies.
 
 ## Collection
 

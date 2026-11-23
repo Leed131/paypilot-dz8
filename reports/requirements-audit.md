@@ -2,7 +2,9 @@
 
 This audit checks the attached assignment against the actual repository, not against earlier assurances of readiness. The independent public repository is `Leed131/paypilot-dz8`; the submission branch is `main`.
 
-**Decision:** structural, runtime and measured-calibration checks pass after the fixes below. Two substantive interpretation issues remain documented. They must not be represented as unconditional compliance or concealed by invented provenance or changed human labels.
+**Submission scope:** the completed 30-case own-fixture calibration study is the submitted work. The assignment explicitly permits own cases and does not expressly require every answer to be an unmodified live-agent output, an independent second annotator, or a minimum accuracy. The additional45-answer live collection is a paused optional extension and is not used in the submitted scores.
+
+**Decision:** structural, runtime and measured-calibration checks pass after the fixes below. The two provenance/interpretation limitations remain disclosed; they are not solved by fabricated metadata or changed human labels. A conservative alternative workflow was prepared, but new labels and two further measurements are not explicit prerequisites for submitting this completed own-fixture study. The questions below are available for clarification, not represented as additional mandatory assignment steps.
 
 ## Mandatory requirements and evidence
 

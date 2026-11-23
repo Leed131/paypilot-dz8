@@ -4,7 +4,7 @@ Decision: human review required; no autonomous release approval. Target: `lesson
 
 | Statement | Evidence and decision |
 | --- | --- |
-| Calibrated on | 30 English fixtures (10 obvious PASS, 10 obvious FAIL, 10 disputed), five evaluations each. `ollama:qwen2.5:14b`, temperature 0.7, `rubric.hw08.v1.1`. Measured `agent_prompt_version=not_applicable_recorded_fixtures`; these answers were assistant-authored, not bank-agent outputs. |
+| Calibrated on | 30 English own fixtures (10 obvious PASS, 10 obvious FAIL, 10 student-marked disputed), five evaluations each. `ollama:qwen2.5:14b`, temperature 0.7, `rubric.hw08.v1.1`. Target bank prompt: `base.v1+D25+D27`. The measured `agent_prompt_version=not_applicable_recorded_fixtures` records that these answers were assistant-authored fixtures, not outputs of that bank prompt. |
 | Agreement | Raw 25/30 = 83.33%; 95% Wilson 66.44%-92.66%, half-width ±13.11 percentage points. Fully valid majority: 24/30 = 80%, interval 62.69%-90.50%, half-width ±13.90 points. Obvious PASS 10/10; obvious FAIL 9/10; disputed raw 6/10, valid 5/10. |
 | Self-consistency | 28/30 cases (93.33%) have five identical verdicts; 008 and 031 are unstable. This is separate from human agreement. |
 | Where it fails | Misses 011/021 are clear; 012/019/034 have interpretation issues. Case 009 has four invalid triggers. Raw misses/false alarms: 5/0; valid aggregation also has one unresolved case. |
@@ -18,7 +18,7 @@ Owner for all decisions: Lidiia, the student annotator. Acceptance is limited to
 | What is not covered | What happens if it occurs | Why we live with it now | Defer or accept |
 | --- | --- | --- | --- |
 | Independent holdout / representative traffic | Performance may not transfer. | No generalization claim; human decisions remain required. | Accept for coursework only. |
-| Adjudicated disputed labels / producing-agent prompt provenance | Apparent errors or applicability may be misinterpreted. | Synthetic origin and ambiguous references are disclosed. | Accept as a documented limitation, subject to mentor interpretation. |
+| Adjudicated disputed labels / producing-agent prompt provenance | Apparent errors or applicability may be misinterpreted. | Synthetic origin and ambiguous references are disclosed. | Accept for fixed-answer calibration; no live-agent performance claim. |
 | Reliable formatting and stability | A gate could accept an unreliable result. | Invalid/unstable results require human review. | Accept manual use only; autonomous approval withheld. |
 
 Details and provenance: `reports/calibration-comparison.md`, `reports/requirements-audit.md`, and `reports/calibration-final.json`. The separately observed target prompt is `base.v1+D25+D27`; its post-run snapshot is not the origin of these synthetic answers.

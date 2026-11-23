@@ -1,8 +1,8 @@
 # HW08 - Judge Trust Statement for escalation
 
-The public homework repository contains 30 English human-labelled fixtures, a versioned rubric, two completed calibration runs and the measured cost of a correction. The judge-use decision is **human-supervised use only; autonomous release gating is not accepted**. A strict submission audit is recorded in [reports/requirements-audit.md](reports/requirements-audit.md): agent-prompt provenance and the meaning of disputed labels remain documented interpretation issues, not unconditional compliance claims.
+This submission is the completed calibration study on 30 student-labelled own fixtures, with two real judge runs and the measured cost of a correction. The assignment permits own cases; it does not explicitly require every recorded answer to originate from a live agent. The judge-use decision is **human-supervised use only; autonomous release gating is not accepted**. Synthetic provenance and student-marked uncertainty are disclosed in [reports/requirements-audit.md](reports/requirements-audit.md).
 
-**Strict replacement stage in progress:** [live-answer collection plan](docs/live-replacement-plan.md). The 45 unlabelled questions and collector are ready; the future replacement answers, human labels and measurements are not yet collected. The existing files below document the first synthetic experiment.
+**Optional extension, paused:** 45 real bank-agent answers were subsequently collected, with no judge evaluations and no completed human annotations. They are excluded from the submitted 30-case set and its scores. The partial LIVE-C001 discussion is preserved without inferring a final label. See [live-answer collection plan](docs/live-replacement-plan.md). Completing this extension is not a prerequisite for the measured own-fixture submission.
 
 Start with [judge-trust-statement.md](judge-trust-statement.md). The complete before/after analysis is [reports/calibration-comparison.md](reports/calibration-comparison.md).
 

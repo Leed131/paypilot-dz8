@@ -1,5 +1,5 @@
 {
-  "status": "human_annotation_in_progress",
+  "status": "paused_optional_extension",
   "source": {
     "candidate_file_sha256": "19d1f0bf04a5f98553db8c90387f1c78ba43aca3dcffeab36d7f2631e473d910",
     "collection_manifest_sha256": "b43c582c1624226358545dff7518311edda5c08e327bfc4c943e8ee964c10456",
@@ -102,5 +102,7 @@
     "label": null,
     "disputed": null,
     "recorded_at": "2026-11-23T18:29:15.289306+00:00"
-  }
+  },
+  "included_in_current_submission": false,
+  "pause_note": "The completed own-fixture calibration remains the submission basis. These 45 live answers are an optional extension. The partial review is preserved; no final human label or disputed flag is inferred."
 }

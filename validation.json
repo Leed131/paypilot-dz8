@@ -1,5 +1,5 @@
 {
-  "status": "PASS_OFFLINE_WITH_REQUIREMENT_INTERPRETATION_GAPS",
+  "status": "PASS_OFFLINE_WITH_DECLARED_SCOPE_LIMITATIONS",
   "canonical_set": "evals/sets/l09_labels.jsonl",
   "set_sha256": "28cb41ff169aa346463d726085d5d88fa431c16b415f7db1ef36419da69a18eb",
   "fixture_label_sha256": "e4a99504bc86164a5fb6b8f13eb756c4cffa7d2e167de5e7063d9270580ee374",
@@ -42,11 +42,7 @@
     "Working runner was validated offline; real bank service execution is a separate pending release check.",
     "The original annotation-package validation is archived separately."
   ],
-  "requirement_interpretation_gaps": [
-    "Producing-agent prompt version is inapplicable to assistant-authored fixtures; requirement7 acceptance needs interpretation.",
-    "Ten disputed flags exist, but some reflect annotator uncertainty rather than intrinsic rubric ambiguity."
-  ],
-  "scope_note": "Technical/schema/measurement checks pass; this status does not certify unconditional satisfaction of every mentor interpretation.",
+  "scope_note": "Submission uses permitted own fixtures with synthetic provenance and student-marked uncertainty disclosed. No guaranteed mentor acceptance or live-agent performance claim is made.",
   "strict_audit": {
     "paired_requirement_case_present": true,
     "additional_judge_cases": 5,
@@ -57,7 +53,13 @@
     "all_case_stubbed_judge_calls": 30,
     "course_source_compatibility_only_changes": true,
     "secret_pattern_scan": "pass",
-    "producing_agent_prompt_requirement": "documented_exception_needs_interpretation",
-    "intrinsic_borderline_case_quality": "needs_interpretation_for_some_human_flags"
-  }
+    "producing_agent_prompt_requirement": "synthetic_fixture_origin_disclosed_actual_target_prompt_version_stated",
+    "intrinsic_borderline_case_quality": "student_marked_uncertainty_reasons_preserved_without_independent_adjudication"
+  },
+  "submission_basis": "completed_30_case_own_fixture_calibration_study",
+  "optional_live_extension_status": "paused_unlabelled_45_answers_not_in_submission",
+  "scope_limitations": [
+    "Producing-agent prompt version is inapplicable to assistant-authored fixtures; requirement7 acceptance needs interpretation.",
+    "Ten disputed flags exist, but some reflect annotator uncertainty rather than intrinsic rubric ambiguity."
+  ]
 }

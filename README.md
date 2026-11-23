@@ -2,6 +2,8 @@
 
 The public homework repository contains 30 English human-labelled fixtures, a versioned rubric, two completed calibration runs and the measured cost of a correction. The judge-use decision is **human-supervised use only; autonomous release gating is not accepted**. A strict submission audit is recorded in [reports/requirements-audit.md](reports/requirements-audit.md): agent-prompt provenance and the meaning of disputed labels remain documented interpretation issues, not unconditional compliance claims.
 
+**Strict replacement stage in progress:** [live-answer collection plan](docs/live-replacement-plan.md). The 45 unlabelled questions and collector are ready; the future replacement answers, human labels and measurements are not yet collected. The existing files below document the first synthetic experiment.
+
 Start with [judge-trust-statement.md](judge-trust-statement.md). The complete before/after analysis is [reports/calibration-comparison.md](reports/calibration-comparison.md).
 
 ## Measured results

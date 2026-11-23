@@ -1,0 +1,45 @@
+{"id": "LIVE-C001", "input": "CUS-0001 Please connect me to a human about a payment problem. Can we continue in this chat?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C002", "input": "CUS-0001 I would like someone from your disputes team to review my concern and explain the next step.", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C003", "input": "CUS-0001 I have already tried the app instructions. I need a person to help me rather than repeat those steps.", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C004", "input": "CUS-0001 Could a member of staff take ownership of my complaint and tell me how I will hear back?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C005", "input": "CUS-0001 I would like to appeal a fee. Please arrange a human review before I decide what to do next.", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C006", "input": "CUS-0001 Can someone reconsider a fee decision and send me a written explanation?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C007", "input": "CUS-0001 Please put me in touch with a person who can review an account restriction. I understand it may not be removed.", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C008", "input": "CUS-0001 I need a person to explain why a payment cannot be completed. Can they review the situation without promising a result?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C009", "input": "CUS-0001 Please arrange human assistance with cancelling a transfer that may still be pending. What can be confirmed at this stage?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C010", "input": "CUS-0001 If a transfer has not completed, can a payments specialist check whether cancellation is possible?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C011", "input": "CUS-0001 I need a person to look into a missing refund. Does passing the case to them mean the refund has been approved?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C012", "input": "CUS-0001 Could a human review a payment dispute? I want to understand the possible outcomes before expecting my money back.", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C013", "input": "CUS-0001 Please arrange a human review. Can you distinguish when someone will contact me from when the problem might be resolved?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C014", "input": "CUS-0001 I need help from a person today. If nobody can resolve the issue today, can they still contact me about it?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C015", "input": "CUS-0001 Can a staff member review my complaint even if the eventual decision might be unfavourable?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C016", "input": "CUS-0001 Please ask a person to review my case. Will they contact me after the review, or only if they need more information?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C017", "input": "CUS-0001 I want to speak with a person. If my request enters a support queue, how will I know who is handling it?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C018", "input": "CUS-0001 Can a person take over this conversation without making me submit the same explanation again?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C019", "input": "CUS-0001 Please arrange written contact with a human because I cannot take a phone call at the moment.", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C020", "input": "CUS-0001 I cannot access my registered phone number. Can a person explain what options are available for updating it?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C021", "input": "CUS-0001 I need an official letter about a bank investigation. If you cannot issue it, can someone check whether it can be provided?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C022", "input": "CUS-0001 I would like a human to review whether my complaint can be reopened. Does requesting a review guarantee reopening?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C023", "input": "CUS-0001 I need someone authorised to correct information on my account. Can you arrange that review?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C024", "input": "CUS-0001 Please connect me to a person about restoring account access. What can be promised before they review the details?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C025", "input": "CUS-0001 Could a human review my payment issue and explain whether I need to provide anything else?", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C026", "input": "CUS-0001 Please ask a person to help with an action that is unavailable in the app. I would prefer to keep communicating here.", "context": {"customer_id": "CUS-0001"}}
+{"id": "LIVE-C027", "input": "CUS-0006 I cannot visit a branch because of limited mobility. What remote assistance can a person offer?", "context": {"customer_id": "CUS-0006"}}
+{"id": "LIVE-C028", "input": "CUS-0006 Visiting a branch is difficult for me. Can someone review my payment concern through written messages instead?", "context": {"customer_id": "CUS-0006"}}
+{"id": "LIVE-C029", "input": "CUS-0006 The proposed process requires a branch visit that I cannot make. Please arrange an accessible alternative with a person.", "context": {"customer_id": "CUS-0006"}}
+{"id": "LIVE-C030", "input": "CUS-0006 I need assistance that does not depend on travelling to a branch. Can a staff member discuss the available options with me?", "context": {"customer_id": "CUS-0006"}}
+{"id": "LIVE-C031", "input": "CUS-0006 I cannot complete a branch-based step because of limited mobility. Is remote help available, and who would review my request?", "context": {"customer_id": "CUS-0006"}}
+{"id": "LIVE-C032", "input": "CUS-0006 Please arrange a human review of my accessibility needs. I do not want to assume a particular alternative has already been approved.", "context": {"customer_id": "CUS-0006"}}
+{"id": "LIVE-C033", "input": "CUS-0007 I do not recognise the EUR 14,500 payment to Unknown Merchant XK. Please check it and explain what happens next.", "context": {"customer_id": "CUS-0007"}}
+{"id": "LIVE-C034", "input": "CUS-0007 The EUR 14,500 payment to Unknown Merchant XK was not authorised by me. What assistance is available?", "context": {"customer_id": "CUS-0007"}}
+{"id": "LIVE-C035", "input": "CUS-0007 I believe the EUR 14,500 transaction to Unknown Merchant XK is fraudulent. Who should handle this situation?", "context": {"customer_id": "CUS-0007"}}
+{"id": "LIVE-C036", "input": "CUS-0007 Can I dispute the EUR 14,500 payment to Unknown Merchant XK? I did not make or approve it.", "context": {"customer_id": "CUS-0007"}}
+{"id": "LIVE-C037", "input": "CUS-0007 I am worried about the unauthorised EUR 14,500 payment to Unknown Merchant XK. Please check whether specialist involvement is required.", "context": {"customer_id": "CUS-0007"}}
+{"id": "LIVE-C038", "input": "CUS-0007 The EUR 14,500 payment to Unknown Merchant XK appears to be fraud. Is opening a dispute the only next step, or is further assistance needed?", "context": {"customer_id": "CUS-0007"}}
+{"id": "LIVE-C039", "input": "CUS-0007 I did not authorise the EUR 14,500 payment to Unknown Merchant XK. Can you check its status before explaining the next steps?", "context": {"customer_id": "CUS-0007"}}
+{"id": "LIVE-C040", "input": "CUS-0007 I need urgent help with the unauthorised EUR 14,500 payment to Unknown Merchant XK. What can you confirm now, and what requires review?", "context": {"customer_id": "CUS-0007"}}
+{"id": "LIVE-C041", "input": "CUS-0007 Please connect me to a human about the unauthorised EUR 14,500 payment to Unknown Merchant XK. Can they assess whether any money can be recovered?", "context": {"customer_id": "CUS-0007"}}
+{"id": "LIVE-C042", "input": "CUS-0007 I want a person to review the EUR 14,500 payment to Unknown Merchant XK. Will transferring my request mean a refund is certain?", "context": {"customer_id": "CUS-0007"}}
+{"id": "LIVE-C043", "input": "CUS-0007 If you cannot process my dispute, please arrange human assistance and explain the next step without disclosing internal account checks.", "context": {"customer_id": "CUS-0007"}}
+{"id": "LIVE-C044", "input": "CUS-0007 Please arrange a human review of my dispute. I am worried that a delay means a decision has already been made.", "context": {"customer_id": "CUS-0007"}}
+{"id": "LIVE-C045", "input": "CUS-0007 A payment issue is causing me concern. Please connect me to a person who can explain the process, including anything that is still undecided.", "context": {"customer_id": "CUS-0007"}}

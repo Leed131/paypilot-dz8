@@ -1,5 +1,5 @@
 {
-  "status": "REFERENCES_ACCEPTED_BASELINE_MEASUREMENT_PENDING",
+  "status": "BASELINE_REPORT_VERIFIED_EVALUATION_JOURNAL_PENDING",
   "resubmission_sent": false,
   "canonical_set": "evals/sets/l09_labels.jsonl",
   "accepted_reference_manifest": "annotations/accepted-reference-manifest.json",
@@ -24,8 +24,8 @@
     },
     "rubric_version": "rubric.hw08.kit.v1",
     "baseline_alias": "l09_labels_kit_v1",
-    "new_model_evaluations": 0,
-    "new_metrics_available": false,
+    "new_model_evaluations": 150,
+    "new_metrics_available": true,
     "set_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f",
     "labels_accepted": true,
     "freeze_mechanism": "Committed exact inputs verified before generation"
@@ -84,5 +84,42 @@
     "Final readiness requires actual new baseline/correction measurements; no old synthetic score is transferred."
   ],
   "offline_reference_runtime_audit": "reports/accepted-reference-audit.json",
-  "offline_reference_runtime_checks_pass": true
+  "offline_reference_runtime_checks_pass": true,
+  "baseline_report": "reports/kit-baseline/calibration-l09_labels_kit_v1-20261124T181515888477Z.json",
+  "baseline_audit": "reports/kit-baseline-audit.json",
+  "baseline_journal_received": false,
+  "baseline_summary": {
+    "agreement": {
+      "matches": 22,
+      "total": 30,
+      "agreement": 0.7333333333333333,
+      "lower": 0.5555169795568831,
+      "upper": 0.8581750444608938,
+      "half_width": 0.15132903245200538,
+      "plus_minus_percentage_points": 15.132903245200538
+    },
+    "evidence_valid_agreement": {
+      "matches": 22,
+      "total": 30,
+      "agreement": 0.7333333333333333,
+      "lower": 0.5555169795568831,
+      "upper": 0.8581750444608938,
+      "half_width": 0.15132903245200538,
+      "plus_minus_percentage_points": 15.132903245200538
+    },
+    "self_consistency": {
+      "stable_cases": 26,
+      "total_cases": 30,
+      "wilson_95": {
+        "matches": 26,
+        "total": 30,
+        "agreement": 0.8666666666666667,
+        "lower": 0.7031831605558306,
+        "upper": 0.9469043057578189,
+        "half_width": 0.12186057260099419,
+        "plus_minus_percentage_points": 12.18605726009942
+      }
+    },
+    "reported_invalid_outputs": 3
+  }
 }

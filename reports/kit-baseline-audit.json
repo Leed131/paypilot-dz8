@@ -1,0 +1,109 @@
+{
+  "status": "REPORT_INTERNAL_AND_INPUT_AUDIT_PASS_JOURNAL_PENDING",
+  "checked_at": "2026-11-24T18:36:44.044730+00:00",
+  "source_report": "kit-baseline/calibration-l09_labels_kit_v1-20261124T181515888477Z.json",
+  "source_report_sha256": "3a48e516077b87ffbe17b4231bea62d69d4539e0a5923364256ae14dbc5caf45",
+  "required_journal": "calibration-l09_labels_kit_v1-20261124T181515888477Z.evaluations.jsonl",
+  "journal_received": false,
+  "reference_freeze_commit": "34d2fc695f4623025eb6d7b9a7a0f71699d35e43",
+  "reference_freeze_commit_time": "2026-11-24T18:07:33Z",
+  "run_started_at": "2026-11-24T18:15:15.889024+00:00",
+  "run_finished_at": "2026-11-24T18:26:37.932396+00:00",
+  "freeze_precedes_generation": true,
+  "input_and_provenance_hashes_match": true,
+  "summary_majorities_groups_and_intervals_recomputed": true,
+  "reported_model_calls": 150,
+  "cases": 30,
+  "agreement": {
+    "matches": 22,
+    "total": 30,
+    "agreement": 0.7333333333333333,
+    "lower": 0.5555169795568831,
+    "upper": 0.8581750444608938,
+    "half_width": 0.15132903245200538,
+    "plus_minus_percentage_points": 15.132903245200538
+  },
+  "evidence_valid_agreement": {
+    "matches": 22,
+    "total": 30,
+    "agreement": 0.7333333333333333,
+    "lower": 0.5555169795568831,
+    "upper": 0.8581750444608938,
+    "half_width": 0.15132903245200538,
+    "plus_minus_percentage_points": 15.132903245200538
+  },
+  "self_consistency": {
+    "stable_cases": 26,
+    "total_cases": 30,
+    "wilson_95": {
+      "matches": 26,
+      "total": 30,
+      "agreement": 0.8666666666666667,
+      "lower": 0.7031831605558306,
+      "upper": 0.9469043057578189,
+      "half_width": 0.12186057260099419,
+      "plus_minus_percentage_points": 12.18605726009942
+    }
+  },
+  "raw_confusion_matrix": {
+    "positive_class": "FAIL",
+    "true_positive": 10,
+    "false_negative_miss": 4,
+    "false_positive_false_alarm": 4,
+    "true_negative": 12,
+    "unresolved": 0
+  },
+  "evidence_valid_confusion_matrix": {
+    "positive_class": "FAIL",
+    "true_positive": 10,
+    "false_negative_miss": 3,
+    "false_positive_false_alarm": 4,
+    "true_negative": 12,
+    "unresolved": 1
+  },
+  "reported_invalid_outputs": 3,
+  "reported_errors": [
+    {
+      "id": "LIVE-C006",
+      "run": 1,
+      "errors": [
+        "quote_is_not_verbatim"
+      ]
+    },
+    {
+      "id": "LIVE-C006",
+      "run": 3,
+      "errors": [
+        "quote_is_not_verbatim"
+      ]
+    },
+    {
+      "id": "LIVE-C006",
+      "run": 4,
+      "errors": [
+        "quote_is_not_verbatim"
+      ]
+    }
+  ],
+  "stable_reference_disagreements": [
+    "LB-10",
+    "PL-12",
+    "PL-14",
+    "PL-16",
+    "LIVE-C006"
+  ],
+  "unstable_case_ids": [
+    "LB-03",
+    "LB-11",
+    "PL-07",
+    "LIVE-C001"
+  ],
+  "runtime_seconds": 682.043372,
+  "raw_output_revalidation_performed": false,
+  "limits": [
+    "The report and exact frozen inputs have been verified. Raw response quotations, triggers and per-run schema flags cannot be independently revalidated until the matching journal is supplied.",
+    "Reference disagreements, especially LB-10, are not automatically proven judge errors.",
+    "The same raw/valid agreement does not imply the same failure composition: LIVE-C006 loses its valid majority."
+  ],
+  "correction_status": "Hypotheses only; no revised rubric is frozen or run before journal review."
+}

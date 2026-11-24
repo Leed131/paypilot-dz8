@@ -1,6 +1,12 @@
 # HW08 - PayPilot judge calibration
 
-**References accepted; new baseline measurement pending.** The student accepted the review package and requested a further audit. All 30 source question/answer pairs and original semantic criteria passed review; no verdict corrections were needed.
+**Baseline report verified; raw journal audit pending.** The student accepted the review package and requested a further audit. All 30 source question/answer pairs and original semantic criteria passed review; no verdict corrections were needed.
+
+## Current baseline
+
+The user-local run completed 150 evaluations on the accepted set. Agreement is 22/30 (73.33%; Wilson 55.55%-85.82%); self-consistency is 26/30 (86.67%; Wilson 70.32%-94.69%). Three non-verbatim quote errors are reported in LIVE-C006, which has no valid majority. Raw/valid agreement are both 22/30 despite that difference in error composition.
+
+The source report and input hashes are verified. The matching `.evaluations.jsonl` is still required before raw evidence can be audited and a correction frozen. See [kit-baseline-analysis.md](reports/kit-baseline-analysis.md) and [kit-baseline-audit.json](reports/kit-baseline-audit.json). Existing source labels remain unchanged. No repeat is needed merely to supply the missing file.
 
 ## Accepted reference set
 
@@ -15,7 +21,7 @@ Challenge flags describe accepted benchmark strata. They do not assert newly rep
 
 Canonical and compatibility files are `evals/sets/l09_labels.jsonl` and `sets/l09_labels.jsonl`. The immutable baseline aliases `evals/sets/l09_labels_kit_v1.jsonl` and `sets/l09_labels_kit_v1.jsonl` contain identical bytes. The evaluator uses `rubric.hw08.kit.v1`: each case is checked only against its supplied criterion, with the shared verdict/evidence protocol. Labels, flags and annotation notes never enter the judge prompt.
 
-## Run the new baseline on the local Mac
+## Intentional baseline reproduction on the local Mac
 
 Requirements: Git, Python 3.8+, running Ollama and installed `qwen2.5:14b`. Only the Python standard library is needed. The bank service is not needed to evaluate the recorded answers.
 
@@ -25,9 +31,9 @@ git pull --ff-only
 JUDGE_MODEL=ollama:qwen2.5:14b OLLAMA_URL=http://127.0.0.1:11434 RUNS=5 TEMP=0.7 python3 tools/calibrate_run.py l09_labels_kit_v1
 ```
 
-This requests 150 evaluations: five per case. It verifies committed label, rubric and acceptance inputs before any generation. It records source prompt provenance per case; a global environment setting cannot turn unknown kit prompts into the recorded live bank prompt. Keep the terminal open until `Report:` appears. Exit 2 indicates completed generation with invalid schema/evidence records; retain those outputs. Exit 1 indicates a preflight or run failure; partial evidence is preserved.
+The recorded baseline is already complete. Use this command only for intentional reproduction; it is not the next required action. It requests 150 evaluations: five per case. It verifies committed label, rubric and acceptance inputs before any generation. It records source prompt provenance per case; a global environment setting cannot turn unknown kit prompts into the recorded live bank prompt. Keep the terminal open until `Report:` appears. Exit 2 indicates completed generation with invalid schema/evidence records; retain those outputs. Exit 1 indicates a preflight or run failure; partial evidence is preserved.
 
-For a metadata-only model readiness check, add `--check-only`. It does not generate. After the actual baseline, inspect discrepancies, version a correction, remeasure the same cases and references, and update the trust statement with the new results. Report 95% Wilson intervals for both reference agreement and self-consistency. No replacement accuracy or correction benefit is claimed before those measurements.
+For a metadata-only model readiness check, add `--check-only`. It does not generate. After the actual baseline, inspect discrepancies, version a correction, remeasure the same cases and references, and update the trust statement with the new results. Report 95% Wilson intervals for both reference agreement and self-consistency. Baseline reference agreement is now recorded; no correction benefit is claimed before a measured repeat.
 
 ## Source provenance and scope
 

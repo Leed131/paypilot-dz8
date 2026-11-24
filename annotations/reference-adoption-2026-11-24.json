@@ -1,0 +1,14 @@
+{
+  "event": "student_batch_acceptance",
+  "recorded_at": "2026-11-24T17:58:36.553658+00:00",
+  "message_translation_en": "I accept, but please check once more just in case.",
+  "translation_note": "English translation of the student message in this conversation; the original message is not republished.",
+  "original_message_sha256": "1f36b29de4a6a30170dd779767544558500efe6c67026c79c24beb53dd8ac14c",
+  "accepted_review_commit": "8ee2754ff3bad140fb65699981b2100334e378f6",
+  "accepted_draft_file": "annotations/proposals/kit-replacement-30.draft.jsonl",
+  "accepted_draft_sha256": "d88fcd826f6717921cd5bc09a05e41cd30475ca461219989137ce7e0df05c235",
+  "scope": "Student accepted the seventeen proposed labels and benchmark flags as a batch and requested one further audit. No case-by-case independent human labelling is claimed.",
+  "prior_human_references_preserved": 13,
+  "assistant_proposals_adopted": 17,
+  "audit_result": "No verdict correction required. Kit questions, answers, original semantic criteria and thirteen prior decisions remain unchanged."
+}

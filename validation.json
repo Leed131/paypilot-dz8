@@ -1,21 +1,39 @@
 {
-  "status": "NOT_READY_REQUIRED_AGENT_CALIBRATION_PENDING",
-  "mentor_correction_date": "2026-11-24",
-  "submission_basis": "pending_actual_agent_or_authorized_kit_calibration",
-  "legacy_synthetic_study": {
-    "scope": "assistant-authored answers; historical learning evidence only, not PayPilot calibration",
-    "previous_validation": "reports/history/pre-mentor-correction/validation.json",
-    "current_canonical_set_is_still_legacy": true,
-    "set_sha256": "28cb41ff169aa346463d726085d5d88fa431c16b415f7db1ef36419da69a18eb",
-    "fixture_label_sha256": "e4a99504bc86164a5fb6b8f13eb756c4cffa7d2e167de5e7063d9270580ee374",
-    "actual_judge_evaluations_preserved": 300,
-    "original_reports_and_journals_modified": false
-  },
+  "status": "REFERENCES_ACCEPTED_BASELINE_MEASUREMENT_PENDING",
+  "resubmission_sent": false,
+  "canonical_set": "evals/sets/l09_labels.jsonl",
+  "accepted_reference_manifest": "annotations/accepted-reference-manifest.json",
+  "acceptance_record": "annotations/reference-adoption-2026-11-24.json",
   "replacement": {
+    "cases": 30,
+    "groups": {
+      "obvious_PASS": 10,
+      "obvious_FAIL": 10,
+      "disputed": 10
+    },
+    "reference_verdict_counts": {
+      "PASS": 16,
+      "FAIL": 14
+    },
+    "prior_human_references": 13,
+    "assistant_proposals_adopted_by_student": 17,
+    "pending_reference_approvals": 0,
+    "source_counts": {
+      "authorized_course_kit": 28,
+      "live_course_agent": 2
+    },
+    "rubric_version": "rubric.hw08.kit.v1",
+    "baseline_alias": "l09_labels_kit_v1",
+    "new_model_evaluations": 0,
+    "new_metrics_available": false,
+    "set_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f",
+    "labels_accepted": true,
+    "freeze_mechanism": "Committed exact inputs verified before generation"
+  },
+  "live_pool": {
     "source": "annotations/live-source/candidates.jsonl",
     "candidate_sha256": "19d1f0bf04a5f98553db8c90387f1c78ba43aca3dcffeab36d7f2631e473d910",
     "candidates": 45,
-    "completed_human_labels": 1,
     "partial_human_reviews": 0,
     "judge_calls": 0,
     "producing_agent_prompt_version": "base.v1+D25+D27",
@@ -28,12 +46,27 @@
     },
     "labels_frozen": false,
     "new_metrics_available": false,
-    "current_pending_candidate": "LIVE-C002",
+    "current_pending_candidate": "LIVE-C002 (deferred; not in accepted set)",
     "human_label_groups": {
       "obvious_PASS": 1,
       "obvious_FAIL": 0,
       "disputed": 0
-    }
+    },
+    "accepted_reference_labels": 2,
+    "prior_explicit_human_labels": 1,
+    "assistant_proposals_adopted_by_student": 1
+  },
+  "legacy_synthetic_study": {
+    "scope": "assistant-authored answers; historical learning evidence only, not PayPilot calibration",
+    "previous_validation": "reports/history/pre-mentor-correction/validation.json",
+    "set_sha256": "28cb41ff169aa346463d726085d5d88fa431c16b415f7db1ef36419da69a18eb",
+    "fixture_label_sha256": "e4a99504bc86164a5fb6b8f13eb756c4cffa7d2e167de5e7063d9270580ee374",
+    "actual_judge_evaluations_preserved": 300,
+    "original_reports_and_journals_modified": false,
+    "reproduction_sets": [
+      "l09_labels_v1",
+      "l09_labels_v1_1"
+    ]
   },
   "class_review_rule": {
     "status": "documented_manual_policy_not_an_automated_classifier",
@@ -45,24 +78,11 @@
   },
   "working_gate_live_execution_performed": false,
   "notes": [
-    "Historical structural and runtime checks remain recorded in the archived validation; they do not establish completion of the mentor corrections.",
-    "Final calibration files and trust metrics must be replaced only after explicit human labels, Git freeze and actual new judge runs.",
-    "No historical label, original response, raw model output or measured score was rewritten."
+    "Student adopted the seventeen assistant proposals as a batch; no independent case-by-case human labelling is claimed for those cases.",
+    "Original thirteen reference decisions/dates and all source texts/semantic criteria are preserved.",
+    "Source-designed challenge groups are accepted benchmark strata, not newly inferred student uncertainty.",
+    "Final readiness requires actual new baseline/correction measurements; no old synthetic score is transferred."
   ],
-  "resubmission_sent": false,
-  "batch_replacement_draft": {
-    "status": "pending_student_review_and_per_case_runtime",
-    "manifest": "annotations/proposals/kit-replacement-manifest.json",
-    "source_kit_cases": 28,
-    "source_live_cases": 2,
-    "existing_human_references": 13,
-    "assistant_proposals_pending": 17,
-    "designed_strata": {
-      "obvious_PASS": 10,
-      "obvious_FAIL": 10,
-      "source_design_challenge": 10
-    },
-    "labels_frozen": false,
-    "judge_calls": 0
-  }
+  "offline_reference_runtime_audit": "reports/accepted-reference-audit.json",
+  "offline_reference_runtime_checks_pass": true
 }

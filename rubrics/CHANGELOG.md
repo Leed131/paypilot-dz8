@@ -9,3 +9,9 @@ First packaged English rubric for this new homework set. Records the three condi
 After reviewing the completed v1 baseline, make the evaluation procedure explicit: inspect all sentences, check all three conditions independently, and let any failure determine the overall FAIL. Clarify contact versus resolution timing and that a separate disclaimer does not erase a definite outcome promise. Keep the original criterion, human labels, dialogue texts, three triggers, output schema and judge system prompt unchanged. Do not add an unconditional-follow-up requirement or case-specific exemplars to fit ambiguous labels.
 
 The v1 set and rubric remain immutable. The revised instructions are stored in `l09_labels_v1_1` for a full same-set repeat. Possible cost: stricter reading may create false alarms on qualified assistance or reassurance; actual effects must be measured, not assumed.
+
+## rubric.hw08.kit.v1 - 2026-11-24
+
+New mentor-authorized source scope: 28 official-kit responses with their original per-case semantic criteria, plus two recorded course-agent responses under the existing combined criterion. The prior synthetic studies are preserved as historical evidence. The student adopted seventeen assistant proposals as a batch; thirteen original human references and dates are preserved. Designed challenge membership is recorded separately from independent personal uncertainty.
+
+Provide a common four-field verdict/evidence protocol and case-specific failure-trigger validation without adding unstated semantic conditions. Register the frozen baseline alias `l09_labels_kit_v1`. No replacement baseline results or correction effects are claimed before actual generation. Any subsequent correction must receive a new version and be measured on the same source responses, criteria and references.

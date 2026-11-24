@@ -1,5 +1,7 @@
 # PayPilot replacement reference draft - 30 cases
 
+**Historical review draft: the student has accepted this package. Current accepted inputs are linked in [accepted-reference-review.md](../accepted-reference-review.md).**
+
 **Draft for student review. No judge run has started.** Thirteen existing human references are preserved; seventeen assistant proposals require review. This file does not claim thirty completed human labels.
 
 The official kit is used with its original per-case criteria. The planned strata are 10 obvious PASS, 10 obvious FAIL and 10 source-designed challenge cases. Challenge membership is not automatically a personal disputed decision; new disputed fields remain null until the student decides.

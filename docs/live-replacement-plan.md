@@ -2,7 +2,7 @@
 
 Actual-agent or authorized-kit calibration is required by mentor review. The current batch-review draft instead uses 28 unchanged kit cases and two recorded live answers; see `annotations/proposals/kit-replacement-manifest.json`. This document preserves the alternative full 45-answer live-pool workflow if additional source cases are needed.
 
-The collection is unchanged in `annotations/live-source/`. No judge evaluations have been made on it; LIVE-C001 is its one finalized human annotation. LIVE-C002's unfinished assessment remains unassigned and is deferred by the batch-review route. Original local raw trace files were not attached here and must be retained locally.
+The collection is unchanged in `annotations/live-source/`. No judge evaluations have been made on it; LIVE-C001 has its original explicit human decision, and LIVE-C006 has an assistant proposal adopted by the student in the accepted batch. LIVE-C002's unfinished assessment remains unassigned and is deferred by the batch-review route. Original local raw trace files were not attached here and must be retained locally.
 
 ## Collection
 

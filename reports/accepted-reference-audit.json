@@ -1,0 +1,54 @@
+{
+  "status": "PASS_INPUT_AND_RUNTIME_OFFLINE_AUDIT",
+  "checked_at": "2026-11-24T18:06:29.504911+00:00",
+  "accepted_set_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f",
+  "cases": 30,
+  "groups": {
+    "obvious_PASS": 10,
+    "obvious_FAIL": 10,
+    "disputed": 10
+  },
+  "reference_verdict_counts": {
+    "PASS": 16,
+    "FAIL": 14
+  },
+  "references": {
+    "prior_human": 13,
+    "assistant_proposed_student_accepted_in_batch": 17,
+    "pending_reference_approvals": 0
+  },
+  "source_checks": {
+    "exact_question_answer_pairs": 30,
+    "unique_pairs": 30,
+    "unchanged_kit_semantic_criteria": 28,
+    "prior_lab_labels_dates_flags_preserved": 12,
+    "live_C001_prior_decision_preserved": true,
+    "official_kit_git_blob_hashes_match": true,
+    "mixed_producing_prompt_versions_not_fabricated": true
+  },
+  "offline_runtime_checks": {
+    "course_loader_accepts_all30": true,
+    "python_3_8_syntax": true,
+    "per_case_criterion_and_template_validation": true,
+    "six_frozen_git_inputs_verified": true,
+    "uncommitted_or_stale_inputs_rejected": true,
+    "draft_references_and_wrong_sources_rejected": true,
+    "frozen_case_content_bound_to_reviewed_draft": true,
+    "coherently_changed_committed_references_rejected": true,
+    "source_specific_failure_trigger_validation": true,
+    "label_and_annotation_notes_excluded_from_judge_arguments": true,
+    "mixed_prompt_provenance_not_overridden_by_environment": true,
+    "agreement_and_consistency_both_have_wilson_intervals": true,
+    "stub_model_evaluations": 150,
+    "real_model_evaluations": 0,
+    "legacy_input_hashes_and_guard_preserved": true
+  },
+  "runtime_code_sha256": "a9588b150d788572338fbe2318ffe167ed0d6d0618d8783dc58cb6027aae83a7",
+  "judge_system_code_sha256": "edfedb56b8bca3c5e94c963a3fc21a48a6fbcd110e9b8da591b7d37cb4040493",
+  "limits": [
+    "This audit validates source/reference integrity and offline runtime behavior, not judge accuracy.",
+    "The user-local Ollama endpoint/model readiness must be checked by the real run.",
+    "New baseline, correction measurement and final trust metrics remain pending.",
+    "Source-designed challenge flags and prior laboratory exposure are disclosed."
+  ]
+}

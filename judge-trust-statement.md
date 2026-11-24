@@ -1,26 +1,24 @@
 # Judge Trust Statement - US-05 section 4
 
-Status: **revision in progress; actual-agent calibration pending**. Autonomous release approval is withheld. The previous synthetic study is historical evidence, not a PayPilot performance estimate.
+Status: **accepted replacement references; new calibration pending**. Autonomous release approval remains withheld. Historical synthetic scores are not PayPilot performance estimates.
 
 | Statement | Evidence and decision |
 | --- | --- |
-| Calibrated on | Replacement draft: 28 authorized-kit cases with unchanged per-case criteria, plus two recorded agent answers. Thirteen existing human references are retained; seventeen assistant proposals require review. Planned kit-design strata: 10 obvious PASS, 10 obvious FAIL, 10 challenge cases; new student uncertainty flags are pending. No replacement judge results yet. |
-| Agreement | Pending actual-agent measurement. Historical synthetic scores cannot be transferred. Report case-majority agreement, schema/evidence-valid agreement and 95% Wilson intervals separately. |
-| Self-consistency | Pending. Report five identical verdicts separately from human agreement: a stable answer can be wrong. |
-| Where it fails | Historical HW08-011 received five false PASS verdicts: generic further-attention/update wording did not confirm human involvement. This motivates a response-class review rule whose operational effect is unmeasured. |
-| What we do | Lidiia must review **unconfirmed human handoff**: status, queue, routing or update wording without positive confirmation of transfer to an explicit human role, or that such a role takes over or follows up; also conditional offers or refusals. Apply even with valid output and PASS 5/5. No automatic acceptance until review. Invalid, unstable and disputed cases also require review. Cost: additional human work. |
-| Recalibrate | Review references, align the evaluator with each case criterion, then freeze before five evaluations per case; measure baseline and correction on the same cases. Recalibrate after model, prompt, rubric, language, case-mix or adjudicated-reference changes. |
+| Calibrated on | Accepted set: 28 authorized-kit cases with unchanged per-case criteria plus two recorded PayPilot answers; groups 10 obvious PASS, 10 obvious FAIL, 10 source-designed challenge cases. Thirteen prior references are preserved; seventeen assistant proposals were adopted by the student as a batch. `rubric.hw08.kit.v1` evaluates only each supplied criterion. |
+| Agreement | New measurement pending. Report case-majority and schema/evidence-valid agreement separately, with 95% Wilson intervals and half-widths. Legacy synthetic scores do not transfer. |
+| Self-consistency | Pending: report five identical verdicts with a 95% Wilson interval, separately from agreement with accepted references. A stable answer can still be wrong. |
+| Where it fails | Historical HW08-011 was missed at PASS 5/5: further-attention/update wording did not confirm human involvement. New kit disagreements, including subjective LB-10/LB-12 references, require interpretation rather than automatic attribution of judge error. |
+| What we do | Lidiia reviews **unconfirmed human handoff** whenever handoff is required: generic status, queue, routing or updates without positive transfer to an explicit human role or committed takeover/follow-up; also conditional offers/refusals. Apply even with valid PASS 5/5. No automatic acceptance until review. Invalid, unstable and disputed cases also require review. Cost: additional human work. |
+| Recalibrate | Commit exact references and evaluator before five evaluations per case. After baseline analysis, version a correction and remeasure unchanged references. Recalibrate after model, prompt, semantic criterion, language, case mix or reference adjudication changes. |
 
 ## Residual risk
 
-Owner: Lidiia, the student annotator. This draft does not certify completion. Kit producing prompts are unspecified; `base.v1+D25+D27` applies only to the two live cases. Reused laboratory flags were documented after earlier judge runs; no independent blind-holdout claim is made.
+Owner: Lidiia, student reviewer. Acceptance is limited to supervised coursework. Kit producing prompts are unspecified; `base.v1+D25+D27` applies only to the two recorded live answers.
 
 | What is not covered | What happens if it occurs | Why we live with it now | Defer or accept |
 | --- | --- | --- | --- |
-| Completed actual-agent calibration | Synthetic accuracy could be misattributed to PayPilot. | Withhold the final performance claim until labels and measurements exist. | Defer final submission. |
-| Independent holdout and representative traffic | Results may not generalize. | A curated coursework set supports limited, supervised conclusions. | Accept this scope limitation; no deployment claim. |
-| Automated response-class detection | A stable false PASS can evade dispersion checks. | The class check is mandatory and manual, independent of votes. An explicitly human-assigned queue alone does not trigger the generic-queue rule. | Accept manual use only; no autonomous approval. |
+| Completed replacement calibration | An unsupported accuracy claim could be made. | Final metrics and readiness are withheld until new actual runs. | Defer final submission. |
+| Independent holdout and representative combined-gate traffic | Pooled component scores may not generalize. | Reused lab cases and source-designed challenge flags are disclosed; only two cases use the combined criterion. | Accept limited coursework scope; no autonomous-gate claim. |
+| Automated response-class detection | A stable false PASS can evade dispersion checks. | The class check is manual and independent of votes; an explicitly human-assigned queue is not generic queue-only wording. | Accept manual use only. |
 
-Policy: [manual-review.hw08.v1.json](policies/manual-review.hw08.v1.json). Progress: [live-human-review.json](annotations/live-human-review.json). Previous statement: [archived statement](reports/history/pre-mentor-correction/judge-trust-statement.md). Historical metrics: [calibration-comparison.md](reports/calibration-comparison.md).
-
-Batch reference draft: [review-30.md](annotations/proposals/review-30.md). Only seventeen proposals need review: [review-17.uk.md](annotations/proposals/review-17.uk.md).
+References: [accepted set review](annotations/accepted-reference-review.md), [input manifest](annotations/accepted-reference-manifest.json), [manual policy](policies/manual-review.hw08.v1.json), and [requirements audit](reports/requirements-audit.md).

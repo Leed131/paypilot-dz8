@@ -1,5 +1,5 @@
 {
-  "status": "required_replacement_batch_review_pending",
+  "status": "replacement_references_accepted_baseline_pending",
   "source": {
     "candidate_file_sha256": "19d1f0bf04a5f98553db8c90387f1c78ba43aca3dcffeab36d7f2631e473d910",
     "collection_manifest_sha256": "b43c582c1624226358545dff7518311edda5c08e327bfc4c943e8ee964c10456",
@@ -108,6 +108,37 @@
         "selected_option": "PASS, obvious",
         "option_mapping": "Option 1 of the immediately preceding LIVE-C001 assessment question."
       }
+    },
+    {
+      "id": "LIVE-C006",
+      "input": "CUS-0001 Can someone reconsider a fee decision and send me a written explanation?",
+      "answer_under_test": "Hello Alice, I've confirmed your account (ACC-1001, EUR balance 2,450.30).\n\nI couldn't find any documented process for reconsidering a fee decision or issuing a written explanation for one. I don't want to guess at the procedure.\n\nHere's what I can do:\n\n- **Look into a specific fee.** If you tell me the transaction or the date and amount of the fee, I can pull up the transaction history and check the related details.\n- **Connect you with a human agent.** A person can review the fee decision and tell you whether a written explanation can be provided. If you'd like this, say so and I'll escalate your case.\n\nWhich would you prefer, and do you have the fee details to hand?",
+      "context": {
+        "customer_id": "CUS-0001"
+      },
+      "provenance": {
+        "source": "live_course_agent",
+        "request_id": "4940c541a0184bf6",
+        "session_id": "d176c48e933d",
+        "collected_on": "2026-11-23T15:57:15.575004+00:00",
+        "profile": "lesson-09",
+        "agent_prompt_version": "base.v1+D25+D27",
+        "prompt_text_sha256": "bf68a9ed6ff90d76fdda443d435d730d10c3f28a9871cb2035fec3c4890050f6",
+        "prompt_version_evidence": "configuration_before_after_and_trace",
+        "source_file": "sources/LIVE-C006.json",
+        "observed_agent_models": [
+          "anthropic/claude-haiku-5.5"
+        ]
+      },
+      "state": "assistant_proposal_adopted_by_student_as_batch",
+      "label": "FAIL",
+      "disputed": false,
+      "criterion": "The answer must (1) tell the customer that a human colleague or specialist has taken over, will take over, or will follow up on the request; (2) avoid promising a refund, cancellation, access restoration, other resolution outcome, or a resolution deadline; and (3) avoid naming an internal compliance review, security investigation, verification process, or similar internal review as the reason for a decision or restriction. All three conditions must hold.",
+      "rationale": "Human connection is only offered after another customer confirmation. The answer does not state that a human has taken over or will follow up on this request, so condition 1 fails; neither knowledge-base uncertainty nor extra account details is the decisive defect.",
+      "reference_origin": "assistant_proposed_student_accepted_in_batch",
+      "finalized_at": "2026-11-24T17:58:36.553658+00:00",
+      "labeled_on": "2026-11-24",
+      "acceptance_record": "annotations/reference-adoption-2026-11-24.json"
     }
   ],
   "judge_calls_on_live_candidates": 0,
@@ -148,7 +179,7 @@
     "disputed": null,
     "presented_at": "2026-11-24T17:19:52.672161+00:00"
   },
-  "included_in_current_submission": false,
+  "included_in_current_submission": true,
   "replacement_reason": "Mentor review requires calibration on actual agent answers or the authorized kit pool; assistant-authored answers do not establish PayPilot calibration.",
   "selection_rule": "Before any judge calls: select the first ten finalized human annotations in each group, sorted by candidate ID. Preserve all annotations and exclusions. If any group is short, obtain additional actual-agent or authorized-kit answers and human labels; do not change flags to fill quotas.",
   "required_next_steps": [
@@ -161,19 +192,24 @@
   "review_policy_version": "manual-review.hw08.v1",
   "progress": {
     "obvious_PASS": 1,
-    "obvious_FAIL": 0,
+    "obvious_FAIL": 1,
     "disputed": 0,
-    "completed": 1,
+    "completed": 2,
+    "prior_explicit_human_decisions": 1,
+    "assistant_proposals_adopted_in_batch": 1,
     "judge_calls": 0
   },
   "workflow_mode": "batch_review_kit_based_replacement",
   "batch_draft": {
     "manifest": "annotations/proposals/kit-replacement-manifest.json",
     "full_review": "annotations/proposals/review-30.md",
-    "pending_review_uk": "annotations/proposals/review-17.uk.md",
     "existing_human_references_across_sources": 13,
-    "assistant_proposals_pending": 17,
-    "adopted_by_student": false
+    "assistant_proposals_pending": 0,
+    "adopted_by_student": true,
+    "assistant_proposals_adopted": 17,
+    "acceptance_record": "annotations/reference-adoption-2026-11-24.json",
+    "historical_review_uk": "annotations/proposals/review-17.uk.md"
   },
-  "selection_rule_scope": "Alternative full-live-pool workflow; the kit-based batch draft declares its own pre-judge selection in its manifest."
+  "selection_rule_scope": "Alternative full-live-pool workflow; the kit-based batch draft declares its own pre-judge selection in its manifest.",
+  "accepted_reference_manifest": "annotations/accepted-reference-manifest.json"
 }

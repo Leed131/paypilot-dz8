@@ -24,8 +24,16 @@ from judge import SYSTEM_SHA256, SYSTEM_VERSION, judge, preflight
 
 SET_CONFIGS = {
     "l09_labels": {
-        "rubric_version": "rubric.hw08.v1.1",
-        "rubric_path": "rubrics/escalation.rubric.hw08.v1.1.json",
+        "rubric_version": "rubric.hw08.kit.v1",
+        "rubric_path": "rubrics/escalation.rubric.hw08.kit.v1.json",
+        "casewise": True,
+        "reference_manifest_path": "annotations/accepted-reference-manifest.kit-v1.json",
+    },
+    "l09_labels_kit_v1": {
+        "rubric_version": "rubric.hw08.kit.v1",
+        "rubric_path": "rubrics/escalation.rubric.hw08.kit.v1.json",
+        "casewise": True,
+        "reference_manifest_path": "annotations/accepted-reference-manifest.kit-v1.json",
     },
     "l09_labels_v1": {
         "rubric_version": "rubric.hw08.v1",
@@ -111,12 +119,19 @@ def load_frozen_set(name):
     rubric = json.loads(rubric_path.read_text(encoding="utf-8"))
     if rubric.get("version") != expected_version:
         raise ValueError("Packaged rubric version differs from case metadata.")
-    if any(c["additional_metadata"]["rubric"] != rubric.get("instruction") for c in cases):
+    source_metadata = {}
+    acceptance_paths = []
+    if config.get("casewise"):
+        source_metadata = validate_casewise_rubric(cases, rubric)
+        acceptance_paths, acceptance_metadata = validate_reference_acceptance(
+            cases, data, rubric_path, config, source_metadata)
+        source_metadata.update(acceptance_metadata)
+    elif any(c["additional_metadata"]["rubric"] != rubric.get("instruction") for c in cases):
         raise ValueError("Per-case rubric text differs from the packaged rubric.")
     # A real repository commit must already contain the exact bytes being evaluated.
     repo_root = Path(git("rev-parse", "--show-toplevel")).resolve()
     checked_paths = []
-    for path in (canonical, compatibility, rubric_path):
+    for path in [canonical, compatibility, rubric_path] + acceptance_paths:
         rel = path.relative_to(repo_root).as_posix()
         git("ls-files", "--error-unmatch", "--", rel)
         if git("show", "HEAD:" + rel, binary=True) != path.read_bytes():
@@ -124,12 +139,16 @@ def load_frozen_set(name):
         checked_paths.append(rel)
     label_paths = checked_paths[:2]
     # This hash excludes rubric wording/version and compares the frozen human
-    # fixture/label content across procedural rubric revisions.
+    # fixture/label content across procedural rubric revisions. The casewise
+    # family also freezes the semantic criterion: it is part of the reference,
+    # unlike procedural instruction wording.
     fixture_labels = [
         {"id": case["id"], "input": case["input"],
          "answer_under_test": case["answer_under_test"],
          "label": case["additional_metadata"]["label"],
-         "disputed": case["additional_metadata"]["disputed"]}
+         "disputed": case["additional_metadata"]["disputed"],
+         **({"criterion": case["additional_metadata"]["criterion"]}
+            if config.get("casewise") else {})}
         for case in sorted(cases, key=lambda item: item["id"])
     ]
     fixture_label_data = json.dumps(fixture_labels, ensure_ascii=False,
@@ -140,7 +159,167 @@ def load_frozen_set(name):
         "rubric_sha256": sha256(rubric_path.read_bytes()),
         "git_head": git("rev-parse", "HEAD"),
         "git_annotation_commit": git("log", "-1", "--format=%H", "HEAD", "--", *label_paths),
-        "git_verified_input_paths": checked_paths, "group_sizes": dict(groups)}
+        "git_verified_input_paths": checked_paths, "group_sizes": dict(groups),
+        **source_metadata}
+
+
+def validate_casewise_rubric(cases, rubric):
+    """Validate frozen per-case criteria and accepted reference provenance."""
+    variants = rubric.get("criterion_variants")
+    expected_ids = {"human_handoff", "no_outcome_promise",
+                    "no_internal_review_reason", "combined"}
+    if (not isinstance(variants, dict) or set(variants) != expected_ids
+            or any(not isinstance(value, str) or not value.strip()
+                   for value in variants.values())):
+        raise ValueError("Casewise rubric must define the four expected criteria.")
+    template = rubric.get("instruction_template")
+    if not isinstance(template, str) or template.count("{criterion}") != 1:
+        raise ValueError("Casewise rubric needs exactly one {criterion} placeholder.")
+    triggers = rubric.get("triggers", [])
+    trigger_ids = [item.get("id") if isinstance(item, dict) else item for item in triggers]
+    if (len(trigger_ids) != 3 or set(trigger_ids) != expected_ids - {"combined"}):
+        raise ValueError("Casewise rubric must retain the three supported triggers.")
+    if len({(case["input"], case["answer_under_test"]) for case in cases}) != len(cases):
+        raise ValueError("Duplicate recorded question/answer pairs in casewise set.")
+    prompt_versions = {}
+    source_kinds = {}
+    criterion_ids = {}
+    reference_origins = Counter()
+    for case in cases:
+        meta = case["additional_metadata"]
+        ident = case["id"]
+        criterion_id = meta.get("criterion_id")
+        if criterion_id not in variants or meta.get("criterion") != variants[criterion_id]:
+            raise ValueError("Case criterion differs from the packaged variant: " + ident)
+        try:
+            instruction = template.format(criterion=variants[criterion_id])
+        except (KeyError, ValueError, IndexError) as exc:
+            raise ValueError("Invalid casewise instruction template: " + str(exc))
+        if meta.get("rubric") != instruction:
+            raise ValueError("Per-case rubric differs from the packaged template: " + ident)
+        if meta.get("reference_status") != "student_accepted":
+            raise ValueError("Reference is not accepted by the student: " + ident)
+        origin = meta.get("reference_origin")
+        if origin not in {"prior_human", "assistant_proposed_student_accepted_in_batch"}:
+            raise ValueError("Unsupported accepted-reference origin: " + ident)
+        kind = meta.get("source_kind")
+        prompt_version = meta.get("producing_agent_prompt_version")
+        if kind == "authorized_course_kit":
+            if prompt_version != "not_provided_in_authorized_kit":
+                raise ValueError("Do not attribute a live bank prompt to kit answers: " + ident)
+        elif kind == "live_course_agent":
+            if (not isinstance(prompt_version, str) or not prompt_version.strip()
+                    or prompt_version in {"not_provided_in_authorized_kit",
+                                          "not_applicable_recorded_fixtures"}):
+                raise ValueError("Missing producing prompt version for live answer: " + ident)
+        else:
+            raise ValueError("Casewise calibration requires kit or actual-agent source: " + ident)
+        prompt_versions[ident] = prompt_version
+        source_kinds[ident] = kind
+        criterion_ids[ident] = criterion_id
+        reference_origins[origin] += 1
+    distinct_versions = set(prompt_versions.values())
+    return {"calibration_scope": "per_case_criteria_authorized_kit_and_recorded_agent",
+            "agent_prompt_version": (next(iter(distinct_versions)) if len(distinct_versions) == 1
+                                     else "mixed_per_case_source_provenance"),
+            "agent_prompt_versions_by_case": prompt_versions,
+            "source_kinds_by_case": source_kinds,
+            "source_kind_counts": dict(Counter(source_kinds.values())),
+            "criterion_ids_by_case": criterion_ids,
+            "reference_origin_counts": dict(reference_origins)}
+
+
+def validate_reference_acceptance(cases, data, rubric_path, config, source_metadata):
+    """Bind accepted references to the recorded student adoption and exact set."""
+    manifest_path = ROOT / config["reference_manifest_path"]
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    expected = {"set_sha256": sha256(data), "cases": len(cases),
+                "rubric_version": config["rubric_version"],
+                "rubric_sha256": sha256(rubric_path.read_bytes()),
+                "groups": dict(Counter(group_of(case) for case in cases)),
+                "source_counts": source_metadata["source_kind_counts"],
+                "reference_origin_counts": source_metadata["reference_origin_counts"],
+                "criterion_counts": dict(Counter(source_metadata["criterion_ids_by_case"].values()))}
+    for key, value in expected.items():
+        if manifest.get(key) != value:
+            raise ValueError("Accepted-reference manifest differs from frozen " + key + ".")
+    adoption_rel = manifest.get("student_acceptance_record")
+    if not isinstance(adoption_rel, str) or not adoption_rel:
+        raise ValueError("Accepted-reference manifest needs a student acceptance record.")
+    adoption_path = (ROOT / adoption_rel).resolve()
+    if ROOT.resolve() not in adoption_path.parents:
+        raise ValueError("Student acceptance record must be inside the repository.")
+    adoption = json.loads(adoption_path.read_text(encoding="utf-8"))
+    if adoption.get("event") != "student_batch_acceptance" or not adoption.get("recorded_at"):
+        raise ValueError("Invalid student acceptance record.")
+    counts = source_metadata["reference_origin_counts"]
+    if (adoption.get("prior_human_references_preserved") != counts.get("prior_human", 0)
+            or adoption.get("assistant_proposals_adopted")
+            != counts.get("assistant_proposed_student_accepted_in_batch", 0)):
+        raise ValueError("Student acceptance counts differ from the accepted set.")
+    for case in cases:
+        meta = case["additional_metadata"]
+        if (meta.get("reference_adoption") != adoption_rel
+                or meta.get("reference_adopted_at") != adoption["recorded_at"]):
+            raise ValueError("Case does not refer to the recorded student adoption: " + case["id"])
+    draft_rel = adoption.get("accepted_draft_file")
+    if not isinstance(draft_rel, str) or not draft_rel:
+        raise ValueError("Student acceptance record needs the accepted draft path.")
+    draft_path = (ROOT / draft_rel).resolve()
+    if ROOT.resolve() not in draft_path.parents:
+        raise ValueError("Accepted draft must be inside the repository.")
+    if sha256(draft_path.read_bytes()) != adoption.get("accepted_draft_sha256"):
+        raise ValueError("Accepted draft bytes differ from the student acceptance record.")
+    reviewed_cases = [json.loads(line) for line in draft_path.read_text(encoding="utf-8").splitlines()
+                      if line.strip()]
+    if (len(reviewed_cases) != len(cases)
+            or len({case["id"] for case in reviewed_cases}) != len(reviewed_cases)
+            or {case["id"] for case in reviewed_cases} != {case["id"] for case in cases}):
+        raise ValueError("Accepted set IDs differ from the reviewed draft.")
+    reviewed_by_id = {case["id"]: case for case in reviewed_cases}
+    for case in cases:
+        ident = case["id"]
+        reviewed = reviewed_by_id[ident]
+        annotation = reviewed["annotation"]
+        meta = case["additional_metadata"]
+        for field in ("input", "answer_under_test", "context"):
+            if case.get(field) != reviewed.get(field):
+                raise ValueError("Reviewed draft " + field + " differs from accepted case: " + ident)
+        if case.get("provenance") != reviewed.get("source"):
+            raise ValueError("Reviewed draft provenance differs from accepted case: " + ident)
+        if meta.get("criterion") != reviewed.get("criterion"):
+            raise ValueError("Reviewed draft semantic criterion differs from accepted case: " + ident)
+        if meta.get("label") != annotation.get("label"):
+            raise ValueError("Reviewed draft label differs from accepted case: " + ident)
+        disputed = annotation.get("disputed")
+        if disputed is None:
+            disputed = annotation.get("proposed_disputed")
+        if type(disputed) is not bool or meta.get("disputed") != disputed:
+            raise ValueError("Reviewed draft disputed flag differs from accepted case: " + ident)
+        prior_human = annotation.get("human_confirmed")
+        if type(prior_human) is not bool:
+            raise ValueError("Reviewed draft lacks reference-origin confirmation: " + ident)
+        expected_origin = ("prior_human" if prior_human
+                           else "assistant_proposed_student_accepted_in_batch")
+        if meta.get("reference_origin") != expected_origin:
+            raise ValueError("Reviewed draft reference origin differs from accepted case: " + ident)
+        labeled_on = (annotation.get("original_labeled_on") if prior_human
+                      else adoption["recorded_at"][:10])
+        if not labeled_on or meta.get("labeled_on") != labeled_on:
+            raise ValueError("Reviewed draft annotation date differs from accepted case: " + ident)
+        source = reviewed["source"]
+        source_kind = source.get("kind", source.get("source"))
+        prompt_version = source.get("producing_agent_prompt_version", source.get("agent_prompt_version"))
+        if (meta.get("source_kind") != source_kind
+                or meta.get("producing_agent_prompt_version") != prompt_version):
+            raise ValueError("Reviewed draft producing provenance differs from accepted case: " + ident)
+    return [manifest_path, adoption_path, draft_path], {
+        "accepted_reference_manifest": config["reference_manifest_path"],
+        "accepted_reference_manifest_sha256": sha256(manifest_path.read_bytes()),
+        "student_acceptance_record": adoption_rel,
+        "student_acceptance_record_sha256": sha256(adoption_path.read_bytes()),
+        "student_acceptance_recorded_at": adoption["recorded_at"],
+        "accepted_draft_sha256": adoption["accepted_draft_sha256"]}
 
 
 def configuration():
@@ -166,6 +345,14 @@ def majority(rows, evidence_valid=False):
         if votes[verdict] >= 3:
             return verdict
     return None
+
+
+def validate_case_trigger(result, criterion_id):
+    """Flag valid enum values that nevertheless address an unstated condition."""
+    if (result.get("verdict") == "FAIL" and not result.get("data_quality_errors")
+            and criterion_id != "combined" and result.get("trigger") != criterion_id):
+        result["data_quality_errors"] = ["trigger_outside_case_criterion"]
+    return result
 
 
 def summarize(cases, evaluations):
@@ -202,10 +389,12 @@ def summarize(cases, evaluations):
         members = [r for r in rows if r["group"] == group]
         groups[group] = {"raw_verdict_agreement": wilson(sum(r["agree"] for r in members), len(members)),
                          "evidence_valid_agreement": wilson(sum(r["evidence_valid_agree"] for r in members), len(members))}
+    stable_cases = sum(row["stable"] for row in rows)
     return {"cases_completed": len(rows), "cases": rows,
             "agreement": wilson(sum(r["agree"] for r in rows), len(rows)),
             "evidence_valid_agreement": wilson(sum(r["evidence_valid_agree"] for r in rows), len(rows)),
-            "self_consistency": {"stable_cases": sum(r["stable"] for r in rows), "total_cases": len(rows)},
+            "self_consistency": {"stable_cases": stable_cases, "total_cases": len(rows),
+                                 "wilson_95": wilson(stable_cases, len(rows))},
             "groups": groups, "confusion_matrix": matrix,
             "disagreements": [r for r in rows if not r["agree"]],
             "unresolved_case_ids": [r["id"] for r in rows if r["majority"] is None],
@@ -237,6 +426,10 @@ def main():
                              "Finish and freeze real-agent/authorized-kit labels first. "
                              "Use --allow-legacy-fixtures only for intentional historical reproduction.")
         settings = configuration()
+        if "agent_prompt_versions_by_case" in metadata:
+            # Frozen case provenance, not an environment override, defines the
+            # producing versions of a mixed kit/live dataset.
+            settings["agent_prompt_version"] = metadata["agent_prompt_version"]
         runtime = preflight(settings["judge_model"], settings["ollama_url"])
     except Exception as exc:
         print("Preflight failed: " + str(exc), file=sys.stderr)
@@ -268,6 +461,8 @@ def main():
                         result = judge(case["input"], case["answer_under_test"], meta["rubric"],
                                        settings["judge_model"], settings["temperature"],
                                        meta["rubric_version"], settings["ollama_url"])
+                        if SET_CONFIGS[args.set].get("casewise"):
+                            validate_case_trigger(result, meta["criterion_id"])
                         row.update(result, status="completed", finished_at=utc_now())
                         report["evaluations_completed"] += 1
                     except BaseException as exc:

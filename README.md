@@ -1,45 +1,42 @@
-# HW08 - Judge calibration for PayPilot escalation
+# HW08 - PayPilot judge calibration
 
-**Revision required after mentor review.** The completed 30-case experiment used assistant-authored answers. Its 300 real judge evaluations are preserved as historical learning evidence; they do not establish judge accuracy on PayPilot answers. Final submission remains pending calibration on actual agent answers or the authorized course kit pool.
+**References accepted; new baseline measurement pending.** The student accepted the review package and requested a further audit. All 30 source question/answer pairs and original semantic criteria passed review; no verdict corrections were needed.
 
-The class-based correction is in [judge-trust-statement.md](judge-trust-statement.md), under **What we do**, and [manual-review.hw08.v1.json](policies/manual-review.hw08.v1.json). Generic progress/update responses without confirmed human involvement require human review even with PASS five times. This is a manual policy, not a measured accuracy improvement.
+## Accepted reference set
 
-## Required replacement - batch review draft
+- 28 unchanged cases from the mentor-authorized official kit, evaluated under their original per-case criteria.
+- Two recorded PayPilot answers: LIVE-C001 and LIVE-C006, evaluated under the combined criterion.
+- 13 prior human references preserved with their original dates; 17 assistant proposals adopted by the student as a batch. This is not independent case-by-case human annotation for those seventeen cases.
+- Exactly 10 obvious PASS, 10 obvious FAIL and 10 accepted source-designed challenge examples; reference verdict totals are 16 PASS and 14 FAIL.
 
-A [30-case replacement draft](annotations/proposals/review-30.md) is ready: 28 unchanged authorized-kit cases and two recorded course-agent answers. It reuses twelve saved laboratory decisions and LIVE-C001, and proposes seventeen additional annotations for student review. The [Ukrainian review file](annotations/proposals/review-17.uk.md) contains only those seventeen pending decisions; no retyping or individual-question workflow is required.
+Start with [accepted-reference-review.md](annotations/accepted-reference-review.md) and [accepted-reference-manifest.json](annotations/accepted-reference-manifest.json). The [acceptance record](annotations/reference-adoption-2026-11-24.json) links the exact reviewed draft. The original proposal files remain historical review evidence.
 
-This follows the official kit guide at commit `f5c235aa10a505f9d6f9e422ffd66917578c537b`: reuse the laboratory cases and pool, select challenge cases, and add one obvious positive and one obvious negative. The planned benchmark strata are 10 obvious PASS, 10 obvious FAIL and 10 source-designed challenge cases. New student disputed flags remain unassigned; intended challenge membership does not establish the student's uncertainty.
+Challenge flags describe accepted benchmark strata. They do not assert newly reported personal uncertainty. Laboratory grouping was documented after prior laboratory judge runs; this is not a fresh independent blind holdout. The official kit guide recommends reusing those lab cases and adding pool cases and two obvious examples.
 
-**Criterion scope:** each kit case retains its original single-condition criterion. The two live cases retain the combined three-condition criterion. This is a deliberate casewise calibration scope. The current common-rubric runner must be aligned before judging; do not run the new draft through the old all-three-condition check.
+Canonical and compatibility files are `evals/sets/l09_labels.jsonl` and `sets/l09_labels.jsonl`. The immutable baseline aliases `evals/sets/l09_labels_kit_v1.jsonl` and `sets/l09_labels_kit_v1.jsonl` contain identical bytes. The evaluator uses `rubric.hw08.kit.v1`: each case is checked only against its supplied criterion, with the shared verdict/evidence protocol. Labels, flags and annotation notes never enter the judge prompt.
 
-**Provenance:** kit source files byte-match the official repository and retain its original criteria. Its producing-agent prompt versions were not supplied. `base.v1+D25+D27` and observed model `anthropic/claude-haiku-5.5` apply only to the two live answers. The twelve old laboratory labels retain their dates and decisions; their grouping was documented after earlier laboratory judge runs. This is not a fresh independent blind holdout.
+## Run the new baseline on the local Mac
 
-1. Review/adopt or correct the seventeen assistant proposals, including six provisional challenge flags. Thirteen existing human references remain unchanged.
-2. Verify final groups after review. The draft's designed 10/10/10 is provisional; do not force uncertainty flags if the student disagrees.
-3. Align the evaluator with each supplied case criterion, then freeze the exact selected responses, references, rubric and source provenance in Git.
-4. Run five evaluations per case for baseline and a versioned correction on the same cases. Compute new reports and the final trust statement; old synthetic scores do not transfer.
+Requirements: Git, Python 3.8+, running Ollama and installed `qwen2.5:14b`. Only the Python standard library is needed. The bank service is not needed to evaluate the recorded answers.
 
-Manifest and exact draft: [annotations/proposals/kit-replacement-manifest.json](annotations/proposals/kit-replacement-manifest.json) and [kit-replacement-30.draft.jsonl](annotations/proposals/kit-replacement-30.draft.jsonl). The draft is not installed as the canonical label file and cannot be run by its current set registry.
+```bash
+cd "$HOME/Downloads/paypilot-dz8"
+git pull --ff-only
+JUDGE_MODEL=ollama:qwen2.5:14b OLLAMA_URL=http://127.0.0.1:11434 RUNS=5 TEMP=0.7 python3 tools/calibrate_run.py l09_labels_kit_v1
+```
 
-All 45 earlier live responses remain unchanged in `annotations/live-source/`. Their full annotation route is an alternative if needed; it is not necessary to repeat that whole pool while reviewing this kit-based draft. Raw `sources/` traces were not attached and have not been independently re-inspected here; keep the original local collection directory.
+This requests 150 evaluations: five per case. It verifies committed label, rubric and acceptance inputs before any generation. It records source prompt provenance per case; a global environment setting cannot turn unknown kit prompts into the recorded live bank prompt. Keep the terminal open until `Report:` appears. Exit 2 indicates completed generation with invalid schema/evidence records; retain those outputs. Exit 1 indicates a preflight or run failure; partial evidence is preserved.
 
-## Historical experiment
+For a metadata-only model readiness check, add `--check-only`. It does not generate. After the actual baseline, inspect discrepancies, version a correction, remeasure the same cases and references, and update the trust statement with the new results. Report 95% Wilson intervals for both reference agreement and self-consistency. No replacement accuracy or correction benefit is claimed before those measurements.
 
-The current `evals/sets/l09_labels.jsonl`, compatibility copy `sets/l09_labels.jsonl`, and version aliases are **still the synthetic legacy set**, not the required replacement. Their exact answers, labels, disputed flags and hashes are preserved.
+## Source provenance and scope
 
-| Historical measure | v1 | v1.1 |
-| --- | --- | --- |
-| Raw majority agreement | 24/30, 80.00% | 25/30, 83.33% |
-| Schema/evidence-valid agreement | 24/30, 80.00% | 24/30, 80.00% |
-| Five identical verdicts | 30/30 | 28/30 |
-| Invalid outputs | 0/150 | 4/150 |
+Kit files in `annotations/kit-source/` byte-match official Git blobs at commit `f5c235aa10a505f9d6f9e422ffd66917578c537b` of `alex-pancho/paypilot-l09-eval`. Kit producing prompts were not supplied. Prompt `base.v1+D25+D27`, profile `lesson-09` and observed agent `anthropic/claude-haiku-5.5` apply only to the two recorded live answers. Raw live trace files were not attached and are not independently re-inspected here.
 
-Full intervals, misses, costs and source reports: [reports/calibration-comparison.md](reports/calibration-comparison.md). `reports/calibration-final.json` is a historical repeat-report index, not the corrected PayPilot calibration. Previous narrative/status files are archived under `reports/history/pre-mentor-correction/`.
+The pool covers component criteria case by case and two combined-criterion answers. Its pooled score must not be represented as a validated autonomous combined working gate. Human review remains required. The response-class rule in [judge-trust-statement.md](judge-trust-statement.md) applies even when all five verdicts agree.
 
-`tools/calibrate_run.py l09_labels` still selects the legacy set. It refuses to proceed unless `--allow-legacy-fixtures` is explicitly supplied for historical reproduction; this flag does not satisfy the mentor correction. No new replacement run should start until labels and correct runner provenance are frozen. Never attach the bank prompt version retroactively to synthetic answers.
+## Historical synthetic experiment
 
-## Working gates
+All original synthetic responses, human labels and 300 model outputs remain preserved. `l09_labels_v1` and `l09_labels_v1_1` reproduce the old inputs; they require `--allow-legacy-fixtures` for intentional historical use. Their scores are not PayPilot replacement results. [calibration-comparison.md](reports/calibration-comparison.md) and `reports/calibration-final.json` are explicitly legacy indexes; the latter name does not identify the corrected final measurement.
 
-`sets/l09_escalation.jsonl` contains one daily tool-sequence case and six release judge cases, each release case configured for five runs. Offline checks and fresh-answer gate execution are separate from recorded-answer calibration. Live working-gate execution is unclaimed. See [docs/working-gates.md](docs/working-gates.md).
-
-Current status: [validation.json](validation.json). Remaining checks: [reports/requirements-audit.md](reports/requirements-audit.md).
+Working-gate files remain separate from recorded-answer calibration; live working-gate execution is unclaimed. See [working-gates.md](docs/working-gates.md). Current status: [validation.json](validation.json).

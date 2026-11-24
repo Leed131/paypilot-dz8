@@ -1,8 +1,8 @@
-# Required actual-agent calibration replacement
+# Full live-pool route - alternative replacement source
 
-Mentor review requires actual agent answers or the authorized kit pool. The historical assistant-authored experiment is learning evidence only. Its scores cannot be reused as PayPilot calibration. The existing 45-answer collection is the required replacement workflow, not an optional extension.
+Actual-agent or authorized-kit calibration is required by mentor review. The current batch-review draft instead uses 28 unchanged kit cases and two recorded live answers; see `annotations/proposals/kit-replacement-manifest.json`. This document preserves the alternative full 45-answer live-pool workflow if additional source cases are needed.
 
-The attached collection is preserved in `annotations/live-source/`. The collection initially contained no labels and has no judge evaluations. Human annotation is now in progress; completed labels and the next pending case are recorded in `annotations/live-human-review.json`. Do not recollect these answers unnecessarily; retain original local raw trace files because they were not attached here.
+The collection is unchanged in `annotations/live-source/`. No judge evaluations have been made on it; LIVE-C001 is its one finalized human annotation. LIVE-C002's unfinished assessment remains unassigned and is deferred by the batch-review route. Original local raw trace files were not attached here and must be retained locally.
 
 ## Collection
 

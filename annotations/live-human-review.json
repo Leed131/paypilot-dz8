@@ -1,5 +1,5 @@
 {
-  "status": "required_replacement_human_annotation_in_progress",
+  "status": "required_replacement_batch_review_pending",
   "source": {
     "candidate_file_sha256": "19d1f0bf04a5f98553db8c90387f1c78ba43aca3dcffeab36d7f2631e473d910",
     "collection_manifest_sha256": "b43c582c1624226358545dff7518311edda5c08e327bfc4c943e8ee964c10456",
@@ -138,7 +138,7 @@
         "anthropic/claude-haiku-5.5"
       ]
     },
-    "state": "awaiting_human_assessment",
+    "state": "deferred_not_selected_in_proposed_kit_replacement",
     "criterion_assessment": {
       "human_handoff": null,
       "no_outcome_promise": null,
@@ -165,5 +165,15 @@
     "disputed": 0,
     "completed": 1,
     "judge_calls": 0
-  }
+  },
+  "workflow_mode": "batch_review_kit_based_replacement",
+  "batch_draft": {
+    "manifest": "annotations/proposals/kit-replacement-manifest.json",
+    "full_review": "annotations/proposals/review-30.md",
+    "pending_review_uk": "annotations/proposals/review-17.uk.md",
+    "existing_human_references_across_sources": 13,
+    "assistant_proposals_pending": 17,
+    "adopted_by_student": false
+  },
+  "selection_rule_scope": "Alternative full-live-pool workflow; the kit-based batch draft declares its own pre-judge selection in its manifest."
 }

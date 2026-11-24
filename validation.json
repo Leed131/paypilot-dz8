@@ -49,5 +49,20 @@
     "Final calibration files and trust metrics must be replaced only after explicit human labels, Git freeze and actual new judge runs.",
     "No historical label, original response, raw model output or measured score was rewritten."
   ],
-  "resubmission_sent": false
+  "resubmission_sent": false,
+  "batch_replacement_draft": {
+    "status": "pending_student_review_and_per_case_runtime",
+    "manifest": "annotations/proposals/kit-replacement-manifest.json",
+    "source_kit_cases": 28,
+    "source_live_cases": 2,
+    "existing_human_references": 13,
+    "assistant_proposals_pending": 17,
+    "designed_strata": {
+      "obvious_PASS": 10,
+      "obvious_FAIL": 10,
+      "source_design_challenge": 10
+    },
+    "labels_frozen": false,
+    "judge_calls": 0
+  }
 }

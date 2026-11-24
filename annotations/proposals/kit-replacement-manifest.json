@@ -1,0 +1,69 @@
+{
+  "status": "DRAFT_REQUIRES_17_STUDENT_REVIEWS_AND_RUNNER_ALIGNMENT",
+  "created_at": "2026-11-24T17:37:32.048807+00:00",
+  "set_file": "annotations/proposals/kit-replacement-30.draft.jsonl",
+  "set_sha256": "d88fcd826f6717921cd5bc09a05e41cd30475ca461219989137ce7e0df05c235",
+  "cases": 30,
+  "source_counts": {
+    "authorized_course_kit": 28,
+    "recorded_course_agent": 2
+  },
+  "proposed_strata": {
+    "obvious_PASS": 10,
+    "obvious_FAIL": 10,
+    "source_design_challenge": 10
+  },
+  "existing_human_references": 13,
+  "pending_assistant_proposals": 17,
+  "pending_ids": [
+    "PL-01",
+    "PL-02",
+    "PL-03",
+    "PL-04",
+    "PL-05",
+    "PL-06",
+    "PL-07",
+    "PL-08",
+    "PL-09",
+    "PL-10",
+    "PL-11",
+    "PL-12",
+    "PL-13",
+    "PL-14",
+    "PL-15",
+    "PL-16",
+    "LIVE-C006"
+  ],
+  "source_basis": {
+    "official_repository": "alex-pancho/paypilot-l09-eval",
+    "official_commit": "f5c235aa10a505f9d6f9e422ffd66917578c537b",
+    "guide_url": "https://github.com/alex-pancho/paypilot-l09-eval/blob/f5c235aa10a505f9d6f9e422ffd66917578c537b/README.md",
+    "guide_paraphrase": "The guide recommends reusing twelve labelled lab cases plus the unlabelled kit pool; its designed distribution is nine obvious positive, nine obvious negative and fourteen challenge cases. Two extra obvious cases complete ten per group.",
+    "kit_bytes_verified_against_official_git_blobs": true,
+    "kit_files": {
+      "l09_labels.lab.jsonl": {
+        "sha256": "0c378b057f35f792e2f3de762714fd8f3f0df3319935dca567baacfc8b9f1350",
+        "git_blob_sha": "f2c700764197909f9fd58023d1fadf8a859935d1"
+      },
+      "l09_lab_pool.jsonl": {
+        "sha256": "8ae3062fb615cbfc19d7286184b98e9a73dc92ace80dcce40b2b956ff3134575",
+        "git_blob_sha": "9bd84960fb164cf96a5af5e60528da1f20e62b1d"
+      }
+    }
+  },
+  "criteria_scope": "Preserve each kit case's original single-condition criterion and rubric; the two live cases use the existing combined criterion. This is a deliberate per-case calibration scope, not the common all-three-condition draft.",
+  "stratum_caveat": "Source-designed challenge membership is separate from student uncertainty. Six new challenge flags remain provisional; no student disputed flag is inferred. Four existing lab disputed flags were documented after earlier lab judge runs; original labels and dates are preserved.",
+  "prior_exposure_note": "The laboratory cases have previously been judged. This set is not a new independent blind holdout.",
+  "producing_prompt_scope": "base.v1+D25+D27 applies only to LIVE-C001 and LIVE-C006. Kit producing prompt versions were not supplied and are not invented.",
+  "labels_frozen": false,
+  "judge_calls_on_this_draft": 0,
+  "eligible_for_judge": false,
+  "remaining_steps": [
+    "Student reviews/adopts or corrects the seventeen assistant proposals, including the six provisional challenge flags.",
+    "Align the rubric/runner with per-case criteria and verify the final reference groups.",
+    "Commit exact final references and evaluator before any new judge calls.",
+    "Run five evaluations per case for baseline and versioned correction; recompute the trust statement from those results."
+  ],
+  "synthetic_old_scores_reused": false,
+  "selection_rule": "Pre-judge draft selection following official kit design: LB-01..12 and PL-01..16, plus recorded LIVE-C001 and LIVE-C006. Excluded PL-17..20 are retained as source-pool reserves. No replacement judge scores exist."
+}

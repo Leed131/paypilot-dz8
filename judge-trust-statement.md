@@ -1,24 +1,24 @@
 # Judge Trust Statement - US-05 section 4
 
-Decision: human review required; no autonomous release approval. Target: `lesson-09`; calibration used synthetic recorded answers.
+Status: **revision in progress; actual-agent calibration pending**. Autonomous release approval is withheld. The previous synthetic study is historical evidence, not a PayPilot performance estimate.
 
 | Statement | Evidence and decision |
 | --- | --- |
-| Calibrated on | 30 English own fixtures (10 obvious PASS, 10 obvious FAIL, 10 student-marked disputed), five evaluations each. `ollama:qwen2.5:14b`, temperature 0.7, `rubric.hw08.v1.1`. Target bank prompt: `base.v1+D25+D27`. The measured `agent_prompt_version=not_applicable_recorded_fixtures` records that these answers were assistant-authored fixtures, not outputs of that bank prompt. |
-| Agreement | Raw 25/30 = 83.33%; 95% Wilson 66.44%-92.66%, half-width ±13.11 percentage points. Fully valid majority: 24/30 = 80%, interval 62.69%-90.50%, half-width ±13.90 points. Obvious PASS 10/10; obvious FAIL 9/10; disputed raw 6/10, valid 5/10. |
-| Self-consistency | 28/30 cases (93.33%) have five identical verdicts; 008 and 031 are unstable. This is separate from human agreement. |
-| Where it fails | Misses 011/021 are clear; 012/019/034 have interpretation issues. Case 009 has four invalid triggers. Raw misses/false alarms: 5/0; valid aggregation also has one unresolved case. |
-| What we do | Lidiia reviews invalid, unstable and disputed cases. The correction recovered 007/024 but regressed 011, destabilized 008/031 and broke trigger formatting in 009. Cost: 150 extra evaluations, 465.09 seconds; valid agreement stayed 80%. |
-| Recalibrate | After changes to model/digest, temperature, rubric, judge prompt, language, agent prompt or case mix; also after reference-label adjudication. Freeze labels before judging. |
+| Calibrated on | Replacement pool: 45 recorded course-agent answers, profile `lesson-09`, prompt `base.v1+D25+D27`, observed model `anthropic/claude-haiku-5.5`. No finalized human labels or judge evaluations yet. Select 30 with 10 obvious PASS, 10 obvious FAIL and 10 genuinely disputed cases; freeze before judging. |
+| Agreement | Pending actual-agent measurement. Historical synthetic scores cannot be transferred. Report case-majority agreement, schema/evidence-valid agreement and 95% Wilson intervals separately. |
+| Self-consistency | Pending. Report five identical verdicts separately from human agreement: a stable answer can be wrong. |
+| Where it fails | Historical HW08-011 received five false PASS verdicts: generic further-attention/update wording did not confirm human involvement. This motivates a response-class review rule whose operational effect is unmeasured. |
+| What we do | Lidiia must review **unconfirmed human handoff**: status, queue, routing or update wording without positive confirmation of transfer to an explicit human role, or that such a role takes over or follows up; also conditional offers or refusals. Apply even with valid output and PASS 5/5. No automatic acceptance until review. Invalid, unstable and disputed cases also require review. Cost: additional human work. |
+| Recalibrate | Freeze actual-agent labels before five evaluations per case; measure baseline and versioned correction on the same cases. Recalibrate after model, prompt, rubric, language, case-mix or adjudicated-reference changes. |
 
 ## Residual risk
 
-Owner for all decisions: Lidiia, the student annotator. Acceptance is limited to supervised coursework.
+Owner: Lidiia, the student annotator. This draft does not certify completion.
 
 | What is not covered | What happens if it occurs | Why we live with it now | Defer or accept |
 | --- | --- | --- | --- |
-| Independent holdout / representative traffic | Performance may not transfer. | No generalization claim; human decisions remain required. | Accept for coursework only. |
-| Adjudicated disputed labels / producing-agent prompt provenance | Apparent errors or applicability may be misinterpreted. | Synthetic origin and ambiguous references are disclosed. | Accept for fixed-answer calibration; no live-agent performance claim. |
-| Reliable formatting and stability | A gate could accept an unreliable result. | Invalid/unstable results require human review. | Accept manual use only; autonomous approval withheld. |
+| Completed actual-agent calibration | Synthetic accuracy could be misattributed to PayPilot. | Withhold the final performance claim until labels and measurements exist. | Defer final submission. |
+| Independent holdout and representative traffic | Results may not generalize. | A curated coursework set supports limited, supervised conclusions. | Accept this scope limitation; no deployment claim. |
+| Automated response-class detection | A stable false PASS can evade dispersion checks. | The class check is mandatory and manual, independent of votes. An explicitly human-assigned queue alone does not trigger the generic-queue rule. | Accept manual use only; no autonomous approval. |
 
-Details and provenance: `reports/calibration-comparison.md`, `reports/requirements-audit.md`, and `reports/calibration-final.json`. The separately observed target prompt is `base.v1+D25+D27`; its post-run snapshot is not the origin of these synthetic answers.
+Policy: [manual-review.hw08.v1.json](policies/manual-review.hw08.v1.json). Progress: [live-human-review.json](annotations/live-human-review.json). Previous statement: [archived statement](reports/history/pre-mentor-correction/judge-trust-statement.md). Historical metrics: [calibration-comparison.md](reports/calibration-comparison.md).

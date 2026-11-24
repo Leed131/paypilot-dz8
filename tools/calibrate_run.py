@@ -37,6 +37,13 @@ SET_CONFIGS = {
     },
 }
 
+# These exact inputs contain assistant-authored answers. They remain available
+# only for explicit historical reproduction, not actual-agent calibration.
+LEGACY_SYNTHETIC_SET_HASHES = {
+    "1989b89aec406c04727abecbc966e30cbfacef54ca7e863d75216615cce5a084",
+    "28cb41ff169aa346463d726085d5d88fa431c16b415f7db1ef36419da69a18eb",
+}
+
 
 def utc_now():
     return datetime.now(timezone.utc).isoformat()
@@ -220,9 +227,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("set", nargs="?", default="l09_labels")
     parser.add_argument("--check-only", action="store_true", help="Check committed inputs, endpoint and installed model; never generate.")
+    parser.add_argument("--allow-legacy-fixtures", action="store_true",
+                        help="Explicitly permit historical synthetic inputs; does not satisfy actual-agent calibration.")
     args = parser.parse_args()
     try:
         cases, metadata = load_frozen_set(args.set)
+        if metadata["set_sha256"] in LEGACY_SYNTHETIC_SET_HASHES and not args.allow_legacy_fixtures:
+            raise ValueError("This is the legacy assistant-authored set, not actual-agent calibration. "
+                             "Finish and freeze real-agent/authorized-kit labels first. "
+                             "Use --allow-legacy-fixtures only for intentional historical reproduction.")
         settings = configuration()
         runtime = preflight(settings["judge_model"], settings["ollama_url"])
     except Exception as exc:

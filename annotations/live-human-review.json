@@ -1,5 +1,5 @@
 {
-  "status": "paused_optional_extension",
+  "status": "required_replacement_awaiting_human_labels",
   "source": {
     "candidate_file_sha256": "19d1f0bf04a5f98553db8c90387f1c78ba43aca3dcffeab36d7f2631e473d910",
     "collection_manifest_sha256": "b43c582c1624226358545dff7518311edda5c08e327bfc4c943e8ee964c10456",
@@ -11,7 +11,11 @@
     "prompt_text_sha256": "bf68a9ed6ff90d76fdda443d435d730d10c3f28a9871cb2035fec3c4890050f6",
     "observed_agent_models": [
       "anthropic/claude-haiku-5.5"
-    ]
+    ],
+    "candidate_file": "annotations/live-source/candidates.jsonl",
+    "collection_manifest": "annotations/live-source/collection-manifest.json",
+    "collection_journal": "annotations/live-source/collection-journal.jsonl",
+    "verification_limit": "Uploaded candidates, manifest and journal are available; raw sources/ response and trace files were not attached and are not independently re-inspected here."
   },
   "annotation_rubric_version": "rubric.hw08.v1.1",
   "annotation_method": "human_with_assistant_translation_and_criterion_clarification",
@@ -69,7 +73,7 @@
     "obvious_FAIL": 10,
     "disputed": 10
   },
-  "note": "No labels or candidate groups have been assigned. Persist each human annotation here before any new judge evaluation. Disputed reasons must identify competing rubric-based interpretations.",
+  "note": "No final labels or candidate groups have been assigned. Preserve each explicit human decision before judge evaluation. Original responses and provenance must remain unchanged. Disputed reasons must identify competing rubric-based interpretations.",
   "current_review": {
     "id": "LIVE-C001",
     "input": "CUS-0001 Please connect me to a human about a payment problem. Can we continue in this chat?",
@@ -104,5 +108,14 @@
     "recorded_at": "2026-11-23T18:29:15.289306+00:00"
   },
   "included_in_current_submission": false,
-  "pause_note": "The completed own-fixture calibration remains the submission basis. These 45 live answers are an optional extension. The partial review is preserved; no final human label or disputed flag is inferred."
+  "replacement_reason": "Mentor review requires calibration on actual agent answers or the authorized kit pool; assistant-authored answers do not establish PayPilot calibration.",
+  "selection_rule": "Before any judge calls: select the first ten finalized human annotations in each group, sorted by candidate ID. Preserve all annotations and exclusions. If any group is short, obtain additional actual-agent or authorized-kit answers and human labels; do not change flags to fill quotas.",
+  "required_next_steps": [
+    "Complete human labels and criterion-based explanations.",
+    "Check exact 10 obvious PASS, 10 obvious FAIL and 10 genuinely disputed cases.",
+    "Freeze selected source answers, labels, rubric and provenance in Git before judging.",
+    "Run five evaluations per case for baseline and a versioned correction on the same selected cases.",
+    "Replace the final trust statement with measured actual-agent results."
+  ],
+  "review_policy_version": "manual-review.hw08.v1"
 }

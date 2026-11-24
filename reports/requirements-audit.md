@@ -1,83 +1,35 @@
-# Strict pre-submission audit - HW08
+# HW08 - Required corrections after mentor review
 
-This audit checks the attached assignment against the actual repository, not against earlier assurances of readiness. The independent public repository is `Leed131/paypilot-dz8`; the submission branch is `main`.
+Review date: 2026-11-24. Repository: `Leed131/paypilot-dz8`, branch `main`.
 
-**Submission scope:** the completed 30-case own-fixture calibration study is the submitted work. The assignment explicitly permits own cases and does not expressly require every answer to be an unmodified live-agent output, an independent second annotator, or a minimum accuracy. The additional45-answer live collection is a paused optional extension and is not used in the submitted scores.
+Karina's feedback resolves the source interpretation: calibration must use actual agent answers or the authorized kit pool. Assistant-authored answers do not support a PayPilot calibration claim. The previous decision to treat live collection as optional was incorrect and is withdrawn. The former audit is preserved in `history/pre-mentor-correction/`.
 
-**Decision:** structural, runtime and measured-calibration checks pass after the fixes below. The two provenance/interpretation limitations remain disclosed; they are not solved by fabricated metadata or changed human labels. A conservative alternative workflow was prepared, but new labels and two further measurements are not explicit prerequisites for submitting this completed own-fixture study. The questions below are available for clarification, not represented as additional mandatory assignment steps.
-
-## Mandatory requirements and evidence
-
-| Requirement | Evidence / check | Status |
+| Required correction | Evidence | Status |
 | --- | --- | --- |
-| `judge-trust-statement.md`: six required statement rows and residual risk | Six-row decision note, concise risk table, reason and owner for each acceptance | Pass |
-| At least 30 labelled cases, with 10 obvious PASS, 10 obvious FAIL, 10 disputed | Final canonical `evals/sets/l09_labels.jsonl`; exact 10/10/10 validated | Pass for explicit counts; disputed quality qualified below |
-| Required case fields | All 30 contain question, recorded answer, criterion, rubric, PASS/FAIL, Boolean disputed, labelled date, rubric version, oracle/assertion, runs/gate and added_in; appropriate explanation field present | Pass |
-| Blind labels committed before judge runs | Actual Git timeline below; no human label was changed after viewing judge verdicts | Pass for before-run freeze; annotation dates are coarsely recorded |
-| Self-contained criterion, no hidden database or trace truth | The fixed-answer judge receives question, answer and rubric only; no trace, database, human label or annotation note enters the prompt | Pass |
-| Split US-05 section 4 into threshold and semantic remainder | ESC-001 checks actual tool use; paired ESC-J01 uses exactly the same question and context to check answer wording | Pass after audit fix |
-| Add at least five further judge cases | HW08-W001-W005 remain in addition to ESC-001 and ESC-J01: seven working cases, six judges | Pass after audit fix |
-| Threshold is level 3, `daily`, `runs: 1` | `tool_sequence`, `must_include: [escalate_to_human]`; supplied T-14 fixture | Pass |
-| Judge cases are `release`, `runs: 5`, never daily | All six working judge cases; calibration fixtures also carry release/runs 5 | Pass |
-| Three observable rubric triggers | Human handoff, no outcome promise/resolution deadline, no internal-review reason; no subjective adequacy requirement or trace arithmetic | Pass |
-| Verdict fields | `verdict`, `trigger`, `evidence_turn`, `quote`; validator flags unsupported enum values and non-verbatim evidence | Pass |
-| Versioned rubric and changelog; each change measured | v1 and v1.1 preserved; both committed before their measurements; criterion and labels unchanged | Pass |
-| Five evaluations per fixed answer via `tools/calibrate_run.py` | Two original journals, 150 unique id/run records each; no live agent answer substituted for `answer_under_test` | Pass |
-| Wilson 95% interval and plus/minus X | Both source reports, comparison and statement; calculations independently reproduced | Pass |
-| Agreement separate from self-consistency | Final raw agreement 25/30, valid agreement 24/30, self-consistency 28/30, clearly separated | Pass |
-| Obvious/disputed agreement separately | Both reports contain all group counts and intervals; statement gives group agreements | Pass |
-| Common-feature table and miss/false-alarm matrix | `baseline-analysis.md` and `calibration-comparison.md`; six raw mismatches are not all treated as independently proven errors | Pass |
-| Correction remeasured on the same set, with its price and regressions | Same 30 dialogues and human labels; two recovered misses, new 011 miss, two unstable cases, four enum failures; 150 extra evaluations / 465.09 seconds | Pass |
-| Judge model, rubric version, temperature match the report | `ollama:qwen2.5:14b`, v1.1, 0.7; hashes and model digest verified | Pass |
-| Actual producing-agent prompt version | Measured reports honestly say `not_applicable_recorded_fixtures` because answers were authored as fixtures. The current bank target prompt is separately observed as `base.v1+D25+D27` after calibration | **Documented exception / mentor interpretation** |
-| Residual risk follows L03/course template | Three rows use the supplied four-column format. Acceptance reasons and owner are stated; none is an undated deferral | Pass |
-| Same `loader.py` as previous sets | Supplied course loader retained; only postponed annotations added for Python 3.8/3.9 compatibility. It loads both calibration and working sets | Pass |
-| Clean-clone runnable code and gate failure exit | Standard-library runtime included; offline commands pass; absent/wrong-gate requested IDs, invalid outputs and ungraded/missing runs fail rather than silently pass | Pass for tested code; real bank gate not claimed |
-| `reports/calibration-*.json` exists | `calibration-final.json` and `calibration-comparison.json`; unchanged originals and journals retained in subdirectories | Pass |
-| Public separate GitHub repository, files in `main` | Repository metadata and branch checked through GitHub | Pass |
-| No `.env` or committed keys | Tracked paths and supplied content checked; `.gitignore` excludes environment files | Pass for audited tree |
-| Submit repository URL on the course platform | No submission has been sent during this audit | User action remains |
+| Calibrate on actual-agent or authorized-kit answers | 45 course-agent answers, unchanged uploaded manifest and journal in `annotations/live-source/`; prompt `base.v1+D25+D27`, profile `lesson-09`, observed model `anthropic/claude-haiku-5.5`. | Source available; human annotation and new calibration pending. |
+| Add answer-class rule in What we do | `manual-review.hw08.v1` requires human review for unconfirmed human handoff regardless of verdict, unanimous votes or valid schema. The primary statement includes the rule. | Documented manual policy; operational effect unmeasured. |
 
-The assignment does not set a minimum judge accuracy, require successful optimization, or explicitly require executing the fresh-answer working set before submission. Low agreement, a documented regression, or an unaccepted autonomous-release decision are not themselves missing homework steps. Optional experiments with another model, a second annotator or mixed defects are not mandatory.
+## Replacement acceptance checks
 
-## Fixes made during this audit
+- Preserve exact source questions/answers and provenance. Original raw `sources/` traces were not attached; this review verifies attached-file consistency, not independent raw-trace authenticity.
+- Obtain explicit human PASS/FAIL labels and criterion-based explanations before showing any new judge verdict. LIVE-C001 has three confirmed criterion assessments but no final label or disputed flag; neither may be inferred.
+- Select exactly 10 obvious PASS, 10 obvious FAIL and 10 genuinely disputed cases. Disputed reasons must identify plausible competing interpretations of the criterion, rather than only unfamiliarity, verbosity or unrelated concerns. Obtain more actual/kit answers if needed; do not force flags to fill quotas.
+- Apply the predeclared rule: first ten finalized annotations per group, sorted by candidate ID. Preserve all annotations and exclusions.
+- Freeze selected responses, labels, rubric and provenance in Git before the first judge call. Current canonical label files remain legacy synthetic data. The runner must receive correct actual-source metadata before new measurement.
+- Run five evaluations per case for baseline and a versioned correction on the same cases. Record model/digest, temperature, producing-agent prompt, judge system/rubric hashes, Git commits and raw outputs.
+- Recompute raw and schema/evidence-valid human agreement, Wilson intervals/half-widths, self-consistency, group metrics, misses/false alarms and correction cost. Keep stability separate from correctness. Do not normalize invalid triggers after the run.
+- Replace final report links and trust metrics only after actual new measurements. Record additional manual workload without claiming unmeasured improvement.
 
-1. Added ESC-J01, the semantic remainder paired with the T-14 threshold, while retaining all five additional custom judge cases. This follows the strictest reading of stage 1 rather than relying only on the later five-case minimum.
-2. Fixed selective execution: a request containing a valid ID plus an unknown ID, or an ID outside the selected gate, now fails. No requested case may be silently dropped.
-3. Added an explicit expected-profile preflight. The live runner defaults to requiring `lesson-09`, records the actual prompt/profile, and never silently changes the stand configuration. Offline validation does not pretend to verify a live profile.
-4. Shortened the six-row trust statement, named US-05 section 4 and the target profile, and left full numbers/hashes/case details in the reports.
-5. Added an exact Git timeline and separated producing-fixture provenance from the current bank target context. No input label date, raw report, response enum or measured score was rewritten.
+## Response-class check
 
-## Verified freeze timeline (UTC)
+Legacy HW08-011: “Your case has been flagged for further attention. You should receive an update soon, but I cannot confirm the outcome.” No explicit human role is positively committed to handoff/follow-up. It requires manual review even though v1.1 returned PASS 5/5.
 
-| Event | Time | Evidence |
-| --- | --- | --- |
-| Human labels and initial rubric committed | 2026-11-23 13:26:30 | `b7fe17c6b8250e98cc7efe9c16ddba6d20dedde4` |
-| Runtime used by baseline committed | 2026-11-23 14:13:55 | `9250a38fd98d5660d7eb59ba93812d0624627bd0` |
-| Baseline generation began | 2026-11-23 14:15:20 | Original report started_at; 150-record journal |
-| v1.1 rubric and same-label repeat input committed | 2026-11-23 14:31:29 | `0e3edad2760c2202059015107f2051d036829553` |
-| Repeat generation began | 2026-11-23 14:32:40 | Original repeat report started_at; 150-record journal |
-| Exact measured v1.1 bytes promoted to required canonical filename | 2026-11-23 14:57:57 | `1ed8e911953d5a2bd79bca0643d9f3d2bd7732b1` |
+LIVE-C001 explicitly reports escalation to a human support agent before reporting queued status. Queue wording alone therefore does not trigger the generic-routing rule. This routing assessment does not assign its final human verdict or waive either remaining criterion.
 
-`labeled_on` is date-only and records assembled-set finalization, not recovered individual annotation timestamps. Precise Git metadata establishes the before-run ordering. The later canonical promotion retains the measured v1.1 bytes; its original pre-run alias and hash remain in the report. The `l09_labels_v1` alias preserves the original baseline bytes and historical commit.
+The separate policy does not change the judge's fixed `trigger` enum, rubric, historical verdicts or scores. Review records use `review_policy_version`, `manual_review_reasons` and an explicit human resolution; unresolved cases have no automatic acceptance. The policy is a mandatory manual procedure, not an implemented automated classifier.
 
-## Remaining interpretation issue 1: agent prompt provenance
+## Preserved evidence and readiness
 
-The assignment permits own cases, and our answers are explicitly synthetic fixtures authored during the discussion. They were not produced by the running PayPilot agent. Consequently, an actual producing-bank-agent prompt version cannot truthfully be added to those historical measurements. The reports' `agent_prompt_version=not_applicable_recorded_fixtures` and the trust statement match.
+Original reports and all 300 historical outputs remain unchanged. Their freeze timeline and audits are linked through `calibration-comparison.md` and the archived prior audit. Existing offline checks remain historical technical evidence, not completion of the required actual-agent calibration. Live working-gate execution is also unclaimed.
 
-Read-only observation of the current stand confirms target profile `lesson-09`, active defects D18/D25/D27 and target prompt `base.v1+D25+D27`. `target-stand-context.json` timestamps that observation **after** both runs. It improves working-set context and is not retroactive producing-agent provenance.
-
-This is a defensible explanation for synthetic cases, but requirement 7 literally asks for an agent prompt version. Acceptance of this exception cannot be certified by code. Do not replace N/A with the target version and imply that it generated the measured answers. If the mentor requires actual agent-produced answers, that requires new captured answers under a known prompt, human labels before judging, and new measurements.
-
-## Remaining interpretation issue 2: meaning of disputed
-
-The dataset contains ten explicit human disputed flags with explanations. Some explanations record learner uncertainty or concerns outside the criterion, rather than two plausible verdicts under the fixed rubric. Examples are 003 (timing/anxiety despite explicit internal-review disclosure), 020 (promise of a decision explanation rather than a resolution), 021 (explicit cancellation guarantee) and 033 (extra information).
-
-These original human decisions were retained; no flags were changed after observing model results merely to obtain 10/10/10. If the course means each disputed case must be intrinsically ambiguous to two rubric-following readers, this is a qualitative dataset risk. It cannot be fixed by making the explanation sound more sophisticated or relabelling cases post hoc. New genuinely ambiguous examples would need human blind labels and a new measurement set. If disputed means the annotator's recorded uncertainty, the present records satisfy that interpretation.
-
-## Suggested clarification before claiming unconditional readiness
-
-1. For own synthetic answer fixtures, may `agent_prompt_version` be documented as inapplicable, with the live target prompt version recorded separately, or must all measured answers originate from a versioned bank agent?
-2. Does disputed mean the annotator's recorded uncertainty, or must each such case admit competing verdicts under the fixed rubric?
-
-These are concrete questions about the supplied wording. They are not a claim that another optimization run, a second model or a second annotator is mandatory. The complete measured work and original evidence remain available for review.
+**Not ready for final resubmission.** Next required human action: finish replacement annotations. No further mentor clarification is needed to act on these two corrections.

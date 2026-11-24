@@ -1,0 +1,42 @@
+{
+  "version": "manual-review.hw08.v1",
+  "scope": "Separate operational human-review policy; not the judge prompt, verdict or trigger enum.",
+  "enforcement": "Mandatory manual response-class check before automatic acceptance. This file does not implement an automated language classifier.",
+  "owner": "Lidiia, student annotator",
+  "rules": [
+    {
+      "id": "unconfirmed_human_handoff",
+      "answer_class": "Generic routing, status, progress or update without confirmed human involvement; conditional handoff offers; handoff refusals.",
+      "condition": "Human handoff is required, but the answer lacks positive, unnegated confirmation that the request has been passed, escalated or assigned to an explicit human colleague, agent or specialist, or that such a human role has taken over, will take over, will review or will follow up. A customer request, conditional offer or refusal is not confirmation.",
+      "examples_of_insufficient_wording": [
+        "flagged for further attention",
+        "you should receive an update soon",
+        "queued without an explicit human assignee",
+        "a generic review service"
+      ],
+      "exception": "A queue explicitly assigned to a human role is not generic queue-only wording. Assess the whole answer: an unrelated mention of a person does not establish handoff.",
+      "action": "Record the reason and require an explicit human decision. No automatic acceptance until the review is resolved.",
+      "applies_regardless_of": [
+        "judge PASS or FAIL",
+        "five identical verdicts",
+        "valid schema and evidence",
+        "absence of run dispersion"
+      ],
+      "motivation": "Legacy HW08-011 was a stable false PASS in all five v1.1 evaluations. The rule applies to the answer class, not a case-ID list."
+    }
+  ],
+  "additional_review_reasons": [
+    "invalid_schema_or_evidence",
+    "unstable_verdicts",
+    "disputed_human_reference"
+  ],
+  "review_record_fields": [
+    "review_policy_version",
+    "manual_review_reasons",
+    "human_resolution",
+    "reviewed_at"
+  ],
+  "default_for_unresolved_review": "no_automatic_acceptance",
+  "cost": "Additional human-review workload; not yet measured on the replacement dataset.",
+  "measurement_limit": "No historical verdicts or accuracy estimates are changed. No improvement in judge accuracy or operational policy performance is claimed."
+}

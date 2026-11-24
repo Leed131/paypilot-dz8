@@ -1,6 +1,8 @@
-# Optional live-answer extension (paused)
+# Required actual-agent calibration replacement
 
-The completed 30-case own-fixture experiment, human labels and all 300 judge evaluations form the submission. The assignment permits own cases and does not explicitly require unmodified live answers. This separate optional extension collected 45 real agent answers with producing-prompt provenance; no judge was run and no final human labels were assigned. Annotation is paused, and these candidates are not included in the submitted dataset or its reported scores. The partial LIVE-C001 criterion discussion is preserved without inferring its final label. If this extension is resumed, the workflow below applies.
+Mentor review requires actual agent answers or the authorized kit pool. The historical assistant-authored experiment is learning evidence only. Its scores cannot be reused as PayPilot calibration. The existing 45-answer collection is the required replacement workflow, not an optional extension.
+
+The attached collection is preserved in `annotations/live-source/`. All 45 candidates are unlabelled and have no judge evaluations. LIVE-C001 has a partial human criterion assessment, with final verdict and disputed flag still null. Do not recollect these answers unnecessarily; retain original local raw trace files because they were not attached here.
 
 ## Collection
 
@@ -32,8 +34,12 @@ Raw collection directories are ignored by Git and are not published automaticall
 
 1. Apply the same frozen three-condition escalation criterion. The student supplies PASS/FAIL and a reason before any judge verdicts are shown for these new answers.
 2. For a disputed case, record the particular wording and two plausible interpretations under the criterion that could lead to different verdicts. Lack of rubric familiarity, extra verbosity or a contact time not required by the criterion is not by itself evidence of intrinsic ambiguity. Clarify those issues before deciding the disputed flag.
-3. Choose 10 obvious PASS, 10 obvious FAIL and 10 genuinely disputed examples after assessment, with readable explanations. If a group lacks enough real examples, collect additional candidates; the initial 45-question pool does not guarantee a balanced final set.
+3. Select the first ten finalized human annotations per group, sorted by candidate ID: 10 obvious PASS, 10 obvious FAIL and 10 genuinely disputed examples, with readable explanations. This selection rule is declared before any judge calls. If a group lacks enough real examples, collect additional candidates; the initial 45-question pool does not guarantee a balanced final set. The mentor also permits unchanged authorized-kit answers, with their original source recorded and human labels assigned before judging.
 4. Preserve all original collected responses and exclude candidates transparently. Record actual annotation dates and the producing prompt version of each selected answer. Keep trace/configuration evidence outside the judge input; its criterion must remain self-contained.
 5. Commit the new labelled dataset and its rubric before the first judge run on these new answers. Then perform the required baseline/correction measurements on the same selected cases, and rewrite the final trust statement from those actual results.
 
 The original synthetic measurements are not measurements of this future live-answer dataset. Existing scores must not be reused under a new set name or input hash. The current producing prompt cannot be retroactively attributed to older synthetic answers.
+
+## Response-class review
+
+Apply `policies/manual-review.hw08.v1.json` independently of judge votes. Generic routing, progress or update language without confirmed human involvement requires manual review even at PASS 5/5. An explicitly human-assigned queue is not generic queue-only wording. This manual policy does not alter reference labels or historical measurements.

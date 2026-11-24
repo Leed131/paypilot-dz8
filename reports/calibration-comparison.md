@@ -1,5 +1,7 @@
 # HW08 calibration: measured effect of the correction
 
+**Legacy synthetic study.** These scores describe assistant-authored answers, not PayPilot answers. Mentor review requires a new actual-agent or authorized-kit calibration; see `requirements-audit.md`. The measurements below are preserved historical evidence.
+
 Both runs evaluated the same 30 recorded dialogues and frozen human judgments five times per case. The model (`ollama:qwen2.5:14b`, Q4_K_M, digest `7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6`), temperature (0.7), Ollama version (0.40.16), and judge system prompt were unchanged. Only the rubric procedure changed from `rubric.hw08.v1` to `rubric.hw08.v1.1`. Questions, answers, labels, disputed flags, substantive criterion, three triggers and verdict schema were preserved.
 
 ## Before / after

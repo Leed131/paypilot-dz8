@@ -853,5 +853,8 @@
   "finished_at": "2026-11-23T14:40:25.990201+00:00",
   "report_kind": "indexed_copy_of_measured_repeat",
   "source_report": "repeat/calibration-l09_labels_v1_1-20261123T143240900686Z.json",
-  "index_note": "Measured values are unchanged. This top-level index adjusts the journal pointer to the archived relative path; the original raw report is preserved byte-for-byte at source_report."
+  "index_note": "Measured values are unchanged. This top-level index adjusts the journal pointer to the archived relative path; the original raw report is preserved byte-for-byte at source_report.",
+  "source_scope": "legacy_synthetic_not_final_submission",
+  "replacement_status": "actual_agent_or_authorized_kit_calibration_pending",
+  "scope_note": "Historical assistant-authored-answer measurements. Numeric results are unchanged; these are not PayPilot agent-answer calibration results."
 }

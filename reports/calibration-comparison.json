@@ -547,5 +547,8 @@
     "no independent holdout",
     "subjective disputed reference labels",
     "overlapping raw Wilson intervals; schema/evidence-valid result unchanged"
-  ]
+  ],
+  "source_scope": "legacy_synthetic_not_final_submission",
+  "replacement_status": "actual_agent_or_authorized_kit_calibration_pending",
+  "scope_note": "Historical assistant-authored-answer measurements. Numeric results are unchanged; these are not PayPilot agent-answer calibration results."
 }

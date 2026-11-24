@@ -2,7 +2,7 @@
 
 **Ready for mentor review within the declared supervised coursework scope.** Both requested corrections are complete: calibration now uses authorized-kit/recorded-agent answers, and the trust statement contains a response-class human-review rule that applies even at PASS 5/5. All 300 current-study outputs are preserved and audited.
 
-Start with [judge-trust-statement.md](judge-trust-statement.md). Detailed results: [calibration-comparison.md](reports/calibration-comparison.md). A short Ukrainian resubmission note is in [submission-note.uk.md](submission-note.uk.md).
+Start with [judge-trust-statement.md](judge-trust-statement.md). Detailed results: [calibration-comparison.md](reports/calibration-comparison.md).
 
 ## Measured result and decision
 

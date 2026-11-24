@@ -6,7 +6,7 @@ Groups: 10 obvious PASS, 10 obvious FAIL, 10 source-designed challenge cases. Re
 
 Casewise kit criteria are unchanged; the two recorded live cases use the combined criterion. Kit producing prompts remain unspecified. Only the two live answers carry the recorded bank prompt version.
 
-No new judge results exist yet. The baseline will use `l09_labels_kit_v1`; legacy synthetic measurements remain outside this calibration.
+The actual baseline `l09_labels_kit_v1` is fully audited. The same references are retained in the procedural repeat `l09_labels_kit_v1_1`; its results are pending. Legacy synthetic measurements remain outside this calibration.
 
 | ID | Accepted label | Disputed benchmark flag | Reference origin |
 | --- | --- | --- | --- |

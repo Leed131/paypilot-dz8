@@ -6,7 +6,7 @@ Karina's feedback resolves the source interpretation: calibration must use actua
 
 | Required correction | Evidence | Status |
 | --- | --- | --- |
-| Calibrate on actual-agent or authorized-kit answers | Accepted set: 28 official-kit cases with original criteria plus two recorded agent answers; sources and acceptance evidence preserved. | Baseline report verified; raw journal and measured correction pending. |
+| Calibrate on actual-agent or authorized-kit answers | Accepted set: 28 official-kit cases with original criteria plus two recorded agent answers; sources and acceptance evidence preserved. | Baseline and all raw records verified; procedural correction prepared, repeat pending. |
 | Add answer-class rule in What we do | `manual-review.hw08.v1` requires human review for unconfirmed human handoff regardless of verdict, unanimous votes or valid schema. The primary statement includes the rule. | Documented manual policy; operational effect unmeasured. |
 
 ## Accepted replacement package
@@ -37,6 +37,6 @@ The separate policy does not change the judge's fixed `trigger` enum, rubric, hi
 
 Original reports and all 300 historical outputs remain unchanged. Their freeze timeline and audits are linked through `calibration-comparison.md` and the archived prior audit. Existing offline checks remain historical technical evidence, not completion of the required actual-agent calibration. Live working-gate execution is also unclaimed.
 
-**Baseline report verified; final resubmission still pending.** Next step: supply the matching evaluation journal so all raw outputs can be checked, then freeze and measure a versioned correction. No further reference approval or duplicate baseline run is required. No further mentor clarification is needed to act on these two corrections.
+**Baseline fully verified; final resubmission still pending the measured correction.** All 150 raw outputs, flags and metrics match. `rubric.hw08.kit.v1.1` and the same-reference repeat inputs are prepared. Next step: execute the committed repeat, compare benefits/regressions and update final trust metrics. No reference change or further approval is required. No further mentor clarification is needed to act on these two corrections.
 
-Baseline report audit: `kit-baseline-audit.json`; summary and case patterns: `kit-baseline-analysis.md`. The report records 150 completed calls, 22/30 raw and valid agreement, 26/30 stable cases and three non-verbatim quote errors. Raw output validation is explicitly pending the journal.
+Baseline report audit: `kit-baseline-audit.json`; summary and case patterns: `kit-baseline-analysis.md`. The report records 150 completed calls, 22/30 raw and valid agreement, 26/30 stable cases and three non-verbatim quote errors. All raw outputs have been revalidated against the matching journal.

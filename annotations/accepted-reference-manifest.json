@@ -1,12 +1,12 @@
 {
-  "status": "REFERENCES_ACCEPTED_BASELINE_PENDING",
+  "status": "REFERENCES_UNCHANGED_CORRECTION_READY_FOR_REPEAT",
   "assembled_at": "2026-11-24T17:58:36.553658+00:00",
   "canonical_set": "evals/sets/l09_labels.jsonl",
   "baseline_alias": "evals/sets/l09_labels_kit_v1.jsonl",
-  "set_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f",
-  "rubric_file": "rubrics/escalation.rubric.hw08.kit.v1.json",
-  "rubric_sha256": "d53d52e8dc2e5626bd4ea995c8835fd22dc80aa94025cd0702fec07424679d39",
-  "rubric_version": "rubric.hw08.kit.v1",
+  "set_sha256": "4866d5fc4de9d39d2f6f0496a732cefd553baa10e613c3d9cc289591ceacbf5a",
+  "rubric_file": "rubrics/escalation.rubric.hw08.kit.v1.1.json",
+  "rubric_sha256": "b1c58b9b236f45ced37459116850e9fc7e13f1458d6c18c7e2f533c098f39758",
+  "rubric_version": "rubric.hw08.kit.v1.1",
   "cases": 30,
   "groups": {
     "obvious_PASS": 10,
@@ -37,5 +37,10 @@
   "source_scope": "mentor_authorized_kit_with_original_casewise_criteria_plus_recorded_agent_answers",
   "prior_exposure_note": "The laboratory cases have previously been judged. This set is not a new independent blind holdout.",
   "producing_prompt_scope": "base.v1+D25+D27 applies only to LIVE-C001 and LIVE-C006. Kit producing prompt versions were not supplied and are not invented.",
-  "stratum_caveat": "Student accepted the designed benchmark groups. Historical laboratory grouping was documented after prior laboratory judge runs; no independent blind-holdout claim."
+  "stratum_caveat": "Student accepted the designed benchmark groups. Historical laboratory grouping was documented after prior laboratory judge runs; no independent blind-holdout claim.",
+  "procedure_revised_at": "2026-11-24T18:49:10.509563+00:00",
+  "repeat_alias": "evals/sets/l09_labels_kit_v1_1.jsonl",
+  "measurement_stage": "same_reference_procedural_correction",
+  "semantic_fixture_reference_sha256": "15ab35384ac454af9366785c4b442533b216746842372db7d084b7ad9a871eb8",
+  "reference_baseline_set_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f"
 }

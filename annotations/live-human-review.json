@@ -1,5 +1,5 @@
 {
-  "status": "baseline_report_received_raw_journal_pending",
+  "status": "baseline_fully_audited_procedural_repeat_pending",
   "source": {
     "candidate_file_sha256": "19d1f0bf04a5f98553db8c90387f1c78ba43aca3dcffeab36d7f2631e473d910",
     "collection_manifest_sha256": "b43c582c1624226358545dff7518311edda5c08e327bfc4c943e8ee964c10456",
@@ -213,5 +213,7 @@
   "selection_rule_scope": "Alternative full-live-pool workflow; the kit-based batch draft declares its own pre-judge selection in its manifest.",
   "accepted_reference_manifest": "annotations/accepted-reference-manifest.json",
   "baseline_report": "reports/kit-baseline/calibration-l09_labels_kit_v1-20261124T181515888477Z.json",
-  "judge_call_count_basis": "Five reported evaluations each for the two selected live cases; other live candidates remain unjudged."
+  "judge_call_count_basis": "Five reported evaluations each for the two selected live cases; other live candidates remain unjudged.",
+  "baseline_raw_journal": "reports/kit-baseline/calibration-l09_labels_kit_v1-20261124T181515888477Z.evaluations.jsonl",
+  "repeat_set": "l09_labels_kit_v1_1"
 }

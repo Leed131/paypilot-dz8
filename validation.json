@@ -1,5 +1,5 @@
 {
-  "status": "BASELINE_REPORT_VERIFIED_EVALUATION_JOURNAL_PENDING",
+  "status": "BASELINE_FULLY_AUDITED_PROCEDURAL_REPEAT_PENDING",
   "resubmission_sent": false,
   "canonical_set": "evals/sets/l09_labels.jsonl",
   "accepted_reference_manifest": "annotations/accepted-reference-manifest.json",
@@ -22,13 +22,14 @@
       "authorized_course_kit": 28,
       "live_course_agent": 2
     },
-    "rubric_version": "rubric.hw08.kit.v1",
+    "rubric_version": "rubric.hw08.kit.v1.1",
     "baseline_alias": "l09_labels_kit_v1",
     "new_model_evaluations": 150,
     "new_metrics_available": true,
-    "set_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f",
+    "set_sha256": "4866d5fc4de9d39d2f6f0496a732cefd553baa10e613c3d9cc289591ceacbf5a",
     "labels_accepted": true,
-    "freeze_mechanism": "Committed exact inputs verified before generation"
+    "freeze_mechanism": "Committed exact inputs verified before generation",
+    "baseline_rubric_version": "rubric.hw08.kit.v1"
   },
   "live_pool": {
     "source": "annotations/live-source/candidates.jsonl",
@@ -87,7 +88,7 @@
   "offline_reference_runtime_checks_pass": true,
   "baseline_report": "reports/kit-baseline/calibration-l09_labels_kit_v1-20261124T181515888477Z.json",
   "baseline_audit": "reports/kit-baseline-audit.json",
-  "baseline_journal_received": false,
+  "baseline_journal_received": true,
   "baseline_summary": {
     "agreement": {
       "matches": 22,
@@ -121,5 +122,17 @@
       }
     },
     "reported_invalid_outputs": 3
+  },
+  "baseline_raw_outputs_revalidated": 150,
+  "repeat": {
+    "alias": "l09_labels_kit_v1_1",
+    "rubric_version": "rubric.hw08.kit.v1.1",
+    "reference_manifest": "annotations/accepted-reference-manifest.kit-v1_1.json",
+    "new_evaluations": 0,
+    "semantic_references_unchanged": true,
+    "source_texts_and_labels_unchanged": true,
+    "measured_benefit": null,
+    "offline_readiness_audit": "reports/kit-repeat-readiness.json",
+    "offline_checks_pass": true
   }
 }

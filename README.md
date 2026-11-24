@@ -1,12 +1,31 @@
 # HW08 - PayPilot judge calibration
 
-**Baseline report verified; raw journal audit pending.** The student accepted the review package and requested a further audit. All 30 source question/answer pairs and original semantic criteria passed review; no verdict corrections were needed.
+**Baseline fully audited; corrected same-reference repeat ready.** The student accepted the review package and requested a further audit. All 30 source question/answer pairs and original semantic criteria passed review; no verdict corrections were needed.
 
-## Current baseline
+## Audited baseline and prepared correction
 
-The user-local run completed 150 evaluations on the accepted set. Agreement is 22/30 (73.33%; Wilson 55.55%-85.82%); self-consistency is 26/30 (86.67%; Wilson 70.32%-94.69%). Three non-verbatim quote errors are reported in LIVE-C006, which has no valid majority. Raw/valid agreement are both 22/30 despite that difference in error composition.
+The baseline completed 150 evaluations. Agreement is 22/30 (73.33%; Wilson 55.55%-85.82%); consistency is 26/30 (86.67%; Wilson 70.32%-94.69%). All raw responses, stored fields, flags, case/run identities, metadata and aggregate statistics have now been independently checked against the matching journal. The three invalid quotations in LIVE-C006 omit one source newline; they remain invalid and preserved.
 
-The source report and input hashes are verified. The matching `.evaluations.jsonl` is still required before raw evidence can be audited and a correction frozen. See [kit-baseline-analysis.md](reports/kit-baseline-analysis.md) and [kit-baseline-audit.json](reports/kit-baseline-audit.json). Existing source labels remain unchanged. No repeat is needed merely to supply the missing file.
+The baseline source report and journal are stored byte-for-byte in `reports/kit-baseline/`. See [kit-baseline-analysis.md](reports/kit-baseline-analysis.md), [kit-baseline-audit.json](reports/kit-baseline-audit.json), and [kit-correction-plan.md](reports/kit-correction-plan.md).
+
+`rubric.hw08.kit.v1.1` is a procedural correction: retain active-criterion scope, distinguish actual human referral from conditional offers and queue/channel uncertainty, distinguish contact/effort from guaranteed outcomes, distinguish ordinary colleague review from an internal-review reason, and copy a short exact continuous quote. Source questions/answers, semantic criteria, accepted references, dates, trigger schema, judge system and validators are unchanged. No improvement is claimed before measuring the repeat.
+
+Canonical `l09_labels` now matches the repeat alias `l09_labels_kit_v1_1`. The original `l09_labels_kit_v1` files and versioned input manifest remain unchanged. Both share semantic fixture/reference SHA-256 `15ab35384ac454af9366785c4b442533b216746842372db7d084b7ad9a871eb8`; procedural and full-set hashes differ as intended.
+
+## Run the same-reference repeat
+
+On the local Mac, using the same Ollama installation and model as baseline:
+
+```bash
+bash <<'SH'
+set -e
+cd "$HOME/Downloads/paypilot-dz8"
+git pull --ff-only
+JUDGE_MODEL=ollama:qwen2.5:14b OLLAMA_URL=http://127.0.0.1:11434 RUNS=5 TEMP=0.7 python3 tools/calibrate_run.py l09_labels_kit_v1_1
+SH
+```
+
+This measures 150 additional evaluations after the new inputs and procedure are committed. Wait for `Report:` and preserve the new `.json` plus `.evaluations.jsonl` pair. The installed digest must match baseline before attributing changes to the procedural correction; runtime metadata records it. Compare raw and valid agreement, Wilson intervals, stability, schema errors, recovered cases, regressions and elapsed cost. Do not repeat merely to seek a better-looking number.
 
 ## Accepted reference set
 
@@ -19,7 +38,7 @@ Start with [accepted-reference-review.md](annotations/accepted-reference-review.
 
 Challenge flags describe accepted benchmark strata. They do not assert newly reported personal uncertainty. Laboratory grouping was documented after prior laboratory judge runs; this is not a fresh independent blind holdout. The official kit guide recommends reusing those lab cases and adding pool cases and two obvious examples.
 
-Canonical and compatibility files are `evals/sets/l09_labels.jsonl` and `sets/l09_labels.jsonl`. The immutable baseline aliases `evals/sets/l09_labels_kit_v1.jsonl` and `sets/l09_labels_kit_v1.jsonl` contain identical bytes. The evaluator uses `rubric.hw08.kit.v1`: each case is checked only against its supplied criterion, with the shared verdict/evidence protocol. Labels, flags and annotation notes never enter the judge prompt.
+Canonical and compatibility files are `evals/sets/l09_labels.jsonl` and `sets/l09_labels.jsonl`. The immutable baseline aliases `evals/sets/l09_labels_kit_v1.jsonl` and `sets/l09_labels_kit_v1.jsonl` retain baseline bytes. The two repeat aliases `l09_labels_kit_v1_1` match the canonical files. Baseline uses `rubric.hw08.kit.v1`; the repeat uses `rubric.hw08.kit.v1.1`. Each case is checked only against its supplied semantic criterion, with the shared verdict/evidence protocol. Labels, flags and annotation notes never enter the judge prompt.
 
 ## Intentional baseline reproduction on the local Mac
 

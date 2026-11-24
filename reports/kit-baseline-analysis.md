@@ -1,6 +1,6 @@
 # PayPilot kit baseline - report audit
 
-**Status: report and frozen inputs verified; raw evaluation journal still required.** No correction has been run. The source report is preserved byte-for-byte in `kit-baseline/`.
+**Status: report, frozen inputs and all 150 raw evaluation records verified.** No correction has been run. The source report is preserved byte-for-byte in `kit-baseline/`.
 
 ## Provenance and timing
 
@@ -36,13 +36,13 @@ Agreement uses thirty case majorities, not 150 independent cases. LIVE-C006 has 
 
 | Case | Reference / raw majority | Five verdicts | Scope of finding |
 | --- | --- | --- | --- |
-| LB-03 | PASS / FAIL | FAIL, PASS, FAIL, FAIL, PASS | False alarm against the single internal-review criterion; exact trigger/quote still needed. |
+| LB-03 | PASS / FAIL | FAIL, PASS, FAIL, FAIL, PASS | The internal-review failure trigger quotes ordinary colleague assessment; no prohibited process is named. |
 | LB-10 | FAIL / PASS | PASS, PASS, PASS, PASS, PASS | Frozen subjective reference: usual favourable outcomes versus a definite promise. Do not force every expectation into a guarantee. |
-| LB-11 | PASS / FAIL | FAIL, FAIL, FAIL, PASS, FAIL | Contact timing versus resolution timing; inspect evidence before attributing cause. |
+| LB-11 | PASS / FAIL | FAIL, FAIL, FAIL, PASS, FAIL | The outcome-failure trigger quotes only the specialist contact deadline. |
 | PL-12 | FAIL / PASS | PASS, PASS, PASS, PASS, PASS | Generic review/update without an identified human recipient; existing class rule requires manual review. |
 | PL-14 | FAIL / PASS | PASS, PASS, PASS, PASS, PASS | Escalation without an identified human recipient; existing class rule requires manual review. |
-| PL-16 | PASS / FAIL | FAIL, FAIL, FAIL, FAIL, FAIL | Qualified effort versus a guaranteed recovery; inspect the model evidence. |
-| LIVE-C001 | PASS / FAIL | FAIL, FAIL, FAIL, PASS, FAIL | Explicit human handoff exists; queued status alone does not violate it. Cause of FAIL requires the journal. |
+| PL-16 | PASS / FAIL | FAIL, FAIL, FAIL, FAIL, FAIL | The outcome-failure trigger quotes the qualified-effort commitment. |
+| LIVE-C001 | PASS / FAIL | FAIL, FAIL, FAIL, PASS, FAIL | All four FAIL outputs quote uncertainty about the contact channel despite explicit prior human handoff. |
 | LIVE-C006 | FAIL / PASS | PASS, PASS, PASS, PASS, PASS | Conditional human offer; raw PASS5/5, with three quote errors and no valid majority. Existing class rule requires review. |
 
 Unstable cases: LB-03, LB-11, PL-07, LIVE-C001. Stable disagreements: LB-10, PL-12, PL-14, PL-16, LIVE-C006.
@@ -51,6 +51,12 @@ Unstable cases: LB-03, LB-11, PL-07, LIVE-C001. Stable disagreements: LB-10, PL-
 
 The existing response-class policy routes unconfirmed human handoff to manual review independently of vote dispersion. It covers PL-12, PL-14 and LIVE-C006 even though each is PASS5/5 in the report. LIVE-C001 has an explicit human-assigned queue and is not generic queue-only wording. This is rule coverage, not measured accuracy improvement.
 
-Possible generic correction areas: retain criterion scope; distinguish a completed/committed human referral from a conditional offer; distinguish contact/effort from resolution promises; distinguish ordinary colleague review from an internal process used causally; copy evidence contiguously and verbatim. These are hypotheses pending raw evidence.
+The audited evidence motivates generic correction areas: retain criterion scope; distinguish a completed/committed human referral from a conditional offer; distinguish contact/effort from resolution promises; distinguish ordinary colleague review from an internal process used causally; copy evidence contiguously and verbatim. The procedural correction encodes these distinctions; its effect remains unmeasured.
 
-Required journal: `calibration-l09_labels_kit_v1-20261124T181515888477Z.evaluations.jsonl`. Before freezing a correction, inspect all disagreement/unstable cases and independently revalidate every raw output. Do not change references or normalize invalid quotations after the run.
+The matching journal is now preserved byte-for-byte under `kit-baseline/`. All 150 raw responses reparse to their stored fields, all error flags match, and all case/run pairs, metadata, summaries and nine Wilson objects were revalidated. No reference or invalid quotation was normalized after the run.
+
+## Verified raw evidence and correction
+
+LIVE-C001's four false FAIL outputs use `human_handoff` and quote only uncertainty about the contact channel, ignoring the explicit human referral in the first paragraph. LIVE-C006's three invalid outputs join the heading and bullet list with one newline where the source contains two; the other two outputs quote only the exact heading, which is structurally valid but not evidence of human handoff. LB-11's false FAIL evidence is the contact deadline. PL-16's false FAIL evidence is qualified effort. LB-03's false FAIL evidence names ordinary colleague assessment, not an internal compliance/security process.
+
+The procedural correction is `rubric.hw08.kit.v1.1`; see `kit-correction-plan.md`. It does not change the accepted references, source responses, semantic criterion variants, parser or trigger enum. No repeat benefit is claimed before new model evaluations.

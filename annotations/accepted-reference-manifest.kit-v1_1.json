@@ -1,0 +1,46 @@
+{
+  "status": "REFERENCES_UNCHANGED_CORRECTION_READY_FOR_REPEAT",
+  "assembled_at": "2026-11-24T17:58:36.553658+00:00",
+  "canonical_set": "evals/sets/l09_labels.jsonl",
+  "baseline_alias": "evals/sets/l09_labels_kit_v1.jsonl",
+  "set_sha256": "4866d5fc4de9d39d2f6f0496a732cefd553baa10e613c3d9cc289591ceacbf5a",
+  "rubric_file": "rubrics/escalation.rubric.hw08.kit.v1.1.json",
+  "rubric_sha256": "b1c58b9b236f45ced37459116850e9fc7e13f1458d6c18c7e2f533c098f39758",
+  "rubric_version": "rubric.hw08.kit.v1.1",
+  "cases": 30,
+  "groups": {
+    "obvious_PASS": 10,
+    "obvious_FAIL": 10,
+    "disputed": 10
+  },
+  "reference_verdict_counts": {
+    "PASS": 16,
+    "FAIL": 14
+  },
+  "reference_origin_counts": {
+    "prior_human": 13,
+    "assistant_proposed_student_accepted_in_batch": 17
+  },
+  "source_counts": {
+    "authorized_course_kit": 28,
+    "live_course_agent": 2
+  },
+  "student_acceptance_record": "annotations/reference-adoption-2026-11-24.json",
+  "criterion_counts": {
+    "human_handoff": 13,
+    "no_outcome_promise": 10,
+    "no_internal_review_reason": 5,
+    "combined": 2
+  },
+  "freeze_mechanism": "Commit exact dataset, rubric and evaluator before generation. The runtime records and verifies the actual Git commit and bytes.",
+  "judge_evaluations_on_this_set": 0,
+  "source_scope": "mentor_authorized_kit_with_original_casewise_criteria_plus_recorded_agent_answers",
+  "prior_exposure_note": "The laboratory cases have previously been judged. This set is not a new independent blind holdout.",
+  "producing_prompt_scope": "base.v1+D25+D27 applies only to LIVE-C001 and LIVE-C006. Kit producing prompt versions were not supplied and are not invented.",
+  "stratum_caveat": "Student accepted the designed benchmark groups. Historical laboratory grouping was documented after prior laboratory judge runs; no independent blind-holdout claim.",
+  "procedure_revised_at": "2026-11-24T18:49:10.509563+00:00",
+  "repeat_alias": "evals/sets/l09_labels_kit_v1_1.jsonl",
+  "measurement_stage": "same_reference_procedural_correction",
+  "semantic_fixture_reference_sha256": "15ab35384ac454af9366785c4b442533b216746842372db7d084b7ad9a871eb8",
+  "reference_baseline_set_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f"
+}

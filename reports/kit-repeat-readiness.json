@@ -1,0 +1,19 @@
+{
+  "status": "PASS_OFFLINE_READY_FOR_FROZEN_REPEAT",
+  "baseline_alias": "l09_labels_kit_v1",
+  "repeat_alias": "l09_labels_kit_v1_1",
+  "same_semantic_reference_sha256": "15ab35384ac454af9366785c4b442533b216746842372db7d084b7ad9a871eb8",
+  "baseline_set_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f",
+  "repeat_set_sha256": "4866d5fc4de9d39d2f6f0496a732cefd553baa10e613c3d9cc289591ceacbf5a",
+  "case_texts_context_provenance_criteria_labels_flags_dates_unchanged": true,
+  "system_prompt_and_parser_unchanged": true,
+  "new_template_has_no_case_ids_or_answer_examples": true,
+  "baseline_and_repeat_versioned_manifests_validate": true,
+  "all_150_baseline_raw_records_and_report_aggregates_revalidated": true,
+  "stubbed_repeat_calls": 150,
+  "actual_repeat_calls": 0,
+  "new_failures_regressions_benefit_and_cost_measured": false,
+  "python_3_8_syntax_pass": true,
+  "runtime_code_sha256": "219dfaa17fc92dd53ed0ecc1733efeac5d6258a81d9caa9c48ba0b93914c009e",
+  "offline_test_scope": "Actual source files checked in temporary Git repository with stubbed model calls, versioned manifest and provenance guards. No model performance result is simulated."
+}

@@ -1,5 +1,5 @@
 {
-  "status": "baseline_fully_audited_procedural_repeat_pending",
+  "status": "both_study_runs_audited_v1_selected_supervised_only",
   "source": {
     "candidate_file_sha256": "19d1f0bf04a5f98553db8c90387f1c78ba43aca3dcffeab36d7f2631e473d910",
     "collection_manifest_sha256": "b43c582c1624226358545dff7518311edda5c08e327bfc4c943e8ee964c10456",
@@ -141,7 +141,7 @@
       "acceptance_record": "annotations/reference-adoption-2026-11-24.json"
     }
   ],
-  "judge_calls_on_live_candidates": 10,
+  "judge_calls_on_live_candidates": 20,
   "selection_target": {
     "obvious_PASS": 10,
     "obvious_FAIL": 10,
@@ -197,7 +197,7 @@
     "completed": 2,
     "prior_explicit_human_decisions": 1,
     "assistant_proposals_adopted_in_batch": 1,
-    "judge_calls": 10
+    "judge_calls": 20
   },
   "workflow_mode": "batch_review_kit_based_replacement",
   "batch_draft": {
@@ -213,7 +213,9 @@
   "selection_rule_scope": "Alternative full-live-pool workflow; the kit-based batch draft declares its own pre-judge selection in its manifest.",
   "accepted_reference_manifest": "annotations/accepted-reference-manifest.json",
   "baseline_report": "reports/kit-baseline/calibration-l09_labels_kit_v1-20261124T181515888477Z.json",
-  "judge_call_count_basis": "Five reported evaluations each for the two selected live cases; other live candidates remain unjudged.",
+  "judge_call_count_basis": "Five evaluations per selected live case in each of two measured versions; other live candidates remain unjudged.",
   "baseline_raw_journal": "reports/kit-baseline/calibration-l09_labels_kit_v1-20261124T181515888477Z.evaluations.jsonl",
-  "repeat_set": "l09_labels_kit_v1_1"
+  "repeat_set": "l09_labels_kit_v1_1",
+  "repeat_raw_journal": "reports/kit-repeat/calibration-l09_labels_kit_v1_1-20261124T185831350953Z.evaluations.jsonl",
+  "selected_procedure": "rubric.hw08.kit.v1"
 }

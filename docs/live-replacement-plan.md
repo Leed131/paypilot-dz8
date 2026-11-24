@@ -1,8 +1,8 @@
-# Full live-pool route - alternative replacement source
+# Historical full-live-pool collection route
 
-Actual-agent or authorized-kit calibration is required by mentor review. The current batch-review draft instead uses 28 unchanged kit cases and two recorded live answers; see `annotations/proposals/kit-replacement-manifest.json`. This document preserves the alternative full 45-answer live-pool workflow if additional source cases are needed.
+The final accepted calibration uses 28 authorized-kit responses and two recorded live answers; both measured runs are complete and audited. See `reports/calibration-comparison.md`. This document preserves the alternative full 45-answer collection workflow if more source cases are required in future work; it is not an unfinished submission prerequisite.
 
-The collection is unchanged in `annotations/live-source/`. No judge evaluations have been made on it; LIVE-C001 has its original explicit human decision, and LIVE-C006 has an assistant proposal adopted by the student in the accepted batch. LIVE-C002's unfinished assessment remains unassigned and is deferred by the batch-review route. Original local raw trace files were not attached here and must be retained locally.
+The collection is unchanged in `annotations/live-source/`. LIVE-C001 retains its prior human decision and LIVE-C006 its student-adopted proposal. These two selected live answers have each been judged five times in each measured version; the other 43 remain unjudged. LIVE-C002's incomplete review remains unassigned and excluded. Original raw trace files were not attached here and must be retained locally.
 
 ## Collection
 

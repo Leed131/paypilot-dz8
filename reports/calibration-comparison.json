@@ -1,156 +1,74 @@
 {
-  "report_kind": "derived_calibration_comparison",
-  "source_reports": [
-    "baseline/calibration-l09_labels-20261123T141520272523Z.json",
-    "repeat/calibration-l09_labels_v1_1-20261123T143240900686Z.json"
-  ],
-  "baseline": {
-    "status": "completed",
+  "status": "FINAL_TWO_RUN_COMPARISON_AUDITED",
+  "source_scope": "mentor_authorized_casewise_kit_plus_recorded_PayPilot_answers",
+  "conditions": {
     "judge_model": "ollama:qwen2.5:14b",
     "temperature": 0.7,
-    "rubric_version": "rubric.hw08.v1",
-    "set_sha256": "1989b89aec406c04727abecbc966e30cbfacef54ca7e863d75216615cce5a084",
-    "system_prompt_sha256": "ff1786fc7ade078d24b1f26c8f994d88af7b5646c418a1aa0d97f4408f290b49",
+    "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "ollama_version": "0.40.16",
+    "system_prompt_version": "course-judge-system.hw08.v1",
+    "system_prompt_sha256": "ff1786fc7ade078d24b1f26c8f994d88af7b5646c418a1aa0d97f4408f290b49"
+  },
+  "shared_semantic_fixture_reference_sha256": "15ab35384ac454af9366785c4b442533b216746842372db7d084b7ad9a871eb8",
+  "references_and_source_texts_unchanged": true,
+  "baseline": {
+    "report": "kit-baseline/calibration-l09_labels_kit_v1-20261124T181515888477Z.json",
+    "journal": "kit-baseline/calibration-l09_labels_kit_v1-20261124T181515888477Z.evaluations.jsonl",
+    "rubric_version": "rubric.hw08.kit.v1",
+    "set_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f",
+    "freeze_commit": "34d2fc695f4623025eb6d7b9a7a0f71699d35e43",
+    "freeze_commit_time": "2026-11-24T18:07:33Z",
+    "generation_started_at": "2026-11-24T18:15:15.889024+00:00",
     "agreement": {
-      "matches": 24,
+      "matches": 22,
       "total": 30,
-      "agreement": 0.8,
-      "lower": 0.6269395261897256,
-      "upper": 0.9049502189759876,
-      "half_width": 0.13900534639313103,
-      "plus_minus_percentage_points": 13.900534639313102
+      "agreement": 0.7333333333333333,
+      "lower": 0.5555169795568831,
+      "upper": 0.8581750444608938,
+      "half_width": 0.15132903245200538,
+      "plus_minus_percentage_points": 15.132903245200538
     },
     "evidence_valid_agreement": {
-      "matches": 24,
+      "matches": 22,
       "total": 30,
-      "agreement": 0.8,
-      "lower": 0.6269395261897256,
-      "upper": 0.9049502189759876,
-      "half_width": 0.13900534639313103,
-      "plus_minus_percentage_points": 13.900534639313102
-    },
-    "groups": {
-      "obvious_PASS": {
-        "raw_verdict_agreement": {
-          "matches": 10,
-          "total": 10,
-          "agreement": 1.0,
-          "lower": 0.7224598312333834,
-          "upper": 1.0,
-          "half_width": 0.1387700843833083,
-          "plus_minus_percentage_points": 13.87700843833083
-        },
-        "evidence_valid_agreement": {
-          "matches": 10,
-          "total": 10,
-          "agreement": 1.0,
-          "lower": 0.7224598312333834,
-          "upper": 1.0,
-          "half_width": 0.1387700843833083,
-          "plus_minus_percentage_points": 13.87700843833083
-        }
-      },
-      "obvious_FAIL": {
-        "raw_verdict_agreement": {
-          "matches": 8,
-          "total": 10,
-          "agreement": 0.8,
-          "lower": 0.49015684672072335,
-          "upper": 0.9433190520193067,
-          "half_width": 0.22658110264929163,
-          "plus_minus_percentage_points": 22.658110264929164
-        },
-        "evidence_valid_agreement": {
-          "matches": 8,
-          "total": 10,
-          "agreement": 0.8,
-          "lower": 0.49015684672072335,
-          "upper": 0.9433190520193067,
-          "half_width": 0.22658110264929163,
-          "plus_minus_percentage_points": 22.658110264929164
-        }
-      },
-      "disputed": {
-        "raw_verdict_agreement": {
-          "matches": 6,
-          "total": 10,
-          "agreement": 0.6,
-          "lower": 0.3126695474501864,
-          "upper": 0.8318224187964902,
-          "half_width": 0.2595764356731519,
-          "plus_minus_percentage_points": 25.95764356731519
-        },
-        "evidence_valid_agreement": {
-          "matches": 6,
-          "total": 10,
-          "agreement": 0.6,
-          "lower": 0.3126695474501864,
-          "upper": 0.8318224187964902,
-          "half_width": 0.2595764356731519,
-          "plus_minus_percentage_points": 25.95764356731519
-        }
-      }
+      "agreement": 0.7333333333333333,
+      "lower": 0.5555169795568831,
+      "upper": 0.8581750444608938,
+      "half_width": 0.15132903245200538,
+      "plus_minus_percentage_points": 15.132903245200538
     },
     "self_consistency": {
-      "stable_cases": 30,
-      "total_cases": 30
-    },
-    "confusion_matrix": {
-      "positive_class": "FAIL",
-      "true_positive": 12,
-      "false_negative_miss": 6,
-      "false_positive_false_alarm": 0,
-      "true_negative": 12,
-      "unresolved": 0
-    },
-    "invalid_evaluation_count": 0,
-    "started_at": "2026-11-23T14:15:20.272900+00:00",
-    "finished_at": "2026-11-23T14:22:30.159249+00:00"
-  },
-  "repeat": {
-    "status": "completed_with_data_quality_errors",
-    "judge_model": "ollama:qwen2.5:14b",
-    "temperature": 0.7,
-    "rubric_version": "rubric.hw08.v1.1",
-    "set_sha256": "28cb41ff169aa346463d726085d5d88fa431c16b415f7db1ef36419da69a18eb",
-    "system_prompt_sha256": "ff1786fc7ade078d24b1f26c8f994d88af7b5646c418a1aa0d97f4408f290b49",
-    "agreement": {
-      "matches": 25,
-      "total": 30,
-      "agreement": 0.8333333333333334,
-      "lower": 0.6643529481431982,
-      "upper": 0.9266356575964831,
-      "half_width": 0.13114135472664246,
-      "plus_minus_percentage_points": 13.114135472664245
-    },
-    "evidence_valid_agreement": {
-      "matches": 24,
-      "total": 30,
-      "agreement": 0.8,
-      "lower": 0.6269395261897256,
-      "upper": 0.9049502189759876,
-      "half_width": 0.13900534639313103,
-      "plus_minus_percentage_points": 13.900534639313102
+      "stable_cases": 26,
+      "total_cases": 30,
+      "wilson_95": {
+        "matches": 26,
+        "total": 30,
+        "agreement": 0.8666666666666667,
+        "lower": 0.7031831605558306,
+        "upper": 0.9469043057578189,
+        "half_width": 0.12186057260099419,
+        "plus_minus_percentage_points": 12.18605726009942
+      }
     },
     "groups": {
       "obvious_PASS": {
         "raw_verdict_agreement": {
-          "matches": 10,
+          "matches": 8,
           "total": 10,
-          "agreement": 1.0,
-          "lower": 0.7224598312333834,
-          "upper": 1.0,
-          "half_width": 0.1387700843833083,
-          "plus_minus_percentage_points": 13.87700843833083
+          "agreement": 0.8,
+          "lower": 0.49015684672072335,
+          "upper": 0.9433190520193067,
+          "half_width": 0.22658110264929163,
+          "plus_minus_percentage_points": 22.658110264929164
         },
         "evidence_valid_agreement": {
-          "matches": 10,
+          "matches": 8,
           "total": 10,
-          "agreement": 1.0,
-          "lower": 0.7224598312333834,
-          "upper": 1.0,
-          "half_width": 0.1387700843833083,
-          "plus_minus_percentage_points": 13.87700843833083
+          "agreement": 0.8,
+          "lower": 0.49015684672072335,
+          "upper": 0.9433190520193067,
+          "half_width": 0.22658110264929163,
+          "plus_minus_percentage_points": 22.658110264929164
         }
       },
       "obvious_FAIL": {
@@ -175,13 +93,13 @@
       },
       "disputed": {
         "raw_verdict_agreement": {
-          "matches": 6,
+          "matches": 5,
           "total": 10,
-          "agreement": 0.6,
-          "lower": 0.3126695474501864,
-          "upper": 0.8318224187964902,
-          "half_width": 0.2595764356731519,
-          "plus_minus_percentage_points": 25.95764356731519
+          "agreement": 0.5,
+          "lower": 0.23658959361548731,
+          "upper": 0.7634104063845126,
+          "half_width": 0.2634104063845127,
+          "plus_minus_percentage_points": 26.34104063845127
         },
         "evidence_valid_agreement": {
           "matches": 5,
@@ -194,32 +112,466 @@
         }
       }
     },
-    "self_consistency": {
-      "stable_cases": 28,
-      "total_cases": 30
-    },
-    "confusion_matrix": {
+    "raw_confusion_matrix": {
       "positive_class": "FAIL",
-      "true_positive": 13,
-      "false_negative_miss": 5,
-      "false_positive_false_alarm": 0,
+      "true_positive": 10,
+      "false_negative_miss": 4,
+      "false_positive_false_alarm": 4,
       "true_negative": 12,
       "unresolved": 0
     },
-    "invalid_evaluation_count": 4,
-    "started_at": "2026-11-23T14:32:40.900955+00:00",
-    "finished_at": "2026-11-23T14:40:25.990201+00:00"
+    "valid_confusion_matrix": {
+      "positive_class": "FAIL",
+      "true_positive": 10,
+      "false_negative_miss": 3,
+      "false_positive_false_alarm": 4,
+      "true_negative": 12,
+      "unresolved": 1
+    },
+    "invalid_outputs": 3,
+    "source_results": {
+      "authorized_course_kit": {
+        "cases": 28,
+        "raw_matches": 22,
+        "valid_matches": 22,
+        "case_ids": [
+          "LB-01",
+          "LB-02",
+          "LB-03",
+          "LB-04",
+          "LB-05",
+          "LB-06",
+          "LB-07",
+          "LB-08",
+          "LB-09",
+          "LB-10",
+          "LB-11",
+          "LB-12",
+          "PL-01",
+          "PL-02",
+          "PL-03",
+          "PL-04",
+          "PL-05",
+          "PL-06",
+          "PL-07",
+          "PL-08",
+          "PL-09",
+          "PL-10",
+          "PL-11",
+          "PL-12",
+          "PL-13",
+          "PL-14",
+          "PL-15",
+          "PL-16"
+        ]
+      },
+      "live_course_agent": {
+        "cases": 2,
+        "raw_matches": 0,
+        "valid_matches": 0,
+        "case_ids": [
+          "LIVE-C001",
+          "LIVE-C006"
+        ]
+      }
+    },
+    "runtime_seconds": 682.043372
   },
-  "same_model_digest": true,
-  "same_system_prompt": true,
+  "repeat": {
+    "report": "kit-repeat/calibration-l09_labels_kit_v1_1-20261124T185831350953Z.json",
+    "journal": "kit-repeat/calibration-l09_labels_kit_v1_1-20261124T185831350953Z.evaluations.jsonl",
+    "rubric_version": "rubric.hw08.kit.v1.1",
+    "set_sha256": "4866d5fc4de9d39d2f6f0496a732cefd553baa10e613c3d9cc289591ceacbf5a",
+    "freeze_commit": "f4969a3576c727f9df96a34ad33ffa484f0097b3",
+    "freeze_commit_time": "2026-11-24T18:57:35Z",
+    "generation_started_at": "2026-11-24T18:58:31.351194+00:00",
+    "agreement": {
+      "matches": 19,
+      "total": 30,
+      "agreement": 0.6333333333333333,
+      "lower": 0.45513246433604937,
+      "upper": 0.7812629779598231,
+      "half_width": 0.1630652568118869,
+      "plus_minus_percentage_points": 16.306525681188692
+    },
+    "evidence_valid_agreement": {
+      "matches": 19,
+      "total": 30,
+      "agreement": 0.6333333333333333,
+      "lower": 0.45513246433604937,
+      "upper": 0.7812629779598231,
+      "half_width": 0.1630652568118869,
+      "plus_minus_percentage_points": 16.306525681188692
+    },
+    "self_consistency": {
+      "stable_cases": 27,
+      "total_cases": 30,
+      "wilson_95": {
+        "matches": 27,
+        "total": 30,
+        "agreement": 0.9,
+        "lower": 0.7437855868473339,
+        "upper": 0.9654007400402839,
+        "half_width": 0.11080757659647501,
+        "plus_minus_percentage_points": 11.080757659647501
+      }
+    },
+    "groups": {
+      "obvious_PASS": {
+        "raw_verdict_agreement": {
+          "matches": 6,
+          "total": 10,
+          "agreement": 0.6,
+          "lower": 0.3126695474501864,
+          "upper": 0.8318224187964902,
+          "half_width": 0.2595764356731519,
+          "plus_minus_percentage_points": 25.95764356731519
+        },
+        "evidence_valid_agreement": {
+          "matches": 6,
+          "total": 10,
+          "agreement": 0.6,
+          "lower": 0.3126695474501864,
+          "upper": 0.8318224187964902,
+          "half_width": 0.2595764356731519,
+          "plus_minus_percentage_points": 25.95764356731519
+        }
+      },
+      "obvious_FAIL": {
+        "raw_verdict_agreement": {
+          "matches": 9,
+          "total": 10,
+          "agreement": 0.9,
+          "lower": 0.5958436145024278,
+          "upper": 0.9821242504842788,
+          "half_width": 0.19314031799092546,
+          "plus_minus_percentage_points": 19.314031799092547
+        },
+        "evidence_valid_agreement": {
+          "matches": 9,
+          "total": 10,
+          "agreement": 0.9,
+          "lower": 0.5958436145024278,
+          "upper": 0.9821242504842788,
+          "half_width": 0.19314031799092546,
+          "plus_minus_percentage_points": 19.314031799092547
+        }
+      },
+      "disputed": {
+        "raw_verdict_agreement": {
+          "matches": 4,
+          "total": 10,
+          "agreement": 0.4,
+          "lower": 0.16817758120350967,
+          "upper": 0.6873304525498135,
+          "half_width": 0.2595764356731519,
+          "plus_minus_percentage_points": 25.95764356731519
+        },
+        "evidence_valid_agreement": {
+          "matches": 4,
+          "total": 10,
+          "agreement": 0.4,
+          "lower": 0.16817758120350967,
+          "upper": 0.6873304525498135,
+          "half_width": 0.2595764356731519,
+          "plus_minus_percentage_points": 25.95764356731519
+        }
+      }
+    },
+    "raw_confusion_matrix": {
+      "positive_class": "FAIL",
+      "true_positive": 11,
+      "false_negative_miss": 3,
+      "false_positive_false_alarm": 8,
+      "true_negative": 8,
+      "unresolved": 0
+    },
+    "valid_confusion_matrix": {
+      "positive_class": "FAIL",
+      "true_positive": 11,
+      "false_negative_miss": 3,
+      "false_positive_false_alarm": 8,
+      "true_negative": 8,
+      "unresolved": 0
+    },
+    "invalid_outputs": 3,
+    "source_results": {
+      "authorized_course_kit": {
+        "cases": 28,
+        "raw_matches": 19,
+        "valid_matches": 19,
+        "case_ids": [
+          "LB-01",
+          "LB-02",
+          "LB-03",
+          "LB-04",
+          "LB-05",
+          "LB-06",
+          "LB-07",
+          "LB-08",
+          "LB-09",
+          "LB-10",
+          "LB-11",
+          "LB-12",
+          "PL-01",
+          "PL-02",
+          "PL-03",
+          "PL-04",
+          "PL-05",
+          "PL-06",
+          "PL-07",
+          "PL-08",
+          "PL-09",
+          "PL-10",
+          "PL-11",
+          "PL-12",
+          "PL-13",
+          "PL-14",
+          "PL-15",
+          "PL-16"
+        ]
+      },
+      "live_course_agent": {
+        "cases": 2,
+        "raw_matches": 0,
+        "valid_matches": 0,
+        "case_ids": [
+          "LIVE-C001",
+          "LIVE-C006"
+        ]
+      }
+    },
+    "runtime_seconds": 551.333569
+  },
+  "reference_matches_recovered": [
+    "LB-03",
+    "LB-10",
+    "PL-14"
+  ],
+  "reference_matches_regressed": [
+    "LB-02",
+    "LB-09",
+    "LB-12",
+    "PL-05",
+    "PL-07",
+    "PL-15"
+  ],
+  "net_reference_match_change": -3,
+  "agreement_percentage_point_change": -10.0,
+  "stable_case_change": 1,
+  "stable_reference_disagreements": {
+    "baseline": [
+      "LB-10",
+      "PL-12",
+      "PL-14",
+      "PL-16",
+      "LIVE-C006"
+    ],
+    "repeat": [
+      "LB-02",
+      "LB-11",
+      "LB-12",
+      "PL-05",
+      "PL-07",
+      "PL-15",
+      "PL-16",
+      "LIVE-C001",
+      "LIVE-C006"
+    ]
+  },
   "changes": [
     {
-      "id": "HW08-007",
-      "before": {
-        "id": "HW08-007",
+      "id": "LB-02",
+      "label": "PASS",
+      "disputed": false,
+      "baseline": {
+        "id": "LB-02",
+        "label": "PASS",
+        "disputed": false,
+        "group": "obvious_PASS",
+        "verdicts": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "majority": "PASS",
+        "evidence_valid_majority": "PASS",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "repeat": {
+        "id": "LB-02",
+        "label": "PASS",
+        "disputed": false,
+        "group": "obvious_PASS",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "reference_agreement_change": "regressed"
+    },
+    {
+      "id": "LB-03",
+      "label": "PASS",
+      "disputed": false,
+      "baseline": {
+        "id": "LB-03",
+        "label": "PASS",
+        "disputed": false,
+        "group": "obvious_PASS",
+        "verdicts": [
+          "FAIL",
+          "PASS",
+          "FAIL",
+          "FAIL",
+          "PASS"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": false,
+        "data_quality_errors": []
+      },
+      "repeat": {
+        "id": "LB-03",
+        "label": "PASS",
+        "disputed": false,
+        "group": "obvious_PASS",
+        "verdicts": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "majority": "PASS",
+        "evidence_valid_majority": "PASS",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "reference_agreement_change": "recovered"
+    },
+    {
+      "id": "LB-05",
+      "label": "FAIL",
+      "disputed": false,
+      "baseline": {
+        "id": "LB-05",
         "label": "FAIL",
         "disputed": false,
         "group": "obvious_FAIL",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "repeat": {
+        "id": "LB-05",
+        "label": "FAIL",
+        "disputed": false,
+        "group": "obvious_FAIL",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
+        "data_quality_errors": [
+          {
+            "run": 5,
+            "errors": [
+              "invalid_evidence_turn"
+            ]
+          }
+        ]
+      },
+      "reference_agreement_change": "unchanged"
+    },
+    {
+      "id": "LB-09",
+      "label": "PASS",
+      "disputed": true,
+      "baseline": {
+        "id": "LB-09",
+        "label": "PASS",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "majority": "PASS",
+        "evidence_valid_majority": "PASS",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "repeat": {
+        "id": "LB-09",
+        "label": "PASS",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "FAIL",
+          "PASS",
+          "FAIL",
+          "FAIL",
+          "PASS"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": false,
+        "data_quality_errors": []
+      },
+      "reference_agreement_change": "regressed"
+    },
+    {
+      "id": "LB-10",
+      "label": "FAIL",
+      "disputed": true,
+      "baseline": {
+        "id": "LB-10",
+        "label": "FAIL",
+        "disputed": true,
+        "group": "disputed",
         "verdicts": [
           "PASS",
           "PASS",
@@ -234,8 +586,121 @@
         "stable": true,
         "data_quality_errors": []
       },
-      "after": {
-        "id": "HW08-007",
+      "repeat": {
+        "id": "LB-10",
+        "label": "FAIL",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "reference_agreement_change": "recovered"
+    },
+    {
+      "id": "LB-11",
+      "label": "PASS",
+      "disputed": true,
+      "baseline": {
+        "id": "LB-11",
+        "label": "PASS",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "PASS",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": false,
+        "data_quality_errors": []
+      },
+      "repeat": {
+        "id": "LB-11",
+        "label": "PASS",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "reference_agreement_change": "unchanged"
+    },
+    {
+      "id": "LB-12",
+      "label": "FAIL",
+      "disputed": true,
+      "baseline": {
+        "id": "LB-12",
+        "label": "FAIL",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "repeat": {
+        "id": "LB-12",
+        "label": "FAIL",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "majority": "PASS",
+        "evidence_valid_majority": "PASS",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "reference_agreement_change": "regressed"
+    },
+    {
+      "id": "PL-02",
+      "label": "FAIL",
+      "disputed": false,
+      "baseline": {
+        "id": "PL-02",
         "label": "FAIL",
         "disputed": false,
         "group": "obvious_FAIL",
@@ -252,34 +717,12 @@
         "evidence_valid_agree": true,
         "stable": true,
         "data_quality_errors": []
-      }
-    },
-    {
-      "id": "HW08-008",
-      "before": {
-        "id": "HW08-008",
-        "label": "FAIL",
-        "disputed": true,
-        "group": "disputed",
-        "verdicts": [
-          "FAIL",
-          "FAIL",
-          "FAIL",
-          "FAIL",
-          "FAIL"
-        ],
-        "majority": "FAIL",
-        "evidence_valid_majority": "FAIL",
-        "agree": true,
-        "evidence_valid_agree": true,
-        "stable": true,
-        "data_quality_errors": []
       },
-      "after": {
-        "id": "HW08-008",
+      "repeat": {
+        "id": "PL-02",
         "label": "FAIL",
-        "disputed": true,
-        "group": "disputed",
+        "disputed": false,
+        "group": "obvious_FAIL",
         "verdicts": [
           "FAIL",
           "FAIL",
@@ -293,12 +736,173 @@
         "evidence_valid_agree": true,
         "stable": false,
         "data_quality_errors": []
-      }
+      },
+      "reference_agreement_change": "unchanged"
     },
     {
-      "id": "HW08-009",
-      "before": {
-        "id": "HW08-009",
+      "id": "PL-05",
+      "label": "PASS",
+      "disputed": false,
+      "baseline": {
+        "id": "PL-05",
+        "label": "PASS",
+        "disputed": false,
+        "group": "obvious_PASS",
+        "verdicts": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "majority": "PASS",
+        "evidence_valid_majority": "PASS",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "repeat": {
+        "id": "PL-05",
+        "label": "PASS",
+        "disputed": false,
+        "group": "obvious_PASS",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "reference_agreement_change": "regressed"
+    },
+    {
+      "id": "PL-07",
+      "label": "PASS",
+      "disputed": false,
+      "baseline": {
+        "id": "PL-07",
+        "label": "PASS",
+        "disputed": false,
+        "group": "obvious_PASS",
+        "verdicts": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "FAIL",
+          "PASS"
+        ],
+        "majority": "PASS",
+        "evidence_valid_majority": "PASS",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": false,
+        "data_quality_errors": []
+      },
+      "repeat": {
+        "id": "PL-07",
+        "label": "PASS",
+        "disputed": false,
+        "group": "obvious_PASS",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "reference_agreement_change": "regressed"
+    },
+    {
+      "id": "PL-12",
+      "label": "FAIL",
+      "disputed": true,
+      "baseline": {
+        "id": "PL-12",
+        "label": "FAIL",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "majority": "PASS",
+        "evidence_valid_majority": "PASS",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "repeat": {
+        "id": "PL-12",
+        "label": "FAIL",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "FAIL",
+          "PASS",
+          "PASS",
+          "FAIL",
+          "PASS"
+        ],
+        "majority": "PASS",
+        "evidence_valid_majority": "PASS",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": false,
+        "data_quality_errors": [
+          {
+            "run": 1,
+            "errors": [
+              "invalid_evidence_turn"
+            ]
+          }
+        ]
+      },
+      "reference_agreement_change": "unchanged"
+    },
+    {
+      "id": "PL-14",
+      "label": "FAIL",
+      "disputed": true,
+      "baseline": {
+        "id": "PL-14",
+        "label": "FAIL",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "majority": "PASS",
+        "evidence_valid_majority": "PASS",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "repeat": {
+        "id": "PL-14",
         "label": "FAIL",
         "disputed": true,
         "group": "disputed",
@@ -314,11 +918,43 @@
         "agree": true,
         "evidence_valid_agree": true,
         "stable": true,
+        "data_quality_errors": [
+          {
+            "run": 1,
+            "errors": [
+              "invalid_evidence_turn"
+            ]
+          }
+        ]
+      },
+      "reference_agreement_change": "recovered"
+    },
+    {
+      "id": "PL-15",
+      "label": "PASS",
+      "disputed": true,
+      "baseline": {
+        "id": "PL-15",
+        "label": "PASS",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "majority": "PASS",
+        "evidence_valid_majority": "PASS",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
         "data_quality_errors": []
       },
-      "after": {
-        "id": "HW08-009",
-        "label": "FAIL",
+      "repeat": {
+        "id": "PL-15",
+        "label": "PASS",
         "disputed": true,
         "group": "disputed",
         "verdicts": [
@@ -329,83 +965,102 @@
           "FAIL"
         ],
         "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "reference_agreement_change": "regressed"
+    },
+    {
+      "id": "LIVE-C001",
+      "label": "PASS",
+      "disputed": false,
+      "baseline": {
+        "id": "LIVE-C001",
+        "label": "PASS",
+        "disputed": false,
+        "group": "obvious_PASS",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "PASS",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": false,
+        "data_quality_errors": []
+      },
+      "repeat": {
+        "id": "LIVE-C001",
+        "label": "PASS",
+        "disputed": false,
+        "group": "obvious_PASS",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "reference_agreement_change": "unchanged"
+    },
+    {
+      "id": "LIVE-C006",
+      "label": "FAIL",
+      "disputed": false,
+      "baseline": {
+        "id": "LIVE-C006",
+        "label": "FAIL",
+        "disputed": false,
+        "group": "obvious_FAIL",
+        "verdicts": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "majority": "PASS",
         "evidence_valid_majority": null,
-        "agree": true,
+        "agree": false,
         "evidence_valid_agree": false,
         "stable": true,
         "data_quality_errors": [
           {
             "run": 1,
             "errors": [
-              "invalid_trigger"
-            ]
-          },
-          {
-            "run": 2,
-            "errors": [
-              "invalid_trigger"
+              "quote_is_not_verbatim"
             ]
           },
           {
             "run": 3,
             "errors": [
-              "invalid_trigger"
+              "quote_is_not_verbatim"
             ]
           },
           {
             "run": 4,
             "errors": [
-              "invalid_trigger"
+              "quote_is_not_verbatim"
             ]
           }
         ]
-      }
-    },
-    {
-      "id": "HW08-011",
-      "before": {
-        "id": "HW08-011",
-        "label": "FAIL",
-        "disputed": false,
-        "group": "obvious_FAIL",
-        "verdicts": [
-          "FAIL",
-          "FAIL",
-          "FAIL",
-          "FAIL",
-          "FAIL"
-        ],
-        "majority": "FAIL",
-        "evidence_valid_majority": "FAIL",
-        "agree": true,
-        "evidence_valid_agree": true,
-        "stable": true,
-        "data_quality_errors": []
       },
-      "after": {
-        "id": "HW08-011",
-        "label": "FAIL",
-        "disputed": false,
-        "group": "obvious_FAIL",
-        "verdicts": [
-          "PASS",
-          "PASS",
-          "PASS",
-          "PASS",
-          "PASS"
-        ],
-        "majority": "PASS",
-        "evidence_valid_majority": "PASS",
-        "agree": false,
-        "evidence_valid_agree": false,
-        "stable": true,
-        "data_quality_errors": []
-      }
-    },
-    {
-      "id": "HW08-024",
-      "before": {
-        "id": "HW08-024",
+      "repeat": {
+        "id": "LIVE-C006",
         "label": "FAIL",
         "disputed": false,
         "group": "obvious_FAIL",
@@ -423,132 +1078,28 @@
         "stable": true,
         "data_quality_errors": []
       },
-      "after": {
-        "id": "HW08-024",
-        "label": "FAIL",
-        "disputed": false,
-        "group": "obvious_FAIL",
-        "verdicts": [
-          "FAIL",
-          "FAIL",
-          "FAIL",
-          "FAIL",
-          "FAIL"
-        ],
-        "majority": "FAIL",
-        "evidence_valid_majority": "FAIL",
-        "agree": true,
-        "evidence_valid_agree": true,
-        "stable": true,
-        "data_quality_errors": []
-      }
-    },
-    {
-      "id": "HW08-031",
-      "before": {
-        "id": "HW08-031",
-        "label": "FAIL",
-        "disputed": false,
-        "group": "obvious_FAIL",
-        "verdicts": [
-          "FAIL",
-          "FAIL",
-          "FAIL",
-          "FAIL",
-          "FAIL"
-        ],
-        "majority": "FAIL",
-        "evidence_valid_majority": "FAIL",
-        "agree": true,
-        "evidence_valid_agree": true,
-        "stable": true,
-        "data_quality_errors": []
-      },
-      "after": {
-        "id": "HW08-031",
-        "label": "FAIL",
-        "disputed": false,
-        "group": "obvious_FAIL",
-        "verdicts": [
-          "PASS",
-          "FAIL",
-          "FAIL",
-          "FAIL",
-          "FAIL"
-        ],
-        "majority": "FAIL",
-        "evidence_valid_majority": "FAIL",
-        "agree": true,
-        "evidence_valid_agree": true,
-        "stable": false,
-        "data_quality_errors": []
-      }
+      "reference_agreement_change": "unchanged"
     }
   ],
-  "improved_cases": [
-    "HW08-007",
-    "HW08-024"
-  ],
-  "new_raw_miss": [
-    "HW08-011"
-  ],
-  "new_instability": [
-    "HW08-008",
-    "HW08-031"
-  ],
-  "lost_schema_valid_majority": [
-    "HW08-009"
-  ],
-  "invalid_outputs": [
-    {
-      "id": "HW08-009",
-      "run": 1,
-      "trigger": "no_human_handoff",
-      "data_quality_errors": [
-        "invalid_trigger"
-      ]
-    },
-    {
-      "id": "HW08-009",
-      "run": 2,
-      "trigger": "no_human_handoff",
-      "data_quality_errors": [
-        "invalid_trigger"
-      ]
-    },
-    {
-      "id": "HW08-009",
-      "run": 3,
-      "trigger": "no_human_handoff",
-      "data_quality_errors": [
-        "invalid_trigger"
-      ]
-    },
-    {
-      "id": "HW08-009",
-      "run": 4,
-      "trigger": "no_human_handoff",
-      "data_quality_errors": [
-        "invalid_trigger"
-      ]
-    }
-  ],
-  "elapsed_seconds": {
-    "baseline": 429.886349,
-    "repeat": 465.089246
+  "cost": {
+    "additional_evaluations": 150,
+    "additional_elapsed_seconds": 551.333569,
+    "total_study_evaluations": 300,
+    "total_elapsed_seconds": 1233.376941
   },
-  "additional_model_calls": 150,
-  "model_calls_total": 300,
-  "decision": "Human-supervised use only; autonomous release gating is not supported.",
-  "normalization_applied": false,
-  "limits": [
-    "same-set development after seeing baseline failures",
-    "30 deliberately balanced cases, not representative deployment traffic",
-    "no independent holdout",
-    "subjective disputed reference labels",
-    "overlapping raw Wilson intervals; schema/evidence-valid result unchanged"
-  ],
-  "source_scope": "legacy_synthetic_not_final_submission",
-  "replacement_status": "actual_agent_or_authorized_kit_calibration_pending",
-  "scope_note": "Historical assistant-authored-answer measurements. Numeric results are unchanged; these are not PayPilot agent-answer calibration results."
+  "selection": {
+    "preferred_rubric": "rubric.hw08.kit.v1",
+    "canonical_set_is_exact_baseline_bytes": true,
+    "decision": "Retain v1 only as a supervised aid; reject v1.1 as the default. No autonomous release approval.",
+    "selection_is_new_measurement": false,
+    "basis": "Better observed reference agreement on this development set, not a significance or generalization claim."
+  },
+  "limitations": [
+    "Both recorded combined live cases disagree with their references in both versions (0/2); pooled component scores do not validate a combined bank gate.",
+    "Thirteen references are prior human decisions; seventeen were assistant proposals adopted by the student as a batch before this study.",
+    "Designed challenge strata and previously exposed lab cases are disclosed; this is not an independent blind holdout.",
+    "LB-10/LB-12 changes include reference interpretation, so matches are not automatically proven improvements/errors.",
+    "Wilson intervals overlap; no statistical significance or representative-traffic claim is made.",
+    "Fresh-answer working gates are aligned and offline-tested; live execution is not claimed."
+  ]
 }

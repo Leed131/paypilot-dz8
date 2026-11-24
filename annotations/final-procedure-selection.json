@@ -1,0 +1,12 @@
+{
+  "selected_at": "2026-11-24T19:27:37.831124+00:00",
+  "preferred_rubric_version": "rubric.hw08.kit.v1",
+  "preferred_set_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f",
+  "selected_measurement_report": "reports/kit-baseline/calibration-l09_labels_kit_v1-20261124T181515888477Z.json",
+  "measured_correction_report": "reports/kit-repeat/calibration-l09_labels_kit_v1_1-20261124T185831350953Z.json",
+  "decision": "Retain v1 only as a supervised aid; reject v1.1 as the default. No autonomous release approval.",
+  "canonical_promotion": "Exact baseline input bytes are restored as canonical; promotion is not a new model run. Original freeze and original report commits are retained.",
+  "accepted_references_changed": false,
+  "additional_model_calls_after_two_measurements": 0,
+  "evidence": "reports/calibration-comparison.json"
+}

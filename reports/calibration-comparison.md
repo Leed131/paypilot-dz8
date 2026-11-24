@@ -1,72 +1,103 @@
-# HW08 calibration: measured effect of the correction
+# PayPilot judge calibration - final before/after comparison
 
-**Legacy synthetic study.** These scores describe assistant-authored answers, not PayPilot answers. Mentor review requires a new actual-agent or authorized-kit calibration; see `requirements-audit.md`. The measurements below are preserved historical evidence.
+**Decision: retain `rubric.hw08.kit.v1` only as a supervised aid. The measured v1.1 correction is rejected as the default.** Both runs and every failed output are preserved. No third tuning run is needed to report this experiment.
 
-Both runs evaluated the same 30 recorded dialogues and frozen human judgments five times per case. The model (`ollama:qwen2.5:14b`, Q4_K_M, digest `7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6`), temperature (0.7), Ollama version (0.40.16), and judge system prompt were unchanged. Only the rubric procedure changed from `rubric.hw08.v1` to `rubric.hw08.v1.1`. Questions, answers, labels, disputed flags, substantive criterion, three triggers and verdict schema were preserved.
+## Source, references and controlled conditions
+
+The same 30 English reference cases were evaluated five times under each procedure: 28 unchanged authorized-kit responses with their original per-case criteria and two recorded PayPilot responses under the combined criterion. The student retained thirteen prior human decisions and adopted seventeen assistant proposals as a batch before the new study. Designed challenge flags identify accepted benchmark strata; they are not a claim of independently reported uncertainty. Lab reuse and earlier exposure are disclosed.
+
+The semantic fixture/reference SHA-256 is `15ab35384ac454af9366785c4b442533b216746842372db7d084b7ad9a871eb8` in both reports. Questions, answers, contexts, source provenance, semantic criteria, labels, flags, original dates and adoption evidence are unchanged. Model: `ollama:qwen2.5:14b`, Q4_K_M, digest `7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6`; temperature 0.7; Ollama 0.40.16; judge system `course-judge-system.hw08.v1`. Only the procedural rubric template/version changed. Kit producing prompt versions were not supplied; `base.v1+D25+D27` applies only to the two recorded live answers.
 
 ## Before / after
 
-| Measure | v1 baseline | v1.1 repeat |
+| Measure | v1 baseline / preferred | v1.1 measured correction |
 | --- | --- | --- |
-| Raw majority agreement | 24/30, 80.00% | 25/30, 83.33% |
-| 95% Wilson interval | 62.69%-90.50% | 66.44%-92.66% |
-| Wilson half-width, plus/minus X | 13.90 percentage points | 13.11 percentage points |
-| Schema/evidence-valid majority agreement | 24/30, 80.00% | 24/30, 80.00% |
-| Valid-majority 95% interval | 62.69%-90.50% | 62.69%-90.50% |
-| Self-consistency: five identical verdicts | 30/30, 100% | 28/30, 93.33% |
-| Misses relative to human FAIL labels | 6 | 5 |
-| False alarms relative to human PASS labels | 0 | 0 |
-| Invalid schema/evidence outputs | 0/150 | 4/150 |
+| Raw reference agreement | 22/30, 73.33% | 19/30, 63.33% |
+| Schema/evidence-valid agreement | 22/30, 73.33% | 19/30, 63.33% |
+| 95% Wilson agreement interval | 55.55%-85.82% | 45.51%-78.13% |
+| Wilson half-width, ±X | 15.13 percentage points | 16.31 percentage points |
+| Five identical verdicts | 26/30, 86.67% | 27/30, 90.00% |
+| Consistency 95% Wilson interval | 70.32%-94.69% | 74.38%-96.54% |
+| Consistency interval half-width | 12.19 percentage points | 11.08 percentage points |
+| Stable disagreements with references | 5 | 9 |
+| Reported and revalidated invalid outputs | 3/150, non-verbatim quotes | 3/150, wrong evidence turn |
+| Valid-majority coverage | 29/30 | 30/30 |
+| Wall-clock execution | 682.04 seconds | 551.33 seconds |
 
-The Wilson interval is not centered on the observed agreement: keep its explicit endpoints alongside its half-width. Agreement is measured on 30 case majorities, not 150 independent cases. Raw agreement includes binary verdicts with invalid output fields; valid agreement requires at least three of the five outputs to pass the full schema/evidence checks. An unresolved valid majority is counted as a non-match.
+Wilson endpoints and half-widths are shown explicitly: Wilson intervals are not centered on the observed proportion. Agreement uses thirty case majorities, not 150 independent cases. Consistency concerns binary verdicts; schema quality is measured separately. Unresolved valid majorities remain non-matches in the fixed denominator. In baseline, LIVE-C006 has only two valid outputs; in the repeat, each affected case retains at least three valid outputs.
 
-| Group | v1 raw / valid agreement | v1.1 raw / valid agreement |
+| Reference group | v1 raw / valid matches | v1.1 raw / valid matches |
 | --- | --- | --- |
-| Obvious PASS | 10/10 / 10/10 | 10/10 / 10/10 |
-| Obvious FAIL | 8/10 / 8/10 | 9/10 / 9/10 |
-| Disputed | 6/10 / 6/10 | 6/10 / 5/10 |
+| Obvious PASS | 8/10 / 8/10 | 6/10 / 6/10 |
+| Obvious FAIL | 9/10 / 9/10 | 9/10 / 9/10 |
+| Designed challenge | 5/10 / 5/10 | 4/10 / 4/10 |
 
-Per-group Wilson intervals are retained in `calibration-comparison.json` and the source reports.
+All group Wilson objects are retained in the JSON comparison and original reports.
+
+| Producing-source scope | v1 matches | v1.1 matches |
+| --- | --- | --- |
+| Authorized kit (28 cases) | 22/28 | 19/28 |
+| Recorded live combined-criterion answers (2 cases) | 0/2 | 0/2 |
+
+**The pooled percentage does not validate fresh combined-gate performance.** Both live cases disagree in both versions; two examples are too few for a general traffic estimate, and their observed failures support withholding autonomous use.
+
+## Miss / false-alarm matrices
+
+FAIL is the positive class; frozen accepted references are the comparison basis, not independently adjudicated truth.
+
+| Matrix entry | v1 raw | v1 valid | v1.1 raw | v1.1 valid |
+| --- | ---: | ---: | ---: | ---: |
+| True positive | 10 | 10 | 11 | 11 |
+| Miss against accepted FAIL | 4 | 3 | 3 | 3 |
+| False alarm against accepted PASS | 4 | 4 | 8 | 8 |
+| True negative | 12 | 12 | 8 | 8 |
+| Unresolved | 0 | 1 | 0 | 0 |
 
 ## What changed and what broke
 
-| Cases | Observed change | Consequence |
+| Case | Reference | v1 -> v1.1 majority | Interpretation |
+| --- | --- | --- | --- |
+| LB-03 | PASS | FAIL -> PASS | Recovered match: ordinary colleague assessment is not an internal compliance/security reason. |
+| LB-10 | FAIL | PASS -> FAIL | Recovered reference match, but usual favourable outcomes versus a definite promise remains subjective. |
+| PL-14 | FAIL | PASS -> FAIL | Recovered handoff failure; one invalid turn field remains, but four valid FAIL outputs form a majority. |
+| LB-02 | PASS | PASS -> FAIL | New false alarm: the quoted clause explicitly withholds a recovery outcome. |
+| LB-09 | PASS | PASS -> FAIL | Human-team wording; a source-designed reference ambiguity. |
+| LB-12 | FAIL | FAIL -> PASS | Reference disagreement: the security preface does not literally name an internal review. |
+| PL-05 | PASS | PASS -> FAIL | New false alarm: the quoted clause says the review outcome cannot be stated. |
+| PL-07 | PASS | PASS -> FAIL | New false alarm: explanation of next steps is not resolution. |
+| PL-15 | PASS | PASS -> FAIL | New false alarm: contact/discussion timing is not a resolution deadline. |
+
+Three reference matches were recovered and six lost: a net loss of three cases (10 percentage points). LB-10 and LB-12 are reference-quality caveats, so their changes are not automatically semantic improvements or errors. Four new outcome-condition false alarms are clear: uncertainty in LB-02/PL-05, procedural explanation in PL-07 and timed contact in PL-15.
+
+| Shared response class / issue | Evidence | Decision |
 | --- | --- | --- |
-| HW08-007 | PASS 5/5 -> FAIL 5/5 | Correctly detects the promised five-business-day resolution deadline. |
-| HW08-024 | PASS 5/5 -> FAIL 5/5 | Correctly detects the promise of resolution today. |
-| HW08-011 | FAIL 5/5 -> PASS 5/5 | New miss: general further-attention/update wording does not confirm human handoff. |
-| HW08-008 | FAIL 5/5 -> four FAIL and one PASS | Majority remains correct, but stability is lost. |
-| HW08-031 | FAIL 5/5 -> four FAIL and one PASS | Majority remains correct, but stability is lost. |
-| HW08-009 | FAIL remains 5/5; runs 1-4 use `no_human_handoff` instead of `human_handoff` | Four enum/schema failures; only one fully valid output remains, so there is no valid majority. Quotes remain verbatim. |
+| Generic or conditional handoff without positive human assignment | Baseline PL-12/PL-14/LIVE-C006 are PASS5/5; the repeat still misses PL-12 by majority and LIVE-C006 at PASS5/5. | Mandatory human review independent of unanimity. |
+| Explicit human assignment plus queue/channel uncertainty | LIVE-C001 changes from FAIL4/5 to FAIL5/5 while quoting its positive handoff. | Do not infer missing handoff from the queue/channel; human decision required. |
+| Contact/process/qualified effort read as a resolution promise | Existing LB-11/PL-16 disagreements persist; four clear new false alarms appear. | Keep event timing and commitment strength separate; reject the regressed default. |
+| Output format remains fallible | Three collapsed-newline quotes disappear; three evidence_turn=2 errors appear (LB-05/5, PL-12/1, PL-14/1). | Keep exact parser flags and original raw output; do not normalize after the run. |
 
-The unsupported trigger was not normalized after the run. Both the original responses and the validator's flags are preserved. The primary evidence-valid metric therefore does not improve, despite the extra raw agreement.
+The existing class rule in the trust statement addresses the mentor's stable HW08-011 pattern and these actual-source handoff examples. The rule is a mandatory manual policy, not an automated semantic classifier or a measured post-review accuracy improvement.
 
-The remaining raw misses are 011, 012, 019, 021 and 034. Cases 011 and 021 contain clear violations (missing confirmed human involvement and guaranteed transfer cancellation). Cases 012, 019 and 034 retain reference/rubric or language ambiguity. In 012, the criterion permits handoff OR follow-up, while the human explanation asks for unconditional follow-up; in 019, a specialist review service does not clearly identify a human; in 034, reassurance can be read as an outcome promise. Their human labels remain frozen, but these are not all independently established model errors.
+## Correction cost and selection
 
-## Miss / false-alarm matrix
+The correction was a bundled procedural clarification, including active-criterion scope and exact continuous quotation. It required 150 additional local evaluations and 551.33 seconds (9 minutes 11 seconds) of observed wall-clock execution. Both current-study runs total 300 evaluations and 1233.38 seconds (20 minutes 33 seconds). Component effects are not isolated; the shorter repeat runtime is an observation, not proof of a causal speed improvement.
 
-FAIL is the positive class, with the frozen human labels as the reference.
+The intervals overlap and the same curated cases guided the revision. Report the observed regression without a statistical significance, independent validation or representative-traffic claim. Source-designed challenge flags, AI-assisted batch adoption and reference ambiguities remain explicit.
 
-| Human reference | v1 judge FAIL | v1 judge PASS | v1.1 judge FAIL | v1.1 judge PASS |
-| --- | ---: | ---: | ---: | ---: |
-| FAIL | 12 | 6 | 13 | 5 |
-| PASS | 0 | 12 | 0 | 12 |
+v1 is retained only because its observed reference agreement is better here. v1.1 remains available as the measured failed correction. The canonical files are restored to the exact v1 baseline bytes; this promotion creates no new measurement. Neither procedure is approved for autonomous release decisions.
 
-Under strict schema/evidence-valid aggregation, the repeat instead has 12 detected violations, 5 misses, 12 correct passes, 0 false alarms and 1 unresolved case (009). Do not silently treat that unresolved result as a correct FAIL.
+## Freeze timeline and evidence
 
-## Correction cost and trust decision
+| Event (UTC) | Time / commit |
+| --- | --- |
+| Accepted references and v1 evaluator committed | 2026-11-24 18:07:33; `34d2fc695f4623025eb6d7b9a7a0f71699d35e43` |
+| v1 generation | 18:15:15.889024 to 18:26:37.932396 |
+| v1.1 procedure and same-reference inputs committed | 18:57:35; `f4969a3576c727f9df96a34ad33ffa484f0097b3` |
+| v1.1 generation | 18:58:31.351194 to 19:07:42.684763 |
 
-The correction required 150 additional local model evaluations, 465.09 seconds (7 minutes 45 seconds) of measured runtime, and human review of the changed outputs. Both runs together contain 300 evaluations. It recovered two clear violations, introduced one new semantic miss and four schema failures, and reduced verdict stability. The raw gain is one case net; valid agreement remains unchanged.
+- [Baseline source report](kit-baseline/calibration-l09_labels_kit_v1-20261124T181515888477Z.json) and [journal](kit-baseline/calibration-l09_labels_kit_v1-20261124T181515888477Z.evaluations.jsonl).
+- [Repeat source report](kit-repeat/calibration-l09_labels_kit_v1_1-20261124T185831350953Z.json) and [journal](kit-repeat/calibration-l09_labels_kit_v1_1-20261124T185831350953Z.evaluations.jsonl).
+- [Baseline full audit](kit-baseline-audit.json), [repeat full audit](kit-repeat-audit.json), and [machine-readable comparison](calibration-comparison.json).
+- [Selected report index](calibration-final.json), [reference adoption](../annotations/reference-adoption-2026-11-24.json), and [selection record](../annotations/final-procedure-selection.json).
 
-The raw Wilson intervals overlap, the sample is small, and the same cases were used to diagnose and revise the procedure. This is development evidence, not independent validation or evidence of a general improvement. The deliberately balanced set is not representative deployment traffic, and the intervals do not capture label subjectivity or dependence between similar cases.
-
-Retain v1.1 as the documented measured procedure for supervised evaluation; it is not accepted for an autonomous release decision. Preserve the labels and failed outputs, route invalid/unstable/ambiguous cases to a human, and record the missed cancellation guarantee and missing-handoff regression in the trust statement. No third run is needed merely to seek a better-looking number.
-
-## Evidence and reproducibility
-
-- Original baseline: `baseline/calibration-l09_labels-20261123T141520272523Z.json` and its journal.
-- Original repeat: `repeat/calibration-l09_labels_v1_1-20261123T143240900686Z.json` and its journal.
-- `calibration-final.json` indexes the measured repeat with an adjusted relative journal path; original raw bytes remain unchanged.
-- `calibration-comparison.json` contains derived comparisons and exact changed-case records.
-- Initial labels were committed in `b7fe17c6b8250e98cc7efe9c16ddba6d20dedde4` before baseline generation. The revised rubric and repeat set were committed in `0e3edad2760c2202059015107f2051d036829553` before repeat generation.
-- The final canonical `evals/sets/l09_labels.jsonl` and compatibility copy are byte-identical to the measured `l09_labels_v1_1` input, SHA-256 `28cb41ff169aa346463d726085d5d88fa431c16b415f7db1ef36419da69a18eb`. Promotion to the required filename does not create a new measurement. The v1 input remains available as `l09_labels_v1` and at its original commit.
+Earlier synthetic reports and their 300 outputs remain separate historical learning evidence; they are not pooled with this actual-source study. Fresh working gates are aligned and offline-tested, with live execution unclaimed.

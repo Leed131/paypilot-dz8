@@ -12,7 +12,7 @@ Karina's feedback resolves the source interpretation: calibration must use actua
 ## Replacement acceptance checks
 
 - Preserve exact source questions/answers and provenance. Original raw `sources/` traces were not attached; this review verifies attached-file consistency, not independent raw-trace authenticity.
-- Obtain explicit human PASS/FAIL labels and criterion-based explanations before showing any new judge verdict. LIVE-C001 has three confirmed criterion assessments but no final label or disputed flag; neither may be inferred.
+- Obtain explicit human PASS/FAIL labels and criterion-based explanations before showing any new judge verdict. Both the final label and disputed flag must be explicit human decisions; neither may be inferred from an incomplete criterion discussion. Current progress is recorded in `annotations/live-human-review.json`.
 - Select exactly 10 obvious PASS, 10 obvious FAIL and 10 genuinely disputed cases. Disputed reasons must identify plausible competing interpretations of the criterion, rather than only unfamiliarity, verbosity or unrelated concerns. Obtain more actual/kit answers if needed; do not force flags to fill quotas.
 - Apply the predeclared rule: first ten finalized annotations per group, sorted by candidate ID. Preserve all annotations and exclusions.
 - Freeze selected responses, labels, rubric and provenance in Git before the first judge call. Current canonical label files remain legacy synthetic data. The runner must receive correct actual-source metadata before new measurement.

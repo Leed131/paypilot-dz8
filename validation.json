@@ -15,8 +15,8 @@
     "source": "annotations/live-source/candidates.jsonl",
     "candidate_sha256": "19d1f0bf04a5f98553db8c90387f1c78ba43aca3dcffeab36d7f2631e473d910",
     "candidates": 45,
-    "completed_human_labels": 0,
-    "partial_human_reviews": 1,
+    "completed_human_labels": 1,
+    "partial_human_reviews": 0,
     "judge_calls": 0,
     "producing_agent_prompt_version": "base.v1+D25+D27",
     "raw_trace_files_available_for_independent_reinspection": false,
@@ -27,7 +27,13 @@
       "disputed": 10
     },
     "labels_frozen": false,
-    "new_metrics_available": false
+    "new_metrics_available": false,
+    "current_pending_candidate": "LIVE-C002",
+    "human_label_groups": {
+      "obvious_PASS": 1,
+      "obvious_FAIL": 0,
+      "disputed": 0
+    }
   },
   "class_review_rule": {
     "status": "documented_manual_policy_not_an_automated_classifier",

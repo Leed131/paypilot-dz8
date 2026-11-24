@@ -2,7 +2,7 @@
 
 Mentor review requires actual agent answers or the authorized kit pool. The historical assistant-authored experiment is learning evidence only. Its scores cannot be reused as PayPilot calibration. The existing 45-answer collection is the required replacement workflow, not an optional extension.
 
-The attached collection is preserved in `annotations/live-source/`. All 45 candidates are unlabelled and have no judge evaluations. LIVE-C001 has a partial human criterion assessment, with final verdict and disputed flag still null. Do not recollect these answers unnecessarily; retain original local raw trace files because they were not attached here.
+The attached collection is preserved in `annotations/live-source/`. The collection initially contained no labels and has no judge evaluations. Human annotation is now in progress; completed labels and the next pending case are recorded in `annotations/live-human-review.json`. Do not recollect these answers unnecessarily; retain original local raw trace files because they were not attached here.
 
 ## Collection
 

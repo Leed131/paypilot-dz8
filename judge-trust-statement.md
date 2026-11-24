@@ -4,7 +4,7 @@ Status: **revision in progress; actual-agent calibration pending**. Autonomous r
 
 | Statement | Evidence and decision |
 | --- | --- |
-| Calibrated on | Replacement pool: 45 recorded course-agent answers, profile `lesson-09`, prompt `base.v1+D25+D27`, observed model `anthropic/claude-haiku-5.5`. No finalized human labels or judge evaluations yet. Select 30 with 10 obvious PASS, 10 obvious FAIL and 10 genuinely disputed cases; freeze before judging. |
+| Calibrated on | Replacement pool: 45 recorded course-agent answers, profile `lesson-09`, prompt `base.v1+D25+D27`, observed model `anthropic/claude-haiku-5.5`. Human annotation is in progress; no judge evaluations yet. Select 30 with 10 obvious PASS, 10 obvious FAIL and 10 genuinely disputed cases; freeze before judging. |
 | Agreement | Pending actual-agent measurement. Historical synthetic scores cannot be transferred. Report case-majority agreement, schema/evidence-valid agreement and 95% Wilson intervals separately. |
 | Self-consistency | Pending. Report five identical verdicts separately from human agreement: a stable answer can be wrong. |
 | Where it fails | Historical HW08-011 received five false PASS verdicts: generic further-attention/update wording did not confirm human involvement. This motivates a response-class review rule whose operational effect is unmeasured. |

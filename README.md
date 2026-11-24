@@ -8,7 +8,7 @@ The class-based correction is in [judge-trust-statement.md](judge-trust-statemen
 
 45 actual course-agent answers have already been collected. Original questions, answers and provenance are in [annotations/live-source/candidates.jsonl](annotations/live-source/candidates.jsonl), alongside the uploaded manifest and journal. Producing prompt: `base.v1+D25+D27`; profile: `lesson-09`; observed model: `anthropic/claude-haiku-5.5`. Raw `sources/` traces were not attached and have not been independently re-inspected here. Keep the original local collection directory.
 
-No final human labels and no judge calls have been recorded for this pool. LIVE-C001 has a partial criterion assessment; its final verdict and disputed flag remain unassigned. Follow [docs/live-replacement-plan.md](docs/live-replacement-plan.md) and record each explicit human decision in [annotations/live-human-review.json](annotations/live-human-review.json).
+Human annotation is in progress; no judge calls have been made for this pool. The annotation ledger records finalized decisions, current progress and the next pending review. Follow [docs/live-replacement-plan.md](docs/live-replacement-plan.md) and record each explicit human decision in [annotations/live-human-review.json](annotations/live-human-review.json).
 
 1. Finish human annotation under the three-condition criterion.
 2. Select the first ten finalized annotations per group in candidate-ID order: obvious PASS, obvious FAIL and genuinely disputed. If a group is short, obtain more actual-agent or authorized-kit answers. Do not force labels or dispute flags to fill quotas.

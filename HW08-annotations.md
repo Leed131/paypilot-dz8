@@ -1,5 +1,7 @@
 # HW08 - Human-labelled escalation cases
 
+**Legacy assistant-authored exercise, excluded from the final PayPilot calibration.** Current accepted sources and results are in [README.md](README.md) and [judge-trust-statement.md](judge-trust-statement.md).
+
 Finalized: 2026-11-23. This document contains the 30 selected cases, followed by two reserves. The English questions and answers reproduce the recorded dialogues, with PDF line wrapping normalized to spaces. Explanations are translated or summarized from the human annotation discussion.
 
 Selected distribution: 10 obvious PASS, 10 obvious FAIL, 10 disputed. Laboratory records LB-01-LB-12 and incomplete HW08-001/002 are excluded.

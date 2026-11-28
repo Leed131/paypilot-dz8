@@ -25,10 +25,10 @@ from judge import SYSTEM_SHA256, SYSTEM_VERSION, judge, preflight, judge_format
 
 SET_CONFIGS = {
     "l09_labels": {
-        "rubric_version": "rubric.hw08.kit.v1.1",
-        "rubric_path": "rubrics/escalation.rubric.hw08.kit.v1.1.json",
+        "rubric_version": "rubric.hw08.kit.v1",
+        "rubric_path": "rubrics/escalation.rubric.hw08.kit.v1.json",
         "casewise": True,
-        "reference_manifest_path": "annotations/accepted-reference-manifest.kit-v1_1.json",
+        "reference_manifest_path": "annotations/accepted-reference-manifest.kit-v1.json",
     },
     "l09_labels_kit_v1": {
         "rubric_version": "rubric.hw08.kit.v1",

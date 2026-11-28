@@ -1,86 +1,87 @@
-# HW08 - PayPilot judge calibration
+# HW08 - PayPilot judge trust calibration
 
-**Baseline fully audited; corrected same-reference repeat ready.** The student accepted the review package and requested a further audit. All 30 source question/answer pairs and original semantic criteria passed review; no verdict corrections were needed.
+**Ready for mentor review within the declared supervised coursework scope.** Both requested corrections are complete: calibration now uses authorized-kit/recorded-agent answers, and the trust statement contains a response-class human-review rule that applies even at PASS 5/5. All 300 current-study outputs are preserved and audited.
 
-## Audited baseline and prepared correction
+Start with [judge-trust-statement.md](judge-trust-statement.md). Detailed results: [calibration-comparison.md](reports/calibration-comparison.md).
 
-The baseline completed 150 evaluations. Agreement is 22/30 (73.33%; Wilson 55.55%-85.82%); consistency is 26/30 (86.67%; Wilson 70.32%-94.69%). All raw responses, stored fields, flags, case/run identities, metadata and aggregate statistics have now been independently checked against the matching journal. The three invalid quotations in LIVE-C006 omit one source newline; they remain invalid and preserved.
+## Measured result and decision
 
-The baseline source report and journal are stored byte-for-byte in `reports/kit-baseline/`. See [kit-baseline-analysis.md](reports/kit-baseline-analysis.md), [kit-baseline-audit.json](reports/kit-baseline-audit.json), and [kit-correction-plan.md](reports/kit-correction-plan.md).
+| Measure | Preferred v1 | Measured v1.1 correction |
+| --- | --- | --- |
+| Raw / schema-evidence-valid agreement | 22/30, 73.33% | 19/30, 63.33% |
+| Agreement 95% Wilson | 55.55%-85.82%; half-width 15.13 points | 45.51%-78.13%; half-width 16.31 points |
+| Five identical verdicts | 26/30, 86.67% | 27/30, 90.00% |
+| Stable reference disagreements | 5 | 9 |
+| Invalid outputs | 3/150, non-verbatim quotes | 3/150, evidence_turn=2 |
+| Raw misses / false alarms | 4 / 4 | 3 / 8 |
+| Recorded live combined cases | 0/2 matches | 0/2 matches |
 
-`rubric.hw08.kit.v1.1` is a procedural correction: retain active-criterion scope, distinguish actual human referral from conditional offers and queue/channel uncertainty, distinguish contact/effort from guaranteed outcomes, distinguish ordinary colleague review from an internal-review reason, and copy a short exact continuous quote. Source questions/answers, semantic criteria, accepted references, dates, trigger schema, judge system and validators are unchanged. No improvement is claimed before measuring the repeat.
+The correction recovered three reference matches and regressed six. Its cost was 150 additional evaluations and 551.33 seconds. All 300 evaluations together took 1233.38 seconds. More stable verdicts did not imply better agreement. The intervals overlap and the cases were used for development; no significance, independent validation or representative-traffic claim is made.
 
-Canonical `l09_labels` now matches the repeat alias `l09_labels_kit_v1_1`. The original `l09_labels_kit_v1` files and versioned input manifest remain unchanged. Both share semantic fixture/reference SHA-256 `15ab35384ac454af9366785c4b442533b216746842372db7d084b7ad9a871eb8`; procedural and full-set hashes differ as intended.
+Retain `rubric.hw08.kit.v1` as a supervised aid and reject v1.1 as the default. Neither version is approved for autonomous release. The class rule requires human review for unconfirmed human handoff, independently of verdict unanimity; schema-invalid, unstable and challenge cases also require review. It is a manual policy, not an automated classifier or a measured post-review accuracy gain.
 
-## Run the same-reference repeat
+## Accepted sources and references
 
-On the local Mac, using the same Ollama installation and model as baseline:
+The final set contains 28 unchanged authorized-kit cases under their original per-case criteria plus two recorded PayPilot answers under the combined criterion. It has exactly 10 obvious PASS, 10 obvious FAIL and 10 accepted source-designed challenge cases; reference verdict totals are 16 PASS and 14 FAIL.
+
+Thirteen prior human decisions and dates are preserved; seventeen assistant proposals were adopted by the student as a batch before this study. This is not independent case-by-case annotation for those seventeen cases. Historical laboratory grouping was documented after earlier judge runs. The official guide explicitly permits reuse of those lab cases. New-study labels/procedure were committed before their respective model runs; see the freeze timeline in the comparison.
+
+Kit files byte-match `alex-pancho/paypilot-l09-eval` commit `f5c235aa10a505f9d6f9e422ffd66917578c537b`. Kit producing prompts were not supplied. Profile `lesson-09`, prompt `base.v1+D25+D27` and producing model `anthropic/claude-haiku-5.5` apply only to the two recorded live answers. Original raw live trace files were not attached and are not independently re-inspected here.
+
+The pooled percentage is a kit/live reference benchmark, not a validated estimate for fresh combined bank gates. Both live cases disagree in both versions. Original reference ambiguities, including LB-10/LB-12, are retained rather than relabelled after seeing judge results.
+
+## Final files
+
+- `judge-trust-statement.md`: six statement rows and residual-risk decisions.
+- `evals/sets/l09_labels.jsonl` and `sets/l09_labels.jsonl`: byte-identical preferred v1 inputs, also available as `l09_labels_kit_v1`.
+- `rubrics/escalation.rubric.hw08.kit.v1.json` and `rubrics/CHANGELOG.md`: preferred procedure and version history. The measured v1.1 packet and aliases remain preserved.
+- `sets/l09_escalation.jsonl`: one daily level-3 threshold check, its paired semantic remainder and five additional release judge cases; all six judge cases run five times and use the preferred combined rendering.
+- `reports/calibration-final.json`: selected measured v1 report index with a working journal pointer. The original source report is unchanged.
+- `reports/calibration-comparison.md` and `.json`: conditions, Wilson intervals, source/group results, matrices, common error classes, regressions and correction cost.
+- `reports/kit-baseline/` and `reports/kit-repeat/`: original report/journal pairs, byte-for-byte; their full audits are adjacent.
+- `annotations/reference-adoption-2026-11-24.json`, versioned accepted-reference manifests and `annotations/final-procedure-selection.json`: acceptance, freeze and selection provenance.
+
+Canonical promotion after comparison creates no new measurement: it restores the exact v1 bytes already frozen in `34d2fc695f4623025eb6d7b9a7a0f71699d35e43` and evaluated by the baseline. The rejected correction remains frozen at `f4969a3576c727f9df96a34ad33ffa484f0097b3`.
+
+## Reproducibility and offline checks
+
+Requirements: Git, Python 3.8+ and the standard library. Actual recorded-answer calibration additionally needs local Ollama and installed `qwen2.5:14b`. The frozen run used temperature 0.7, Q4_K_M digest `7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6`, Ollama 0.40.16, and `course-judge-system.hw08.v1`. Labels and annotation notes never enter the model prompt.
+
+Working-set offline check (no bank/model calls):
 
 ```bash
-bash <<'SH'
-set -e
-cd "$HOME/Downloads/paypilot-dz8"
-git pull --ff-only
-JUDGE_MODEL=ollama:qwen2.5:14b OLLAMA_URL=http://127.0.0.1:11434 RUNS=5 TEMP=0.7 python3 tools/calibrate_run.py l09_labels_kit_v1_1
-SH
+python3 runner.py l09_escalation --gate all --check-only
 ```
 
-This measures 150 additional evaluations after the new inputs and procedure are committed. Wait for `Report:` and preserve the new `.json` plus `.evaluations.jsonl` pair. The installed digest must match baseline before attributing changes to the procedural correction; runtime metadata records it. Compare raw and valid agreement, Wilson intervals, stability, schema errors, recovered cases, regressions and elapsed cost. Do not repeat merely to seek a better-looking number.
-
-## Accepted reference set
-
-- 28 unchanged cases from the mentor-authorized official kit, evaluated under their original per-case criteria.
-- Two recorded PayPilot answers: LIVE-C001 and LIVE-C006, evaluated under the combined criterion.
-- 13 prior human references preserved with their original dates; 17 assistant proposals adopted by the student as a batch. This is not independent case-by-case human annotation for those seventeen cases.
-- Exactly 10 obvious PASS, 10 obvious FAIL and 10 accepted source-designed challenge examples; reference verdict totals are 16 PASS and 14 FAIL.
-
-Start with [accepted-reference-review.md](annotations/accepted-reference-review.md) and [accepted-reference-manifest.json](annotations/accepted-reference-manifest.json). The [acceptance record](annotations/reference-adoption-2026-11-24.json) links the exact reviewed draft. The original proposal files remain historical review evidence.
-
-Challenge flags describe accepted benchmark strata. They do not assert newly reported personal uncertainty. Laboratory grouping was documented after prior laboratory judge runs; this is not a fresh independent blind holdout. The official kit guide recommends reusing those lab cases and adding pool cases and two obvious examples.
-
-Canonical and compatibility files are `evals/sets/l09_labels.jsonl` and `sets/l09_labels.jsonl`. The immutable baseline aliases `evals/sets/l09_labels_kit_v1.jsonl` and `sets/l09_labels_kit_v1.jsonl` retain baseline bytes. The two repeat aliases `l09_labels_kit_v1_1` match the canonical files. Baseline uses `rubric.hw08.kit.v1`; the repeat uses `rubric.hw08.kit.v1.1`. Each case is checked only against its supplied semantic criterion, with the shared verdict/evidence protocol. Labels, flags and annotation notes never enter the judge prompt.
-
-## Intentional baseline reproduction on the local Mac
-
-Requirements: Git, Python 3.8+, running Ollama and installed `qwen2.5:14b`. Only the Python standard library is needed. The bank service is not needed to evaluate the recorded answers.
+Local model readiness only (no generation):
 
 ```bash
-cd "$HOME/Downloads/paypilot-dz8"
-git pull --ff-only
-JUDGE_MODEL=ollama:qwen2.5:14b OLLAMA_URL=http://127.0.0.1:11434 RUNS=5 TEMP=0.7 python3 tools/calibrate_run.py l09_labels_kit_v1
+JUDGE_MODEL=ollama:qwen2.5:14b OLLAMA_URL=http://127.0.0.1:11434 TEMP=0.7 python3 tools/calibrate_run.py l09_labels --check-only
 ```
 
-The recorded baseline is already complete. Use this command only for intentional reproduction; it is not the next required action. It requests 150 evaluations: five per case. It verifies committed label, rubric and acceptance inputs before any generation. It records source prompt provenance per case; a global environment setting cannot turn unknown kit prompts into the recorded live bank prompt. Keep the terminal open until `Report:` appears. Exit 2 indicates completed generation with invalid schema/evidence records; retain those outputs. Exit 1 indicates a preflight or run failure; partial evidence is preserved.
+For intentional reproduction, use `l09_labels_kit_v1` or `l09_labels_kit_v1_1` without `--check-only`, with `RUNS=5`. Both measured runs are already complete. Keep previous reports. The script verifies exact committed inputs/adoption evidence, records per-case prompt provenance, journals raw outputs and preserves invalid/partial results. Exit 2 means generation completed with schema/evidence errors; exit 1 is a preflight/run failure. Working-gate execution instead fails nonzero for any missing, failed or ungraded required case. See [docs/working-gates.md](docs/working-gates.md); live execution is not claimed.
 
-For a metadata-only model readiness check, add `--check-only`. It does not generate. After the actual baseline, inspect discrepancies, version a correction, remeasure the same cases and references, and update the trust statement with the new results. Report 95% Wilson intervals for both reference agreement and self-consistency. Baseline reference agreement is now recorded; no correction benefit is claimed before a measured repeat.
+## Historical learning evidence
 
-## Source provenance and scope
+Earlier assistant-authored answers, their human labels and 300 synthetic-study outputs remain separate. Legacy aliases `l09_labels_v1` and `l09_labels_v1_1` require `--allow-legacy-fixtures` for intentional reproduction. Their original reports remain under `reports/baseline/` and `reports/repeat/`; old derived indexes are archived under `reports/history/legacy-synthetic-indexes/`. They are not pooled with the final actual-source study. The `annotations/proposals/` folder preserves the pre-acceptance review draft, not the current reference state.
 
-Kit files in `annotations/kit-source/` byte-match official Git blobs at commit `f5c235aa10a505f9d6f9e422ffd66917578c537b` of `alex-pancho/paypilot-l09-eval`. Kit producing prompts were not supplied. Prompt `base.v1+D25+D27`, profile `lesson-09` and observed agent `anthropic/claude-haiku-5.5` apply only to the two recorded live answers. Raw live trace files were not attached and are not independently re-inspected here.
+Final checklist: [reports/requirements-audit.md](reports/requirements-audit.md). Machine-readable status: [validation.json](validation.json).
 
-The pool covers component criteria case by case and two combined-criterion answers. Its pooled score must not be represented as a validated autonomous combined working gate. Human review remains required. The response-class rule in [judge-trust-statement.md](judge-trust-statement.md) applies even when all five verdicts agree.
-
-## Historical synthetic experiment
-
-All original synthetic responses, human labels and 300 model outputs remain preserved. `l09_labels_v1` and `l09_labels_v1_1` reproduce the old inputs; they require `--allow-legacy-fixtures` for intentional historical use. Their scores are not PayPilot replacement results. [calibration-comparison.md](reports/calibration-comparison.md) and `reports/calibration-final.json` are explicitly legacy indexes; the latter name does not identify the corrected final measurement.
-
-Working-gate files remain separate from recorded-answer calibration; live working-gate execution is unclaimed. See [working-gates.md](docs/working-gates.md). Current status: [validation.json](validation.json).
-
-
-## L10 local judge
-
-перевірено на qwen2.5:14b станом на 2026-11-28
-
-See model-selection-recommendation.md and README.local.md. Local advisory use only; cloud comparison and live gate are not validated.
-
-
-## L10 measured 7B candidate
-
-перевірено на qwen2.5:7b станом на 2026-11-28 — candidate measured; automatic release-judge replacement rejected. See model-selection-recommendation.md.
-
-
-## L10 final comparison
+## L10 — локальный судья и облачная база
 
 перевірено на qwen2.5:7b станом на 2026-11-28
 
-Cloud 26/30; local 7B 20/30. Automatic local release-judge replacement rejected; manual decision required. Real release budget: 30 judge calls. See model-selection-recommendation.md and README.local.md.
+Итог: **не заменять облачного судью локальной 7B для автоматического допуска релиза**; использовать вспомогательно с человеческим решением.
+
+| Метрика | Облако gpt-oss:120b-cloud | Локальная qwen2.5:7b |
+|---|---:|---:|
+| Согласованность | 26/30, 86,67% | 20/30, 66,67% |
+| Wilson 95% | 70,32–94,69% | 48,78–80,77% |
+| Самосогласованность | 30/30 | 30/30 |
+| Время 150 последовательных вызовов | 130,11 с | 174,33 с |
+
+Интервалы перекрываются; эквивалентность не доказана. Cloud none / local schema сравниваются как конфигурации целиком. Размер локального файла 4,68 GB ≤6 GB; реальный Docker-самотест пройден. Рабочий релизный набор содержит 30 вызовов судьи: локальная добавка около 34,87 с без агента. Полный live-гейт не заявлен как проверенный.
+
+Начать с [рекомендации](model-selection-recommendation.md). Рядом: [заявление облака](judge-trust-statement.cloud.md), [заявление 7B](judge-trust-statement.local.md), [сравнение и стоимость](reports/l10-cloud-comparison.md), [инструкции запуска](README.local.md).
+
+После синхронизации L09 общий alias l09_labels вновь соответствует kit.v1; для воспроизведения L10 сохраняется явное имя l09_labels_kit_v1. Старые снимки измерений сохранены. Текущая привязка бюджета: [синхронизация](reports/l10-synchronization.json).

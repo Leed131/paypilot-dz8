@@ -1,0 +1,30 @@
+{
+  "status": "PASS_FINAL_COURSEWORK_SCOPE_AUDIT",
+  "checked_at": "2026-11-24T19:37:54.744023+00:00",
+  "canonical_preferred_version": "rubric.hw08.kit.v1",
+  "canonical_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f",
+  "reference_cases": 30,
+  "reference_groups": {
+    "obvious_PASS": 10,
+    "obvious_FAIL": 10,
+    "disputed": 10
+  },
+  "all_current_study_raw_outputs_revalidated": 300,
+  "original_raw_report_and_journal_pairs_byte_preserved": 2,
+  "models_digests_temperatures_system_and_semantic_references_match": true,
+  "source_and_label_origins_disclosed": true,
+  "all_final_links_and_selected_journal_pointer_pass": true,
+  "six_row_trust_statement_prose_words": 219,
+  "working_gates_daily1_release6x5_offline_valid": true,
+  "working_gate_failure_paths_checked": true,
+  "fresh_working_gate_execution_claimed": false,
+  "canonical_calibration_course_loader_pass": true,
+  "accepted_reference_freeze_and_casewise_runtime_guards_pass": true,
+  "python3_8_syntax_pass": true,
+  "credentials_scan_pass": true,
+  "mentor_changes_closed": true,
+  "third_tuning_run_needed_for_report": false,
+  "autonomous_release_approved": false,
+  "new_actual_model_calls_during_finalization": 0,
+  "interpretation": "Ready for mentor review within the declared supervised coursework scope; not a live-release approval or a guarantee of grading outcome."
+}

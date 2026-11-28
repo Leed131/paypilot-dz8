@@ -294,7 +294,7 @@
   "equivalence_established": false,
   "weights_only_effect_isolated": false,
   "decoding_difference": "cloud none vs local schema",
-  "release_set_sha256": "fc9379826b3440813fc40905f784463fd21ffff378e03ba7d23cfec0e6e58227",
+  "release_set_sha256": "b0603755ab2d3dd4d80d8995b2d739d35de0b5255cd65025da3f45685b2b7255",
   "release_judge_cases": [
     {
       "id": "ESC-J01",
@@ -330,7 +330,10 @@
     "local14b_judge_seconds": 74.3019981916
   },
   "real_docker_selftest_passed": true,
-  "new_compose_execution": "run after package installation",
+  "new_compose_execution": {
+    "status": "passed",
+    "report": "reports/l10-docker-selftest-20261128T104628813561Z.json"
+  },
   "full_agent_gate_measured": false,
   "whole_data_perimeter_audited": false,
   "two_call_mode_implemented": false,
@@ -347,5 +350,8 @@
     "call mode",
     "language",
     "dataset or reference labels"
-  ]
+  ],
+  "historical_release_set_sha256": "fc9379826b3440813fc40905f784463fd21ffff378e03ba7d23cfec0e6e58227",
+  "current_calibrator_sha256": "b2caa019912689b29eb3c8e39bd5166a6e08832fae44bc860b2376f41aabe66f",
+  "upstream_synchronization": "reports/l10-synchronization.json"
 }

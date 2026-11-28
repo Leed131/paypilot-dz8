@@ -1,0 +1,40 @@
+{
+  "status": "reviewed_offline_sync",
+  "upstream_commit": "1294aa7c299d0a6baa8daa8ed794dcf4a4401c8e",
+  "historical_release_sha256": "fc9379826b3440813fc40905f784463fd21ffff378e03ba7d23cfec0e6e58227",
+  "current_release_sha256": "b0603755ab2d3dd4d80d8995b2d739d35de0b5255cd65025da3f45685b2b7255",
+  "frozen_calibration_set_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f",
+  "current_calibrator_sha256": "b2caa019912689b29eb3c8e39bd5166a6e08832fae44bc860b2376f41aabe66f",
+  "release_judge_cases": [
+    {
+      "id": "ESC-J01",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W001",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W002",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W003",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W004",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W005",
+      "runs": 5
+    }
+  ],
+  "release_judge_calls": 30,
+  "passed_docker_report": "reports/l10-docker-selftest-20261128T104628813561Z.json",
+  "passed_docker_report_sha256": "dcf24361bc983e33d24853c03c1f1d468bd34a982e552bf650e840f811608954",
+  "model_generation_performed": false,
+  "historical_model_records_rewritten": false,
+  "note": "Only the working L09 rubric/alias was promoted to already measured kit.v1; frozen L10 inputs and numerical estimates are unchanged."
+}

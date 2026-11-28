@@ -1,96 +1,42 @@
 {
-  "status": "BASELINE_FULLY_AUDITED_PROCEDURAL_REPEAT_PENDING",
+  "status": "READY_FOR_MENTOR_REVIEW_SUPERVISED_COURSEWORK_SCOPE",
+  "finalized_at": "2026-11-24T19:32:20.267933+00:00",
   "resubmission_sent": false,
+  "mentor_corrections": {
+    "authorized_kit_or_actual_agent_calibration_complete": true,
+    "answer_class_manual_review_rule_in_what_we_do": true
+  },
   "canonical_set": "evals/sets/l09_labels.jsonl",
+  "canonical_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f",
+  "canonical_is_exact_measured_v1_bytes": true,
+  "preferred_rubric_version": "rubric.hw08.kit.v1",
+  "rejected_default_rubric_version": "rubric.hw08.kit.v1.1",
   "accepted_reference_manifest": "annotations/accepted-reference-manifest.json",
-  "acceptance_record": "annotations/reference-adoption-2026-11-24.json",
-  "replacement": {
-    "cases": 30,
-    "groups": {
-      "obvious_PASS": 10,
-      "obvious_FAIL": 10,
-      "disputed": 10
-    },
-    "reference_verdict_counts": {
-      "PASS": 16,
-      "FAIL": 14
-    },
-    "prior_human_references": 13,
-    "assistant_proposals_adopted_by_student": 17,
-    "pending_reference_approvals": 0,
-    "source_counts": {
-      "authorized_course_kit": 28,
-      "live_course_agent": 2
-    },
-    "rubric_version": "rubric.hw08.kit.v1.1",
-    "baseline_alias": "l09_labels_kit_v1",
-    "new_model_evaluations": 150,
-    "new_metrics_available": true,
-    "set_sha256": "4866d5fc4de9d39d2f6f0496a732cefd553baa10e613c3d9cc289591ceacbf5a",
-    "labels_accepted": true,
-    "freeze_mechanism": "Committed exact inputs verified before generation",
-    "baseline_rubric_version": "rubric.hw08.kit.v1"
+  "selection_record": "annotations/final-procedure-selection.json",
+  "reference_acceptance_record": "annotations/reference-adoption-2026-11-24.json",
+  "cases": 30,
+  "groups": {
+    "obvious_PASS": 10,
+    "obvious_FAIL": 10,
+    "disputed": 10
   },
-  "live_pool": {
-    "source": "annotations/live-source/candidates.jsonl",
-    "candidate_sha256": "19d1f0bf04a5f98553db8c90387f1c78ba43aca3dcffeab36d7f2631e473d910",
-    "candidates": 45,
-    "partial_human_reviews": 0,
-    "judge_calls": 0,
-    "producing_agent_prompt_version": "base.v1+D25+D27",
-    "raw_trace_files_available_for_independent_reinspection": false,
-    "annotation_ledger": "annotations/live-human-review.json",
-    "required_groups": {
-      "obvious_PASS": 10,
-      "obvious_FAIL": 10,
-      "disputed": 10
-    },
-    "labels_frozen": false,
-    "new_metrics_available": false,
-    "current_pending_candidate": "LIVE-C002 (deferred; not in accepted set)",
-    "human_label_groups": {
-      "obvious_PASS": 1,
-      "obvious_FAIL": 0,
-      "disputed": 0
-    },
-    "accepted_reference_labels": 2,
-    "prior_explicit_human_labels": 1,
-    "assistant_proposals_adopted_by_student": 1
+  "reference_verdict_counts": {
+    "PASS": 16,
+    "FAIL": 14
   },
-  "legacy_synthetic_study": {
-    "scope": "assistant-authored answers; historical learning evidence only, not PayPilot calibration",
-    "previous_validation": "reports/history/pre-mentor-correction/validation.json",
-    "set_sha256": "28cb41ff169aa346463d726085d5d88fa431c16b415f7db1ef36419da69a18eb",
-    "fixture_label_sha256": "e4a99504bc86164a5fb6b8f13eb756c4cffa7d2e167de5e7063d9270580ee374",
-    "actual_judge_evaluations_preserved": 300,
-    "original_reports_and_journals_modified": false,
-    "reproduction_sets": [
-      "l09_labels_v1",
-      "l09_labels_v1_1"
-    ]
+  "reference_origins": {
+    "prior_human": 13,
+    "assistant_proposed_student_accepted_in_batch": 17
   },
-  "class_review_rule": {
-    "status": "documented_manual_policy_not_an_automated_classifier",
-    "policy": "policies/manual-review.hw08.v1.json",
-    "policy_version": "manual-review.hw08.v1",
-    "applies_to_unanimous_five_of_five_pass": true,
-    "known_legacy_failure_addressed": "HW08-011",
-    "measured_improvement_claimed": false
+  "sources": {
+    "authorized_course_kit": 28,
+    "recorded_course_agent": 2
   },
-  "working_gate_live_execution_performed": false,
-  "notes": [
-    "Student adopted the seventeen assistant proposals as a batch; no independent case-by-case human labelling is claimed for those cases.",
-    "Original thirteen reference decisions/dates and all source texts/semantic criteria are preserved.",
-    "Source-designed challenge groups are accepted benchmark strata, not newly inferred student uncertainty.",
-    "Final readiness requires actual new baseline/correction measurements; no old synthetic score is transferred."
-  ],
-  "offline_reference_runtime_audit": "reports/accepted-reference-audit.json",
-  "offline_reference_runtime_checks_pass": true,
-  "baseline_report": "reports/kit-baseline/calibration-l09_labels_kit_v1-20261124T181515888477Z.json",
-  "baseline_audit": "reports/kit-baseline-audit.json",
-  "baseline_journal_received": true,
-  "baseline_summary": {
-    "agreement": {
+  "measured_study": {
+    "baseline_evaluations": 150,
+    "repeat_evaluations": 150,
+    "raw_outputs_revalidated": 300,
+    "baseline_agreement": {
       "matches": 22,
       "total": 30,
       "agreement": 0.7333333333333333,
@@ -99,16 +45,16 @@
       "half_width": 0.15132903245200538,
       "plus_minus_percentage_points": 15.132903245200538
     },
-    "evidence_valid_agreement": {
-      "matches": 22,
+    "repeat_agreement": {
+      "matches": 19,
       "total": 30,
-      "agreement": 0.7333333333333333,
-      "lower": 0.5555169795568831,
-      "upper": 0.8581750444608938,
-      "half_width": 0.15132903245200538,
-      "plus_minus_percentage_points": 15.132903245200538
+      "agreement": 0.6333333333333333,
+      "lower": 0.45513246433604937,
+      "upper": 0.7812629779598231,
+      "half_width": 0.1630652568118869,
+      "plus_minus_percentage_points": 16.306525681188692
     },
-    "self_consistency": {
+    "baseline_consistency": {
       "stable_cases": 26,
       "total_cases": 30,
       "wilson_95": {
@@ -121,18 +67,64 @@
         "plus_minus_percentage_points": 12.18605726009942
       }
     },
-    "reported_invalid_outputs": 3
+    "repeat_consistency": {
+      "stable_cases": 27,
+      "total_cases": 30,
+      "wilson_95": {
+        "matches": 27,
+        "total": 30,
+        "agreement": 0.9,
+        "lower": 0.7437855868473339,
+        "upper": 0.9654007400402839,
+        "half_width": 0.11080757659647501,
+        "plus_minus_percentage_points": 11.080757659647501
+      }
+    },
+    "all_raw_report_and_journal_bytes_preserved": true,
+    "same_semantic_references_model_digest_temperature_system": true,
+    "additional_correction_seconds": 551.333569,
+    "total_execution_seconds": 1233.376941,
+    "recorded_live_case_matches_each_version": "0/2"
   },
-  "baseline_raw_outputs_revalidated": 150,
-  "repeat": {
-    "alias": "l09_labels_kit_v1_1",
-    "rubric_version": "rubric.hw08.kit.v1.1",
-    "reference_manifest": "annotations/accepted-reference-manifest.kit-v1_1.json",
-    "new_evaluations": 0,
-    "semantic_references_unchanged": true,
-    "source_texts_and_labels_unchanged": true,
-    "measured_benefit": null,
-    "offline_readiness_audit": "reports/kit-repeat-readiness.json",
-    "offline_checks_pass": true
-  }
+  "working_gates": {
+    "daily_cases": 1,
+    "daily_runs": 1,
+    "release_judge_cases": 6,
+    "release_runs_per_case": 5,
+    "preferred_combined_rubric": "rubric.hw08.kit.v1",
+    "offline_loader_routing_and_failure_checks_pass": true,
+    "live_execution_performed": false,
+    "autonomous_release_approved": false
+  },
+  "offline_runtime_checks_pass": true,
+  "no_credentials_in_repository": true,
+  "legacy_synthetic_study": {
+    "scope": "assistant-authored answers; historical learning evidence only, not PayPilot calibration",
+    "previous_validation": "reports/history/pre-mentor-correction/validation.json",
+    "set_sha256": "28cb41ff169aa346463d726085d5d88fa431c16b415f7db1ef36419da69a18eb",
+    "fixture_label_sha256": "e4a99504bc86164a5fb6b8f13eb756c4cffa7d2e167de5e7063d9270580ee374",
+    "actual_judge_evaluations_preserved": 300,
+    "original_reports_and_journals_modified": false,
+    "reproduction_sets": [
+      "l09_labels_v1",
+      "l09_labels_v1_1"
+    ]
+  },
+  "reports": {
+    "selected_index": "reports/calibration-final.json",
+    "comparison": "reports/calibration-comparison.md",
+    "comparison_json": "reports/calibration-comparison.json",
+    "baseline_audit": "reports/kit-baseline-audit.json",
+    "repeat_audit": "reports/kit-repeat-audit.json",
+    "requirements_audit": "reports/requirements-audit.md"
+  },
+  "scope_limitations": [
+    "No independent holdout, representative live-traffic or autonomous-gate validation claim.",
+    "Kit producing prompts unspecified; recorded live prompt version applies only to two answers.",
+    "Thirteen prior decisions plus seventeen student-adopted assistant proposals; source-designed challenge flags and earlier lab exposure disclosed.",
+    "Subjective references and stable errors remain; manual response-class review is mandatory and not an implemented automated classifier.",
+    "Fresh working gates are aligned and offline-tested; live pass is not claimed."
+  ],
+  "additional_model_calls_during_finalization": 0,
+  "final_verification": "reports/final-verification.json"
 }

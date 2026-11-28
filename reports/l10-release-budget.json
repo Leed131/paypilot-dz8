@@ -2,7 +2,7 @@
   "report_version": "l10-release-budget.v1",
   "status": "calculated_from_actual_working_set",
   "working_set": "sets/l09_escalation.jsonl",
-  "working_set_sha256": "fc9379826b3440813fc40905f784463fd21ffff378e03ba7d23cfec0e6e58227",
+  "working_set_sha256": "b0603755ab2d3dd4d80d8995b2d739d35de0b5255cd65025da3f45685b2b7255",
   "release_judge_cases": [
     {
       "id": "ESC-J01",
@@ -69,5 +69,7 @@
     "Two-call mode is hypothetical and uncalibrated; multiplication is only a rough cost scenario.",
     "Local provider token fee is zero; equipment, electricity and human review are not priced here.",
     "14B is retained as measured comparison evidence and exceeds the 6 GB local file-size contract."
-  ]
+  ],
+  "before_sync_working_set_sha256": "fc9379826b3440813fc40905f784463fd21ffff378e03ba7d23cfec0e6e58227",
+  "sync_upstream_commit": "1294aa7c299d0a6baa8daa8ed794dcf4a4401c8e"
 }

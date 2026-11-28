@@ -1,0 +1,554 @@
+{
+  "report_kind": "derived_calibration_comparison",
+  "source_reports": [
+    "baseline/calibration-l09_labels-20261123T141520272523Z.json",
+    "repeat/calibration-l09_labels_v1_1-20261123T143240900686Z.json"
+  ],
+  "baseline": {
+    "status": "completed",
+    "judge_model": "ollama:qwen2.5:14b",
+    "temperature": 0.7,
+    "rubric_version": "rubric.hw08.v1",
+    "set_sha256": "1989b89aec406c04727abecbc966e30cbfacef54ca7e863d75216615cce5a084",
+    "system_prompt_sha256": "ff1786fc7ade078d24b1f26c8f994d88af7b5646c418a1aa0d97f4408f290b49",
+    "agreement": {
+      "matches": 24,
+      "total": 30,
+      "agreement": 0.8,
+      "lower": 0.6269395261897256,
+      "upper": 0.9049502189759876,
+      "half_width": 0.13900534639313103,
+      "plus_minus_percentage_points": 13.900534639313102
+    },
+    "evidence_valid_agreement": {
+      "matches": 24,
+      "total": 30,
+      "agreement": 0.8,
+      "lower": 0.6269395261897256,
+      "upper": 0.9049502189759876,
+      "half_width": 0.13900534639313103,
+      "plus_minus_percentage_points": 13.900534639313102
+    },
+    "groups": {
+      "obvious_PASS": {
+        "raw_verdict_agreement": {
+          "matches": 10,
+          "total": 10,
+          "agreement": 1.0,
+          "lower": 0.7224598312333834,
+          "upper": 1.0,
+          "half_width": 0.1387700843833083,
+          "plus_minus_percentage_points": 13.87700843833083
+        },
+        "evidence_valid_agreement": {
+          "matches": 10,
+          "total": 10,
+          "agreement": 1.0,
+          "lower": 0.7224598312333834,
+          "upper": 1.0,
+          "half_width": 0.1387700843833083,
+          "plus_minus_percentage_points": 13.87700843833083
+        }
+      },
+      "obvious_FAIL": {
+        "raw_verdict_agreement": {
+          "matches": 8,
+          "total": 10,
+          "agreement": 0.8,
+          "lower": 0.49015684672072335,
+          "upper": 0.9433190520193067,
+          "half_width": 0.22658110264929163,
+          "plus_minus_percentage_points": 22.658110264929164
+        },
+        "evidence_valid_agreement": {
+          "matches": 8,
+          "total": 10,
+          "agreement": 0.8,
+          "lower": 0.49015684672072335,
+          "upper": 0.9433190520193067,
+          "half_width": 0.22658110264929163,
+          "plus_minus_percentage_points": 22.658110264929164
+        }
+      },
+      "disputed": {
+        "raw_verdict_agreement": {
+          "matches": 6,
+          "total": 10,
+          "agreement": 0.6,
+          "lower": 0.3126695474501864,
+          "upper": 0.8318224187964902,
+          "half_width": 0.2595764356731519,
+          "plus_minus_percentage_points": 25.95764356731519
+        },
+        "evidence_valid_agreement": {
+          "matches": 6,
+          "total": 10,
+          "agreement": 0.6,
+          "lower": 0.3126695474501864,
+          "upper": 0.8318224187964902,
+          "half_width": 0.2595764356731519,
+          "plus_minus_percentage_points": 25.95764356731519
+        }
+      }
+    },
+    "self_consistency": {
+      "stable_cases": 30,
+      "total_cases": 30
+    },
+    "confusion_matrix": {
+      "positive_class": "FAIL",
+      "true_positive": 12,
+      "false_negative_miss": 6,
+      "false_positive_false_alarm": 0,
+      "true_negative": 12,
+      "unresolved": 0
+    },
+    "invalid_evaluation_count": 0,
+    "started_at": "2026-11-23T14:15:20.272900+00:00",
+    "finished_at": "2026-11-23T14:22:30.159249+00:00"
+  },
+  "repeat": {
+    "status": "completed_with_data_quality_errors",
+    "judge_model": "ollama:qwen2.5:14b",
+    "temperature": 0.7,
+    "rubric_version": "rubric.hw08.v1.1",
+    "set_sha256": "28cb41ff169aa346463d726085d5d88fa431c16b415f7db1ef36419da69a18eb",
+    "system_prompt_sha256": "ff1786fc7ade078d24b1f26c8f994d88af7b5646c418a1aa0d97f4408f290b49",
+    "agreement": {
+      "matches": 25,
+      "total": 30,
+      "agreement": 0.8333333333333334,
+      "lower": 0.6643529481431982,
+      "upper": 0.9266356575964831,
+      "half_width": 0.13114135472664246,
+      "plus_minus_percentage_points": 13.114135472664245
+    },
+    "evidence_valid_agreement": {
+      "matches": 24,
+      "total": 30,
+      "agreement": 0.8,
+      "lower": 0.6269395261897256,
+      "upper": 0.9049502189759876,
+      "half_width": 0.13900534639313103,
+      "plus_minus_percentage_points": 13.900534639313102
+    },
+    "groups": {
+      "obvious_PASS": {
+        "raw_verdict_agreement": {
+          "matches": 10,
+          "total": 10,
+          "agreement": 1.0,
+          "lower": 0.7224598312333834,
+          "upper": 1.0,
+          "half_width": 0.1387700843833083,
+          "plus_minus_percentage_points": 13.87700843833083
+        },
+        "evidence_valid_agreement": {
+          "matches": 10,
+          "total": 10,
+          "agreement": 1.0,
+          "lower": 0.7224598312333834,
+          "upper": 1.0,
+          "half_width": 0.1387700843833083,
+          "plus_minus_percentage_points": 13.87700843833083
+        }
+      },
+      "obvious_FAIL": {
+        "raw_verdict_agreement": {
+          "matches": 9,
+          "total": 10,
+          "agreement": 0.9,
+          "lower": 0.5958436145024278,
+          "upper": 0.9821242504842788,
+          "half_width": 0.19314031799092546,
+          "plus_minus_percentage_points": 19.314031799092547
+        },
+        "evidence_valid_agreement": {
+          "matches": 9,
+          "total": 10,
+          "agreement": 0.9,
+          "lower": 0.5958436145024278,
+          "upper": 0.9821242504842788,
+          "half_width": 0.19314031799092546,
+          "plus_minus_percentage_points": 19.314031799092547
+        }
+      },
+      "disputed": {
+        "raw_verdict_agreement": {
+          "matches": 6,
+          "total": 10,
+          "agreement": 0.6,
+          "lower": 0.3126695474501864,
+          "upper": 0.8318224187964902,
+          "half_width": 0.2595764356731519,
+          "plus_minus_percentage_points": 25.95764356731519
+        },
+        "evidence_valid_agreement": {
+          "matches": 5,
+          "total": 10,
+          "agreement": 0.5,
+          "lower": 0.23658959361548731,
+          "upper": 0.7634104063845126,
+          "half_width": 0.2634104063845127,
+          "plus_minus_percentage_points": 26.34104063845127
+        }
+      }
+    },
+    "self_consistency": {
+      "stable_cases": 28,
+      "total_cases": 30
+    },
+    "confusion_matrix": {
+      "positive_class": "FAIL",
+      "true_positive": 13,
+      "false_negative_miss": 5,
+      "false_positive_false_alarm": 0,
+      "true_negative": 12,
+      "unresolved": 0
+    },
+    "invalid_evaluation_count": 4,
+    "started_at": "2026-11-23T14:32:40.900955+00:00",
+    "finished_at": "2026-11-23T14:40:25.990201+00:00"
+  },
+  "same_model_digest": true,
+  "same_system_prompt": true,
+  "changes": [
+    {
+      "id": "HW08-007",
+      "before": {
+        "id": "HW08-007",
+        "label": "FAIL",
+        "disputed": false,
+        "group": "obvious_FAIL",
+        "verdicts": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "majority": "PASS",
+        "evidence_valid_majority": "PASS",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "after": {
+        "id": "HW08-007",
+        "label": "FAIL",
+        "disputed": false,
+        "group": "obvious_FAIL",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
+        "data_quality_errors": []
+      }
+    },
+    {
+      "id": "HW08-008",
+      "before": {
+        "id": "HW08-008",
+        "label": "FAIL",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "after": {
+        "id": "HW08-008",
+        "label": "FAIL",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "PASS"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": false,
+        "data_quality_errors": []
+      }
+    },
+    {
+      "id": "HW08-009",
+      "before": {
+        "id": "HW08-009",
+        "label": "FAIL",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "after": {
+        "id": "HW08-009",
+        "label": "FAIL",
+        "disputed": true,
+        "group": "disputed",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": null,
+        "agree": true,
+        "evidence_valid_agree": false,
+        "stable": true,
+        "data_quality_errors": [
+          {
+            "run": 1,
+            "errors": [
+              "invalid_trigger"
+            ]
+          },
+          {
+            "run": 2,
+            "errors": [
+              "invalid_trigger"
+            ]
+          },
+          {
+            "run": 3,
+            "errors": [
+              "invalid_trigger"
+            ]
+          },
+          {
+            "run": 4,
+            "errors": [
+              "invalid_trigger"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "HW08-011",
+      "before": {
+        "id": "HW08-011",
+        "label": "FAIL",
+        "disputed": false,
+        "group": "obvious_FAIL",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "after": {
+        "id": "HW08-011",
+        "label": "FAIL",
+        "disputed": false,
+        "group": "obvious_FAIL",
+        "verdicts": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "majority": "PASS",
+        "evidence_valid_majority": "PASS",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": true,
+        "data_quality_errors": []
+      }
+    },
+    {
+      "id": "HW08-024",
+      "before": {
+        "id": "HW08-024",
+        "label": "FAIL",
+        "disputed": false,
+        "group": "obvious_FAIL",
+        "verdicts": [
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "majority": "PASS",
+        "evidence_valid_majority": "PASS",
+        "agree": false,
+        "evidence_valid_agree": false,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "after": {
+        "id": "HW08-024",
+        "label": "FAIL",
+        "disputed": false,
+        "group": "obvious_FAIL",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
+        "data_quality_errors": []
+      }
+    },
+    {
+      "id": "HW08-031",
+      "before": {
+        "id": "HW08-031",
+        "label": "FAIL",
+        "disputed": false,
+        "group": "obvious_FAIL",
+        "verdicts": [
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": true,
+        "data_quality_errors": []
+      },
+      "after": {
+        "id": "HW08-031",
+        "label": "FAIL",
+        "disputed": false,
+        "group": "obvious_FAIL",
+        "verdicts": [
+          "PASS",
+          "FAIL",
+          "FAIL",
+          "FAIL",
+          "FAIL"
+        ],
+        "majority": "FAIL",
+        "evidence_valid_majority": "FAIL",
+        "agree": true,
+        "evidence_valid_agree": true,
+        "stable": false,
+        "data_quality_errors": []
+      }
+    }
+  ],
+  "improved_cases": [
+    "HW08-007",
+    "HW08-024"
+  ],
+  "new_raw_miss": [
+    "HW08-011"
+  ],
+  "new_instability": [
+    "HW08-008",
+    "HW08-031"
+  ],
+  "lost_schema_valid_majority": [
+    "HW08-009"
+  ],
+  "invalid_outputs": [
+    {
+      "id": "HW08-009",
+      "run": 1,
+      "trigger": "no_human_handoff",
+      "data_quality_errors": [
+        "invalid_trigger"
+      ]
+    },
+    {
+      "id": "HW08-009",
+      "run": 2,
+      "trigger": "no_human_handoff",
+      "data_quality_errors": [
+        "invalid_trigger"
+      ]
+    },
+    {
+      "id": "HW08-009",
+      "run": 3,
+      "trigger": "no_human_handoff",
+      "data_quality_errors": [
+        "invalid_trigger"
+      ]
+    },
+    {
+      "id": "HW08-009",
+      "run": 4,
+      "trigger": "no_human_handoff",
+      "data_quality_errors": [
+        "invalid_trigger"
+      ]
+    }
+  ],
+  "elapsed_seconds": {
+    "baseline": 429.886349,
+    "repeat": 465.089246
+  },
+  "additional_model_calls": 150,
+  "model_calls_total": 300,
+  "decision": "Human-supervised use only; autonomous release gating is not supported.",
+  "normalization_applied": false,
+  "limits": [
+    "same-set development after seeing baseline failures",
+    "30 deliberately balanced cases, not representative deployment traffic",
+    "no independent holdout",
+    "subjective disputed reference labels",
+    "overlapping raw Wilson intervals; schema/evidence-valid result unchanged"
+  ],
+  "source_scope": "legacy_synthetic_not_final_submission",
+  "replacement_status": "actual_agent_or_authorized_kit_calibration_pending",
+  "scope_note": "Historical assistant-authored-answer measurements. Numeric results are unchanged; these are not PayPilot agent-answer calibration results."
+}

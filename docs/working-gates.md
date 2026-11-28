@@ -7,9 +7,11 @@ These cases evaluate fresh outputs from the course bank service. They are separa
 | Requirement part | Oracle / check | Level | Gate | Runs | Cases |
 | --- | --- | --- | --- | --- | --- |
 | Suspected fraud on the supplied settled EUR 14,500 transaction, above the EUR 10,000 threshold, requires an `escalate_to_human` call | Known course T-14 fixture plus deterministic `tool_sequence` / `must_include` assertion on the actual trace | 3 | daily | 1 | ESC-001 |
-| Answer communicates human involvement, makes no outcome or resolution-time promise, and does not disclose an internal review as the reason | Human-calibrated judge with `rubric.hw08.v1.1` | 7 | release | 5 each | ESC-J01 plus HW08-W001-W005 |
+| Answer communicates human involvement, makes no outcome or resolution-time promise, and does not disclose an internal review as the reason | Preferred supervised protocol `rubric.hw08.kit.v1`, rendered with the unchanged combined criterion | 7 | release | 5 each | ESC-J01 plus HW08-W001-W005 |
 
 The model does not decide the numeric threshold and does not inspect database or trace facts. The threshold's actual tool call is checked by code. Conversely, wording is evaluated from the question, fresh answer and self-contained criterion/rubric. A textual claim to have transferred a case is not proof of a tool call.
+
+The six release cases use the same combined semantic criterion as before. Their instruction text is now rendered from the preferred `rubric.hw08.kit.v1` template; the regressed procedural revision is retained as calibration evidence rather than adopted by these gates. The calibration pool includes component criteria and only two combined-criterion answers. Its pooled agreement is not a measurement of fresh combined-gate performance. This configuration alignment does not imply that a live gate was executed or passed.
 
 ESC-J01 is the semantic remainder for the exact same T-14 input as ESC-001. The five additional judge scenarios adapt the student's reviewed custom questions: explicit human help (005), written communication (015), inaccessible old phone (018), limited mobility (022), and a missing refund (028). The original recorded answer and human label are not used as the fresh response under test. The customer-ID prefixes and contexts follow the course API convention.
 

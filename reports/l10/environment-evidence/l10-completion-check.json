@@ -1,0 +1,62 @@
+{
+  "single_case_file": "/Users/mois/Downloads/paypilot-dz8/sets/l10_one.jsonl",
+  "release_judge_cases": [
+    {
+      "id": "ESC-J01",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W001",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W002",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W003",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W004",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W005",
+      "runs": 5
+    }
+  ],
+  "release_judge_calls": 30,
+  "release_set_sha256": "fc9379826b3440813fc40905f784463fd21ffff378e03ba7d23cfec0e6e58227",
+  "docker_server": "29.8.1",
+  "compose_files": [
+    "/Users/mois/Downloads/4 AI Quality Engineering/L09/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l02/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l03/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l05/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l06/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l07-hw6-clean-check-v3/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l07-hw6-clean-check-v3/reports/hw6-v3/S7-baseline-timeout60/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l07-hw6-clean-check-v3/reports/hw6-v3/S8-baseline-completion/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l07-hw6-clean-check-v3/reports/hw6-v3/final-verification-timeout60/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l07-hw6-clean-check/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l07/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l07/reports/hw6-v3/S7-baseline-timeout60/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l07/reports/hw6-v3/S8-baseline-completion/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l07/reports/hw6-v3/final-verification-timeout60/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l08/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l08/lab-review/paypilot-l08-lab-evidence/code/l05-eval/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/l08/submission/paypilot-l08-submission/code/l05-eval/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/paypilot-dz5/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/paypilot-dz6/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/paypilot-dz6/reports/hw6-release-followup/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/paypilot-dz6/reports/hw6-v3/S7-baseline-timeout60/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/paypilot-dz6/reports/hw6-v3/S8-baseline-completion/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/paypilot-dz6/reports/hw6-v3/final-verification-timeout60/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/paypilot-dz7-review/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/paypilot-dz7/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/paypilot-stand-l08/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/paypilot-stand-main/docker-compose.yml",
+    "/Users/mois/Downloads/4 AI Quality Engineering/paypilot-stand-shared/docker-compose.yml"
+  ]
+}

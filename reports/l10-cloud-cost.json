@@ -1,0 +1,84 @@
+{
+  "version": "l10-cloud-cost-audit.v1",
+  "verified_date": "2026-11-28",
+  "model": "ollama:gpt-oss:120b-cloud",
+  "rate_source": "https://ollama.com/pricing",
+  "counter_source": "https://docs.ollama.com/api/usage",
+  "thinking_source": "https://docs.ollama.com/capabilities/thinking",
+  "usd_per_million_tokens": {
+    "input": "0.15",
+    "cached_input": "0.014",
+    "output": "0.60"
+  },
+  "calibration_150": {
+    "calls_with_usage": 150,
+    "input_tokens_including_cached": 69395,
+    "cached_input_tokens": 58944,
+    "uncached_input_tokens": 10451,
+    "reported_output_tokens": 37918,
+    "estimated_usd": "0.025143666",
+    "uncached_input_usd": "0.00156765",
+    "cached_input_usd": "0.000825216",
+    "output_usd": "0.0227508",
+    "counterfactual_same_tokens_no_input_cache_usd": "0.03316005"
+  },
+  "successful_probe_1": {
+    "calls_with_usage": 1,
+    "input_tokens_including_cached": 446,
+    "cached_input_tokens": 48,
+    "uncached_input_tokens": 398,
+    "reported_output_tokens": 198,
+    "estimated_usd": "0.000179172",
+    "uncached_input_usd": "0.0000597",
+    "cached_input_usd": "6.72E-7",
+    "output_usd": "0.0001188",
+    "counterfactual_same_tokens_no_input_cache_usd": "0.0001857"
+  },
+  "successful_calls_151": {
+    "calls_with_usage": 151,
+    "input_tokens_including_cached": 69841,
+    "cached_input_tokens": 58992,
+    "uncached_input_tokens": 10849,
+    "reported_output_tokens": 38116,
+    "estimated_usd": "0.025322838",
+    "uncached_input_usd": "0.00162735",
+    "cached_input_usd": "0.000825888",
+    "output_usd": "0.0228696",
+    "counterfactual_same_tokens_no_input_cache_usd": "0.03334575"
+  },
+  "failed_probe_402": {
+    "path": "reports/l10-cloud-probe-20261128T095403513332Z.json",
+    "status": "failed",
+    "usage_counters_available": false,
+    "treatment": "No returned token usage; excluded from token estimate. No claim about invoice or balance is inferred from HTTP status alone."
+  },
+  "prepayment": {
+    "user_reported_usd": 5,
+    "is_run_cost": false,
+    "balance_or_invoice_verified_after_run": false
+  },
+  "release_extrapolation": {
+    "calls": 30,
+    "source": "mean measured calibration mix, not actual live release execution",
+    "estimated_usd": "0.0050287332",
+    "sequential_judge_seconds": 26.02144415,
+    "includes_agent": false,
+    "two_calls_mode_implemented": false
+  },
+  "measurement": {
+    "elapsed_seconds": 130.10722075,
+    "wall_seconds_per_call": 0.8673814716666667,
+    "mean_instrumented_call_seconds": 0.8618452722599999,
+    "parallelism_observed": false,
+    "cloud_backend_total_duration_seconds": 97.153731388
+  },
+  "limitations": [
+    "Public-rate token estimate, not a checked invoice or actual balance change.",
+    "Cached input is a subset of total prompt tokens and is subtracted before applying the uncached price.",
+    "Reported eval_count is used as the aggregate output metric. Thinking is returned separately as text; no separate reasoning-token usage field exists in these responses. Visible JSON alone is not the billed-token metric and thinking text is not re-tokenized or added again.",
+    "Official docs define input/cache/output counters; they do not separately document a thinking billing breakdown for this exact hosted response. The estimate assumes the published output rate applies to reported eval_count.",
+    "No future cache-hit rate, output-token count, latency or invoice total is guaranteed.",
+    "Both measured calibrations execute sequentially; no cloud-parallel speedup was measured.",
+    "Prepaid usage credits are a balance, not a per-run charge."
+  ]
+}

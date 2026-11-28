@@ -1,0 +1,351 @@
+{
+  "audited_on": "2026-11-28",
+  "new_model_calls_performed_by_audit": 0,
+  "comparison": "cloud gpt-oss:120b none/0 vs local qwen2.5:7b schema/0",
+  "cloud_baseline_available": true,
+  "automatic_release_replacement_approved": false,
+  "set_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f",
+  "rubric_sha256": "d53d52e8dc2e5626bd4ea995c8835fd22dc80aa94025cd0702fec07424679d39",
+  "system_prompt_sha256": "ff1786fc7ade078d24b1f26c8f994d88af7b5646c418a1aa0d97f4408f290b49",
+  "cloud": {
+    "model": "ollama:gpt-oss:120b-cloud",
+    "runtime": {
+      "endpoint": "http://127.0.0.1:11434",
+      "requested_model": "ollama:gpt-oss:120b-cloud",
+      "installed_model": {
+        "name": "gpt-oss:120b-cloud",
+        "model": "gpt-oss:120b-cloud",
+        "remote_model": "gpt-oss:120b",
+        "remote_host": "https://ollama.com",
+        "modified_at": "2026-11-28T10:50:57.538562468+01:00",
+        "size": 307,
+        "digest": "ac7f7a1e778577c4418f6a25e46e0b45dced6746c75422d4b343aa1495a022ed",
+        "details": {
+          "parent_model": "",
+          "format": "",
+          "family": "",
+          "families": null,
+          "parameter_size": "117B",
+          "quantization_level": "MXFP4",
+          "context_length": 131072,
+          "embedding_length": 2880
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ]
+      },
+      "ollama_version": "0.40.16"
+    },
+    "agreement": {
+      "matches": 26,
+      "total": 30,
+      "agreement": 0.8666666666666667,
+      "lower": 0.7031831605558306,
+      "upper": 0.9469043057578189,
+      "half_width": 0.12186057260099419,
+      "plus_minus_percentage_points": 12.18605726009942
+    },
+    "self_consistency": {
+      "stable_cases": 30,
+      "total_cases": 30,
+      "wilson_95": {
+        "matches": 30,
+        "total": 30,
+        "agreement": 1.0,
+        "lower": 0.8864829086095221,
+        "upper": 1.0,
+        "half_width": 0.056758545695239006,
+        "plus_minus_percentage_points": 5.6758545695239
+      }
+    },
+    "confusion_matrix": {
+      "positive_class": "FAIL",
+      "true_positive": 13,
+      "false_negative_miss": 1,
+      "false_positive_false_alarm": 3,
+      "true_negative": 13,
+      "unresolved": 0
+    },
+    "groups": {
+      "obvious_PASS": {
+        "raw_verdict_agreement": {
+          "matches": 10,
+          "total": 10,
+          "agreement": 1.0,
+          "lower": 0.7224598312333834,
+          "upper": 1.0,
+          "half_width": 0.1387700843833083,
+          "plus_minus_percentage_points": 13.87700843833083
+        },
+        "evidence_valid_agreement": {
+          "matches": 10,
+          "total": 10,
+          "agreement": 1.0,
+          "lower": 0.7224598312333834,
+          "upper": 1.0,
+          "half_width": 0.1387700843833083,
+          "plus_minus_percentage_points": 13.87700843833083
+        }
+      },
+      "obvious_FAIL": {
+        "raw_verdict_agreement": {
+          "matches": 9,
+          "total": 10,
+          "agreement": 0.9,
+          "lower": 0.5958436145024278,
+          "upper": 0.9821242504842788,
+          "half_width": 0.19314031799092546,
+          "plus_minus_percentage_points": 19.314031799092547
+        },
+        "evidence_valid_agreement": {
+          "matches": 9,
+          "total": 10,
+          "agreement": 0.9,
+          "lower": 0.5958436145024278,
+          "upper": 0.9821242504842788,
+          "half_width": 0.19314031799092546,
+          "plus_minus_percentage_points": 19.314031799092547
+        }
+      },
+      "disputed": {
+        "raw_verdict_agreement": {
+          "matches": 7,
+          "total": 10,
+          "agreement": 0.7,
+          "lower": 0.39677321997956516,
+          "upper": 0.892210712513788,
+          "half_width": 0.24771874626711146,
+          "plus_minus_percentage_points": 24.771874626711146
+        },
+        "evidence_valid_agreement": {
+          "matches": 7,
+          "total": 10,
+          "agreement": 0.7,
+          "lower": 0.39677321997956516,
+          "upper": 0.892210712513788,
+          "half_width": 0.24771874626711146,
+          "plus_minus_percentage_points": 24.771874626711146
+        }
+      }
+    },
+    "invalid_evaluations": 5,
+    "verbatim_nonempty_quotes": 125,
+    "nonempty_quotes": 130,
+    "allowed_empty_quotes": 20,
+    "elapsed_seconds": 130.10722075,
+    "t_seconds": 0.8673814716666667,
+    "calibration_estimated_usd": 0.025143666
+  },
+  "local": {
+    "model": "ollama:qwen2.5:7b",
+    "runtime": {
+      "endpoint": "http://127.0.0.1:11434",
+      "requested_model": "ollama:qwen2.5:7b",
+      "installed_model": {
+        "name": "qwen2.5:7b",
+        "model": "qwen2.5:7b",
+        "modified_at": "2026-11-28T09:40:18.990564947+01:00",
+        "size": 4683087332,
+        "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "7.6B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 3584,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "tools"
+        ]
+      },
+      "ollama_version": "0.40.16"
+    },
+    "agreement": {
+      "matches": 20,
+      "total": 30,
+      "agreement": 0.6666666666666666,
+      "lower": 0.48779725813830266,
+      "upper": 0.807697044731538,
+      "half_width": 0.1599498932966177,
+      "plus_minus_percentage_points": 15.994989329661772
+    },
+    "self_consistency": {
+      "stable_cases": 30,
+      "total_cases": 30,
+      "wilson_95": {
+        "matches": 30,
+        "total": 30,
+        "agreement": 1.0,
+        "lower": 0.8864829086095221,
+        "upper": 1.0,
+        "half_width": 0.056758545695239006,
+        "plus_minus_percentage_points": 5.6758545695239
+      }
+    },
+    "confusion_matrix": {
+      "positive_class": "FAIL",
+      "true_positive": 10,
+      "false_negative_miss": 4,
+      "false_positive_false_alarm": 6,
+      "true_negative": 10,
+      "unresolved": 0
+    },
+    "groups": {
+      "obvious_PASS": {
+        "raw_verdict_agreement": {
+          "matches": 7,
+          "total": 10,
+          "agreement": 0.7,
+          "lower": 0.39677321997956516,
+          "upper": 0.892210712513788,
+          "half_width": 0.24771874626711146,
+          "plus_minus_percentage_points": 24.771874626711146
+        },
+        "evidence_valid_agreement": {
+          "matches": 7,
+          "total": 10,
+          "agreement": 0.7,
+          "lower": 0.39677321997956516,
+          "upper": 0.892210712513788,
+          "half_width": 0.24771874626711146,
+          "plus_minus_percentage_points": 24.771874626711146
+        }
+      },
+      "obvious_FAIL": {
+        "raw_verdict_agreement": {
+          "matches": 8,
+          "total": 10,
+          "agreement": 0.8,
+          "lower": 0.49015684672072335,
+          "upper": 0.9433190520193067,
+          "half_width": 0.22658110264929163,
+          "plus_minus_percentage_points": 22.658110264929164
+        },
+        "evidence_valid_agreement": {
+          "matches": 8,
+          "total": 10,
+          "agreement": 0.8,
+          "lower": 0.49015684672072335,
+          "upper": 0.9433190520193067,
+          "half_width": 0.22658110264929163,
+          "plus_minus_percentage_points": 22.658110264929164
+        }
+      },
+      "disputed": {
+        "raw_verdict_agreement": {
+          "matches": 5,
+          "total": 10,
+          "agreement": 0.5,
+          "lower": 0.23658959361548731,
+          "upper": 0.7634104063845126,
+          "half_width": 0.2634104063845127,
+          "plus_minus_percentage_points": 26.34104063845127
+        },
+        "evidence_valid_agreement": {
+          "matches": 5,
+          "total": 10,
+          "agreement": 0.5,
+          "lower": 0.23658959361548731,
+          "upper": 0.7634104063845126,
+          "half_width": 0.2634104063845127,
+          "plus_minus_percentage_points": 26.34104063845127
+        }
+      }
+    },
+    "invalid_evaluations": 0,
+    "verbatim_nonempty_quotes": 105,
+    "nonempty_quotes": 105,
+    "allowed_empty_quotes": 45,
+    "elapsed_seconds": 174.332598875,
+    "t_seconds": 1.1622173258333333,
+    "provider_token_usd": 0,
+    "size_contract_pass": true
+  },
+  "local_correct_cloud_wrong": [
+    "LB-11",
+    "PL-15",
+    "PL-16",
+    "LIVE-C006"
+  ],
+  "local_wrong_cloud_correct": [
+    "LB-03",
+    "LB-09",
+    "LB-10",
+    "LB-12",
+    "PL-03",
+    "PL-08",
+    "PL-10",
+    "PL-11",
+    "PL-13",
+    "LIVE-C001"
+  ],
+  "shared_disagreement_ids": [],
+  "both_correct_cases": 16,
+  "wilson_intervals_overlap": true,
+  "equivalence_established": false,
+  "weights_only_effect_isolated": false,
+  "decoding_difference": "cloud none vs local schema",
+  "release_set_sha256": "fc9379826b3440813fc40905f784463fd21ffff378e03ba7d23cfec0e6e58227",
+  "release_judge_cases": [
+    {
+      "id": "ESC-J01",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W001",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W002",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W003",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W004",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W005",
+      "runs": 5
+    }
+  ],
+  "release_judge_calls": 30,
+  "release_estimates": {
+    "cloud_judge_seconds": 26.02144415,
+    "cloud_judge_usd": 0.0050287332,
+    "local7b_judge_seconds": 34.866519775,
+    "local7b_provider_token_usd": 0,
+    "local14b_judge_seconds": 74.3019981916
+  },
+  "real_docker_selftest_passed": true,
+  "new_compose_execution": "run after package installation",
+  "full_agent_gate_measured": false,
+  "whole_data_perimeter_audited": false,
+  "two_call_mode_implemented": false,
+  "provenance": {
+    "prior_human": 13,
+    "assistant_proposed_student_accepted_in_batch": 17
+  },
+  "required_recalibration": [
+    "model or digest or provider revision",
+    "prompt",
+    "rubric",
+    "temperature",
+    "format",
+    "call mode",
+    "language",
+    "dataset or reference labels"
+  ]
+}

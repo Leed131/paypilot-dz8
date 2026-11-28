@@ -1,0 +1,110 @@
+{
+  "audited_on": "2026-11-28",
+  "model_calls_performed_by_audit": 0,
+  "primary_comparison": "local 14b schema/0 vs local 7b schema/0",
+  "cloud_baseline_available": false,
+  "release_replacement_approved": false,
+  "set_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f",
+  "rubric_sha256": "d53d52e8dc2e5626bd4ea995c8835fd22dc80aa94025cd0702fec07424679d39",
+  "system_prompt_sha256": "ff1786fc7ade078d24b1f26c8f994d88af7b5646c418a1aa0d97f4408f290b49",
+  "baseline": {
+    "model": "ollama:qwen2.5:14b",
+    "report": "calibration-l09_labels_kit_v1-20261128T075145532567Z.json",
+    "digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "agreement": 24,
+    "total_cases": 30,
+    "invalid_evaluations": 5,
+    "t_local_seconds": 2.4767332730533336,
+    "size_contract_pass": false
+  },
+  "candidate": {
+    "model": "ollama:qwen2.5:7b",
+    "report": "calibration-l09_labels_kit_v1-20261128T085923719424Z.json",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "agreement": 20,
+    "total_cases": 30,
+    "invalid_evaluations": 0,
+    "t_local_seconds": 1.1622173258333333,
+    "size_contract_pass": true,
+    "nonempty_quote_count": 105,
+    "verbatim_nonempty_quotes": 105,
+    "protocol_allowed_empty_quotes": 45
+  },
+  "forecast": {
+    "recorded_at": "2026-11-28T08:48:43.631902+00:00",
+    "author": "assistant, at student's request",
+    "model": "ollama:qwen2.5:7b",
+    "expected_matches": 22,
+    "total_cases": 30,
+    "expected_error_class": "unconfirmed or conditional human handoff",
+    "expected_seconds_per_call": 1.5,
+    "runtime": {
+      "endpoint": "http://127.0.0.1:11434",
+      "requested_model": "ollama:qwen2.5:7b",
+      "installed_model": {
+        "name": "qwen2.5:7b",
+        "model": "qwen2.5:7b",
+        "modified_at": "2026-11-28T09:40:18.990564947+01:00",
+        "size": 4683087332,
+        "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "7.6B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 3584,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "tools"
+        ]
+      },
+      "ollama_version": "0.40.16"
+    }
+  },
+  "probe_evaluations": 6,
+  "forecast_precedes_probe_and_calibration": true,
+  "recovered_case_ids": [
+    "LB-11",
+    "PL-12",
+    "PL-14",
+    "PL-16",
+    "LIVE-C006"
+  ],
+  "regressed_case_ids": [
+    "LB-03",
+    "LB-09",
+    "LB-12",
+    "PL-03",
+    "PL-08",
+    "PL-10",
+    "PL-11",
+    "PL-13",
+    "LIVE-C001"
+  ],
+  "candidate_disagreement_ids": [
+    "LB-03",
+    "LB-09",
+    "LB-10",
+    "LB-12",
+    "PL-03",
+    "PL-08",
+    "PL-10",
+    "PL-11",
+    "PL-13",
+    "LIVE-C001"
+  ],
+  "wilson_intervals_overlap": true,
+  "equivalence_established": false,
+  "candidate_release_60_calls_estimate_seconds": 69.73303955,
+  "measured_release_run": false,
+  "whole_perimeter_audited": false,
+  "official_contract_source": "https://github.com/alex-pancho/paypilot-l10-eval/blob/9b577cc0c6e91fd09f9fa9f81307b79ba909a577/README.md",
+  "decoder_variant": "strict four fields, four trigger enums, evidence_turn=1, no additional properties"
+}

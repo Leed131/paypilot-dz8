@@ -65,3 +65,22 @@ The pool covers component criteria case by case and two combined-criterion answe
 All original synthetic responses, human labels and 300 model outputs remain preserved. `l09_labels_v1` and `l09_labels_v1_1` reproduce the old inputs; they require `--allow-legacy-fixtures` for intentional historical use. Their scores are not PayPilot replacement results. [calibration-comparison.md](reports/calibration-comparison.md) and `reports/calibration-final.json` are explicitly legacy indexes; the latter name does not identify the corrected final measurement.
 
 Working-gate files remain separate from recorded-answer calibration; live working-gate execution is unclaimed. See [working-gates.md](docs/working-gates.md). Current status: [validation.json](validation.json).
+
+
+## L10 local judge
+
+перевірено на qwen2.5:14b станом на 2026-11-28
+
+See model-selection-recommendation.md and README.local.md. Local advisory use only; cloud comparison and live gate are not validated.
+
+
+## L10 measured 7B candidate
+
+перевірено на qwen2.5:7b станом на 2026-11-28 — candidate measured; automatic release-judge replacement rejected. See model-selection-recommendation.md.
+
+
+## L10 final comparison
+
+перевірено на qwen2.5:7b станом на 2026-11-28
+
+Cloud 26/30; local 7B 20/30. Automatic local release-judge replacement rejected; manual decision required. Real release budget: 30 judge calls. See model-selection-recommendation.md and README.local.md.

@@ -1,0 +1,12 @@
+services:
+  eval:
+    image: python:3.12-slim
+    working_dir: /work
+    entrypoint: ["python"]
+    command: ["tools/l10_selftest.py"]
+    env_file:
+      - .env
+    environment:
+      PYTHONDONTWRITEBYTECODE: "1"
+    volumes:
+      - .:/work

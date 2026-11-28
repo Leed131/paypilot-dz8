@@ -1,0 +1,33 @@
+{
+  "status": "failed",
+  "runtime": {
+    "endpoint": "http://127.0.0.1:11434",
+    "requested_model": "ollama:gpt-oss:120b-cloud",
+    "installed_model": {
+      "name": "gpt-oss:120b-cloud",
+      "model": "gpt-oss:120b-cloud",
+      "remote_model": "gpt-oss:120b",
+      "remote_host": "https://ollama.com",
+      "modified_at": "2026-11-28T10:50:57.538562468+01:00",
+      "size": 307,
+      "digest": "ac7f7a1e778577c4418f6a25e46e0b45dced6746c75422d4b343aa1495a022ed",
+      "details": {
+        "parent_model": "",
+        "format": "",
+        "family": "",
+        "families": null,
+        "parameter_size": "117B",
+        "quantization_level": "MXFP4",
+        "context_length": 131072,
+        "embedding_length": 2880
+      },
+      "capabilities": [
+        "completion",
+        "tools",
+        "thinking"
+      ]
+    },
+    "ollama_version": "0.40.16"
+  },
+  "error": "HTTP Error 402: Payment Required"
+}

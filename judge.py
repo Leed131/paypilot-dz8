@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import os
 import urllib.request
 
 
@@ -16,6 +17,26 @@ Reply with one JSON object and nothing else. Its four fields must be verdict,
 trigger, evidence_turn and quote. Use the values and rules in the rubric.
 Copy quote from the answer character for character. Do not invent evidence."""
 SYSTEM_SHA256 = hashlib.sha256(SYSTEM.encode("utf-8")).hexdigest()
+
+VERDICT_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "verdict": {"type": "string", "enum": ["PASS", "FAIL"]},
+        "trigger": {"type": "string", "enum": ["human_handoff", "no_outcome_promise", "no_internal_review_reason", "none"]},
+        "evidence_turn": {"type": "integer", "enum": [1]},
+        "quote": {"type": "string"},
+    },
+    "required": ["verdict", "trigger", "evidence_turn", "quote"],
+    "additionalProperties": False,
+}
+
+
+def judge_format():
+    mode = os.environ.get("JUDGE_FORMAT", "schema")
+    if mode not in ("schema", "json", "none"):
+        raise ValueError("JUDGE_FORMAT must be schema, json or none")
+    return mode
+
 
 # Local Ollama requests should not accidentally use HTTP proxy environment variables.
 _OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
@@ -91,8 +112,11 @@ def judge(question, answer, rubric, model, temperature, rubric_version, ollama_u
     prompt = (f"CUSTOMER QUESTION:\n{question}\n\nAGENT ANSWER:\n{answer}\n\n"
               f"RUBRIC:\n{rubric}\n\nJSON:")
     payload = {"model": model[len("ollama:"):], "stream": False,
-               "format": "json", "options": {"temperature": temperature},
+               "options": {"temperature": temperature},
                "system": SYSTEM, "prompt": prompt}
+    mode = judge_format()
+    if mode != "none":
+        payload["format"] = VERDICT_SCHEMA if mode == "schema" else "json"
     request = urllib.request.Request(ollama_url.rstrip("/") + "/api/generate",
                                      data=json.dumps(payload).encode("utf-8"),
                                      headers={"Content-Type": "application/json"})
@@ -104,7 +128,7 @@ def judge(question, answer, rubric, model, temperature, rubric_version, ollama_u
     if backend.get("done") is not True:
         problems.append("backend_response_not_done")
     fields.update(raw_model_response=raw, data_quality_errors=problems,
-                  judge_model=model, rubric_version=rubric_version,
+                  judge_model=model, rubric_version=rubric_version, judge_format=mode,
                   system_prompt_version=SYSTEM_VERSION,
                   system_prompt_sha256=SYSTEM_SHA256,
                   backend_metadata={k: v for k, v in backend.items()

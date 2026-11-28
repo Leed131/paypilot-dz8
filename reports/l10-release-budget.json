@@ -1,0 +1,73 @@
+{
+  "report_version": "l10-release-budget.v1",
+  "status": "calculated_from_actual_working_set",
+  "working_set": "sets/l09_escalation.jsonl",
+  "working_set_sha256": "fc9379826b3440813fc40905f784463fd21ffff378e03ba7d23cfec0e6e58227",
+  "release_judge_cases": [
+    {
+      "id": "ESC-J01",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W001",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W002",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W003",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W004",
+      "runs": 5
+    },
+    {
+      "id": "HW08-W005",
+      "runs": 5
+    }
+  ],
+  "release_judge_case_count": 6,
+  "release_judge_calls": 30,
+  "calls_per_decision": 1,
+  "estimates": [
+    {
+      "judge_model": "ollama:qwen2.5:7b",
+      "model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+      "model_file_bytes": 4683087332,
+      "eligible_under_6GB_local_file_limit": true,
+      "source_report": "reports/calibration-l09_labels_kit_v1-20261128T085923719424Z.json",
+      "source_report_sha256": "93e1bcfc4e264071a079fde7af16a7856e1fbe69b01112810d866d592a0d972d",
+      "measured_calibration_calls": 150,
+      "measured_calibration_elapsed_seconds": 174.332598875,
+      "t_local_seconds": 1.1622173258333333,
+      "t_local_method": "elapsed_seconds / evaluations_completed",
+      "estimated_release_judge_seconds": 34.866519775,
+      "hypothetical_two_call_mode_seconds": 69.73303955
+    },
+    {
+      "judge_model": "ollama:qwen2.5:14b",
+      "model_digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+      "model_file_bytes": 8988124069,
+      "eligible_under_6GB_local_file_limit": false,
+      "source_report": "reports/calibration-l09_labels_kit_v1-20261128T075145532567Z.json",
+      "source_report_sha256": "13fd0f57c24f5dbd20c203fc78dd624fbd0b10c5cfa375a59d99edb83f3ab15b",
+      "measured_calibration_calls": 150,
+      "measured_calibration_elapsed_seconds": 371.509990958,
+      "t_local_seconds": 2.4767332730533336,
+      "t_local_method": "elapsed_seconds / evaluations_completed",
+      "estimated_release_judge_seconds": 74.3019981916,
+      "hypothetical_two_call_mode_seconds": 148.6039963832
+    }
+  ],
+  "measured_release_execution": false,
+  "includes_agent_or_other_checks": false,
+  "limitations": [
+    "Time is an extrapolation from the frozen calibration mix, not an observed release gate duration.",
+    "Two-call mode is hypothetical and uncalibrated; multiplication is only a rough cost scenario.",
+    "Local provider token fee is zero; equipment, electricity and human review are not priced here.",
+    "14B is retained as measured comparison evidence and exceeds the 6 GB local file-size contract."
+  ]
+}

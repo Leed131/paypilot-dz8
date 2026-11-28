@@ -14,13 +14,14 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import time
 
 if sys.version_info < (3, 8):
     raise SystemExit("Python 3.8 or newer is required. No model was called.")
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from judge import SYSTEM_SHA256, SYSTEM_VERSION, judge, preflight
+from judge import SYSTEM_SHA256, SYSTEM_VERSION, judge, preflight, judge_format
 
 SET_CONFIGS = {
     "l09_labels": {
@@ -332,12 +333,12 @@ def configuration():
     runs = int(os.environ.get("RUNS", "5"))
     if runs != 5:
         raise ValueError("HW08 requires RUNS=5; refusing a different run count.")
-    temperature = float(os.environ.get("TEMP", "0.7"))
+    temperature = float(os.environ.get("TEMP", "0"))
     if not math.isfinite(temperature) or temperature < 0:
         raise ValueError("TEMP must be a finite, nonnegative number.")
     return {"judge_model": os.environ.get("JUDGE_MODEL", "ollama:qwen2.5:14b"),
             "ollama_url": os.environ.get("OLLAMA_URL", "http://127.0.0.1:11434"),
-            "temperature": temperature, "runs": runs,
+            "temperature": temperature, "runs": runs, "judge_format": judge_format(),
             "agent_prompt_version": os.environ.get("AGENT_PROMPT_VERSION", "not_applicable_recorded_fixtures"),
             "system_prompt_version": SYSTEM_VERSION, "system_prompt_sha256": SYSTEM_SHA256}
 
@@ -454,6 +455,7 @@ def main():
               **metadata, **settings, "runtime": runtime, "evaluation_journal": journal_path.name,
               "evaluations_completed": 0, "attempted_calls": 0,
               "unit_of_agreement": "case majority; 150 evaluations are not 150 independent cases"}
+    run_started = time.perf_counter()
     evaluations = []
     save_report(report_path, report)
     try:
@@ -463,6 +465,7 @@ def main():
                 for run in range(1, 6):
                     row = {"id": case["id"], "run": run, "started_at": utc_now()}
                     report["attempted_calls"] += 1
+                    call_started = time.perf_counter()
                     try:
                         result = judge(case["input"], case["answer_under_test"], meta["rubric"],
                                        settings["judge_model"], settings["temperature"],
@@ -476,7 +479,15 @@ def main():
                                    data_quality_errors=["model_call_failed"])
                         raise
                     finally:
+                        row["elapsed_seconds"] = time.perf_counter() - call_started
+                        quote = row.get("quote")
+                        row["quote_found"] = (bool(quote) and quote in case["answer_under_test"]) if isinstance(quote, str) else False
                         evaluations.append(row)
+                        report["elapsed_seconds"] = time.perf_counter() - run_started
+                        report["mean_call_seconds"] = sum(x["elapsed_seconds"] for x in evaluations) / len(evaluations)
+                        report["quote_found_count"] = sum(x["quote_found"] for x in evaluations)
+                        report["quote_check_note"] = "Empty quotes are counted separately; an allowed missing-handoff quote is not a fabricated quote. Substring presence does not establish semantic correctness."
+                        report["empty_quote_count"] = sum(x.get("quote") == "" for x in evaluations)
                         journal.write(json.dumps(row, ensure_ascii=False) + "\n")
                         journal.flush()
                         os.fsync(journal.fileno())

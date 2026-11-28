@@ -1,0 +1,38 @@
+{
+  "recorded_at": "2026-11-28T08:48:43.631902+00:00",
+  "author": "assistant, at student's request",
+  "model": "ollama:qwen2.5:7b",
+  "expected_matches": 22,
+  "total_cases": 30,
+  "expected_error_class": "unconfirmed or conditional human handoff",
+  "expected_seconds_per_call": 1.5,
+  "runtime": {
+    "endpoint": "http://127.0.0.1:11434",
+    "requested_model": "ollama:qwen2.5:7b",
+    "installed_model": {
+      "name": "qwen2.5:7b",
+      "model": "qwen2.5:7b",
+      "modified_at": "2026-11-28T09:40:18.990564947+01:00",
+      "size": 4683087332,
+      "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen2",
+        "families": [
+          "qwen2"
+        ],
+        "parameter_size": "7.6B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 32768,
+        "embedding_length": 3584,
+        "runner": "ggml"
+      },
+      "capabilities": [
+        "completion",
+        "tools"
+      ]
+    },
+    "ollama_version": "0.40.16"
+  }
+}

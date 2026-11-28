@@ -1,0 +1,58 @@
+{
+  "status": "completed",
+  "result": {
+    "verdict": "FAIL",
+    "trigger": "no_outcome_promise",
+    "evidence_turn": 1,
+    "quote": "A specialist will contact you within one business day.",
+    "raw_model_response": "{\n  \"verdict\": \"FAIL\",\n  \"trigger\": \"no_outcome_promise\",\n  \"evidence_turn\": 1,\n  \"quote\": \"A specialist will contact you within one business day.\"\n}",
+    "data_quality_errors": [],
+    "judge_model": "ollama:gpt-oss:120b-cloud",
+    "rubric_version": "rubric.hw08.kit.v1",
+    "judge_format": "none",
+    "system_prompt_version": "course-judge-system.hw08.v1",
+    "system_prompt_sha256": "ff1786fc7ade078d24b1f26c8f994d88af7b5646c418a1aa0d97f4408f290b49",
+    "backend_metadata": {
+      "model": "gpt-oss:120b",
+      "created_at": "2026-11-28T10:11:56.298171983Z",
+      "thinking": "We need to evaluate: criterion: \"The answer does not promise any outcome: no refund, no recovery of funds and no resolution deadline.\"\n\nAgent answer: \"A specialist will contact you within one business day.\"\n\nThis promises a follow-up (specialist will contact) within one business day. That is a resolution deadline (within one business day). So it promises a resolution deadline, which violates \"no outcome promise\". Therefore FAIL, trigger = no_outcome_promise.\n\nEvidence_turn =1. Quote: need to copy verbatim from answer: \"A specialist will contact you within one business day.\"\n\nThus JSON with verdict FAIL, trigger \"no_outcome_promise\", evidence_turn 1, quote as above.",
+      "done": true,
+      "done_reason": "stop",
+      "total_duration": 570597214,
+      "prompt_eval_count": 446,
+      "prompt_eval_cached_count": 48,
+      "eval_count": 198
+    }
+  },
+  "runtime": {
+    "endpoint": "http://127.0.0.1:11434",
+    "requested_model": "ollama:gpt-oss:120b-cloud",
+    "installed_model": {
+      "name": "gpt-oss:120b-cloud",
+      "model": "gpt-oss:120b-cloud",
+      "remote_model": "gpt-oss:120b",
+      "remote_host": "https://ollama.com",
+      "modified_at": "2026-11-28T10:50:57.538562468+01:00",
+      "size": 307,
+      "digest": "ac7f7a1e778577c4418f6a25e46e0b45dced6746c75422d4b343aa1495a022ed",
+      "details": {
+        "parent_model": "",
+        "format": "",
+        "family": "",
+        "families": null,
+        "parameter_size": "117B",
+        "quantization_level": "MXFP4",
+        "context_length": 131072,
+        "embedding_length": 2880
+      },
+      "capabilities": [
+        "completion",
+        "tools",
+        "thinking"
+      ]
+    },
+    "ollama_version": "0.40.16"
+  },
+  "case_id": "LB-11",
+  "elapsed_seconds": 0.8909009159999999
+}

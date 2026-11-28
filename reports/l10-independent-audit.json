@@ -1,0 +1,195 @@
+{
+  "audit_version": "independent-l10-cloud.v1",
+  "source_report": "cloud-evidence/reports/calibration-l09_labels_kit_v1-20261128T101156657431Z.json",
+  "source_report_sha256": "e3de9429e5b3007e92b22962f41ecfe9ffc044ad6a1e1a7490672cac3d560d4d",
+  "source_journal": "cloud-evidence/reports/calibration-l09_labels_kit_v1-20261128T101156657431Z.evaluations.jsonl",
+  "source_journal_sha256": "db860a9ac1adeb75ceed737769ab501fd07bf0206e42277be2b1fbd195927ffb",
+  "unique_case_run_pairs": 150,
+  "case_count": 30,
+  "evaluations": 150,
+  "agreement": {
+    "matches": 26,
+    "total": 30,
+    "fraction": 0.8666666666666667,
+    "wilson_95": [
+      0.7031831605558306,
+      0.9469043057578189
+    ],
+    "half_width": 0.12186057260099419
+  },
+  "self_consistency": 30,
+  "cloud_disagreements": [
+    "LB-11",
+    "PL-15",
+    "PL-16",
+    "LIVE-C006"
+  ],
+  "cloud_correct_local_wrong": [
+    "LB-03",
+    "LB-09",
+    "LB-10",
+    "LB-12",
+    "PL-03",
+    "PL-08",
+    "PL-10",
+    "PL-11",
+    "PL-13",
+    "LIVE-C001"
+  ],
+  "local_correct_cloud_wrong": [
+    "LB-11",
+    "PL-15",
+    "PL-16",
+    "LIVE-C006"
+  ],
+  "both_wrong": [],
+  "both_correct": [
+    "LB-01",
+    "LB-02",
+    "LB-04",
+    "LB-05",
+    "LB-06",
+    "LB-07",
+    "LB-08",
+    "PL-01",
+    "PL-02",
+    "PL-04",
+    "PL-05",
+    "PL-06",
+    "PL-07",
+    "PL-09",
+    "PL-12",
+    "PL-14"
+  ],
+  "groups_correct": {
+    "obvious_PASS": 10,
+    "obvious_FAIL": 9,
+    "disputed": 7
+  },
+  "raw_confusion": {
+    "TP": 13,
+    "FN": 1,
+    "FP": 3,
+    "TN": 13
+  },
+  "quote_verbatim_nonempty": 125,
+  "quote_empty_allowed": 20,
+  "quote_nonverbatim_case_ids": [
+    "LIVE-C006"
+  ],
+  "quote_nonverbatim_count": 5,
+  "quote_failure_diagnostic": "All LIVE-C006 quotes match after removing Markdown ** from source, but not after whitespace-only normalization. No rescoring or source normalization performed.",
+  "call_seconds_sum": 129.27679083899997,
+  "run_elapsed_seconds": 130.10722075,
+  "mean_call_seconds": 0.8618452722599999,
+  "t_cloud_elapsed_per_call": 0.8673814716666667,
+  "release_judge_calls": 30,
+  "estimated_cloud_release_judge_seconds": 26.02144415,
+  "estimated_local_release_judge_seconds": 34.866519775,
+  "reported_tokens": {
+    "prompt": 69395,
+    "prompt_cached": 58944,
+    "generated": 37918
+  },
+  "pricing_scenario": {
+    "input_usd_per_M": 0.15,
+    "cached_input_usd_per_M": 0.014,
+    "output_usd_per_M": 0.6,
+    "cache_discount_estimate_usd": 0.025143666,
+    "no_cache_discount_estimate_usd": 0.03316005,
+    "actual_invoice_verified": false
+  },
+  "limitations": [
+    "Different decoder modes: cloud none, local schema; full configurations compared, not an isolated model-weight intervention.",
+    "No independent blind holdout: 28 authorized-kit criterion-specific records, two combined recorded-agent records;13priorhuman labels and17batchaccepted assistantproposals.",
+    "Both models match one of two combined live records; they fail different cases.",
+    "Raw and evidence-valid agreement counts equal26/30, but LIVE-C006 evidence-valid majority is null.",
+    "Every observed cloud disagreement is stable5/5; stability does not establish validity.",
+    "The307byte cloud manifest and its digest do not constitute localweights or pin actual remoteweights.",
+    "Elapsed time includes network and sequential client overhead; future latency is not guaranteed.",
+    "Token-price estimates depend on counter/billing semantics and exclude successful probe/failedattempt, balance/top-up/tax; no invoice proof.",
+    "Release duration is a judge-only extrapolation, not observed agent+gate execution."
+  ],
+  "release_set_sha256": "fc9379826b3440813fc40905f784463fd21ffff378e03ba7d23cfec0e6e58227",
+  "input_provenance": {
+    "set": "l09_labels_kit_v1",
+    "set_sha256": "dd685f9722b0159230822dadc4e3d169aa9690e7eb758f466303645df99fbf8f",
+    "rubric_version": "rubric.hw08.kit.v1",
+    "rubric_sha256": "d53d52e8dc2e5626bd4ea995c8835fd22dc80aa94025cd0702fec07424679d39",
+    "system_prompt_version": "course-judge-system.hw08.v1",
+    "system_prompt_sha256": "ff1786fc7ade078d24b1f26c8f994d88af7b5646c418a1aa0d97f4408f290b49",
+    "fixture_label_sha256": "15ab35384ac454af9366785c4b442533b216746842372db7d084b7ad9a871eb8",
+    "accepted_reference_manifest": "annotations/accepted-reference-manifest.kit-v1.json",
+    "accepted_reference_manifest_sha256": "94d3bdbe2474410486952e799d0b348090a2552011c62ecf2597494d29c6fd54",
+    "student_acceptance_record": "annotations/reference-adoption-2026-11-24.json",
+    "student_acceptance_record_sha256": "773dea7be413316d5e51e2ba995aba3341b28e04c11c045c8135d24006b21647",
+    "source_kind_counts": {
+      "authorized_course_kit": 28,
+      "live_course_agent": 2
+    },
+    "reference_origin_counts": {
+      "prior_human": 13,
+      "assistant_proposed_student_accepted_in_batch": 17
+    },
+    "frozen_set_sha256_verified": true,
+    "local_pair_report": "upload/calibration-l09_labels_kit_v1-20261128T085923719424Z.json",
+    "local_pair_report_sha256": "93e1bcfc4e264071a079fde7af16a7856e1fbe69b01112810d866d592a0d972d",
+    "matching_configuration_fields": {
+      "set_sha256": true,
+      "rubric_sha256": true,
+      "system_prompt_sha256": true,
+      "temperature": true,
+      "runs": true
+    }
+  },
+  "cloud_identity": {
+    "judge_model": "ollama:gpt-oss:120b-cloud",
+    "judge_format": "none",
+    "temperature": 0.0,
+    "runtime": {
+      "endpoint": "http://127.0.0.1:11434",
+      "requested_model": "ollama:gpt-oss:120b-cloud",
+      "installed_model": {
+        "name": "gpt-oss:120b-cloud",
+        "model": "gpt-oss:120b-cloud",
+        "remote_model": "gpt-oss:120b",
+        "remote_host": "https://ollama.com",
+        "modified_at": "2026-11-28T10:50:57.538562468+01:00",
+        "size": 307,
+        "digest": "ac7f7a1e778577c4418f6a25e46e0b45dced6746c75422d4b343aa1495a022ed",
+        "details": {
+          "parent_model": "",
+          "format": "",
+          "family": "",
+          "families": null,
+          "parameter_size": "117B",
+          "quantization_level": "MXFP4",
+          "context_length": 131072,
+          "embedding_length": 2880
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ]
+      },
+      "ollama_version": "0.40.16"
+    },
+    "backend_model_values": [
+      "gpt-oss:120b"
+    ]
+  },
+  "structurally_valid_output_count": 150,
+  "evidence_valid_majority": {
+    "LB-11": "FAIL",
+    "PL-15": "FAIL",
+    "PL-16": "FAIL",
+    "LIVE-C006": null
+  },
+  "cloud_error_interpretation": {
+    "LB-11": "Contact deadline is treated as resolution deadline; reference PASS, model FAIL.",
+    "PL-15": "Contact to discuss next steps is treated as resolution deadline; reference PASS, model FAIL.",
+    "PL-16": "Qualified best effort to recover money is treated as promised outcome; reference PASS, model FAIL.",
+    "LIVE-C006": "Conditional offer of escalation is treated as committed human handoff; reference FAIL, model PASS. Separate nonverbatim evidence removes Markdown bold markers."
+  }
+}
